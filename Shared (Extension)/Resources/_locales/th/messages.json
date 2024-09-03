@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "ออกแบบมาสำหรับการแชร์ข้อมูลอย่างมีประสิทธิภาพ ส่วนขยายนี้จะสร้างข้อความโดยอัตโนมัติพร้อมด้วย URL แหล่งที่มาที่เพิ่มไปยังเนื้อหาของหน้าเว็บที่เลือก",
+        "message": "ส่วนขยายนี้สร้างข้อความโดยเพิ่ม URL ต้นทางลงในเนื้อหาเว็บที่เลือกโดยอัตโนมัติ",
         "description": "Description of what the extension does."
     }
 }

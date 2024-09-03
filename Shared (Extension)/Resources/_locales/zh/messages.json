@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "为了高效的信息共享，此扩展自动生成带有源URL的文本，附加到选定网页内容中。",
+        "message": "为了高效的信息共享，此扩展自动生成带源URL的文本，附加到选定内容中。",
         "description": "Description of what the extension does."
     }
 }

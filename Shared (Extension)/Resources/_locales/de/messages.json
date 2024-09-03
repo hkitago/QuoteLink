@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "Für effizientes Teilen von Informationen konzipiert, generiert diese Erweiterung automatisch Text mit der hinzugefügten Quell-URL zum ausgewählten Webseiteninhalt.",
+        "message": "Diese Erweiterung erstellt automatisch Text mit der Quell-URL für den ausgewählten Webseiteninhalt.",
         "description": "Description of what the extension does."
     }
 }

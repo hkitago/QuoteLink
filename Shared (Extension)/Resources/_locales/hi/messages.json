@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "प्रभावी सूचना साझा करने के लिए डिज़ाइन किया गया, यह एक्सटेंशन चयनित वेबपेज सामग्री में स्रोत URL जोड़कर टेक्स्ट स्वचालित रूप से उत्पन्न करता है।",
+        "message": "यह एक्सटेंशन चयनित वेब सामग्री में स्रोत URL जोड़कर स्वतः टेक्स्ट बनाता है।",
         "description": "Description of what the extension does."
     }
 }

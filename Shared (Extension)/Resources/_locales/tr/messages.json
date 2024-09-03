@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "Etkili bilgi paylaşımı için tasarlanmış bu uzantı, seçilen web sayfası içeriğine kaynak URL'sini ekleyerek metin oluşturur.",
+        "message": "Etkili bilgi paylaşımı için tasarlanan bu uzantı, seçilen içeriğe kaynak URL'sini ekleyerek metin oluşturur.",
         "description": "Description of what the extension does."
     }
 }

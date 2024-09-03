@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "Designed for efficient information sharing, this extension automatically generates text with the source URL added to the selected webpage content.",
+        "message": "This extension generates text with the source URL added to the selected content.",
         "description": "Description of what the extension does."
     }
 }

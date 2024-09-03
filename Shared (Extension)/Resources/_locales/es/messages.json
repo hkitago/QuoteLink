@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "Concebida para compartir información de manera eficiente, esta extensión genera automáticamente un texto con la URL de origen añadida al contenido de la página web seleccionada.",
+        "message": "Esta extensión genera automáticamente un texto con la URL de origen añadida al contenido seleccionado.",
         "description": "Description of what the extension does."
     }
 }
