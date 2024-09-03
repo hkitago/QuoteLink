@@ -1,0 +1,1016 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		600F4D0E2C85F8B9008EFD53 /* localization.js in Resources */ = {isa = PBXBuildFile; fileRef = 600F4D0D2C85F8B9008EFD53 /* localization.js */; };
+		600F4D0F2C85F8B9008EFD53 /* localization.js in Resources */ = {isa = PBXBuildFile; fileRef = 600F4D0D2C85F8B9008EFD53 /* localization.js */; };
+		60565A5C2C7E9CED002DA451 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60565A5B2C7E9CED002DA451 /* AppDelegate.swift */; };
+		60565A5E2C7E9CED002DA451 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60565A5D2C7E9CED002DA451 /* SceneDelegate.swift */; };
+		60565A612C7E9CED002DA451 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 60565A602C7E9CED002DA451 /* Base */; };
+		60565A642C7E9CED002DA451 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 60565A632C7E9CED002DA451 /* Base */; };
+		60565A6D2C7E9CED002DA451 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60565A6C2C7E9CED002DA451 /* AppDelegate.swift */; };
+		60565A702C7E9CED002DA451 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 60565A6F2C7E9CED002DA451 /* Base */; };
+		60565A772C7E9CED002DA451 /* QuoteLink Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 60565A762C7E9CED002DA451 /* QuoteLink Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		60565A812C7E9CED002DA451 /* QuoteLink Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 60565A802C7E9CED002DA451 /* QuoteLink Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		60565A872C7E9CED002DA451 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 60565A432C7E9CEB002DA451 /* Base */; };
+		60565A882C7E9CED002DA451 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 60565A432C7E9CEB002DA451 /* Base */; };
+		60565A892C7E9CED002DA451 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 60565A442C7E9CEB002DA451 /* Icon.png */; };
+		60565A8A2C7E9CED002DA451 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 60565A442C7E9CEB002DA451 /* Icon.png */; };
+		60565A8B2C7E9CED002DA451 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 60565A452C7E9CEB002DA451 /* Style.css */; };
+		60565A8C2C7E9CED002DA451 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 60565A452C7E9CEB002DA451 /* Style.css */; };
+		60565A8D2C7E9CED002DA451 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 60565A462C7E9CEB002DA451 /* Script.js */; };
+		60565A8E2C7E9CED002DA451 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 60565A462C7E9CEB002DA451 /* Script.js */; };
+		60565A8F2C7E9CED002DA451 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60565A472C7E9CEB002DA451 /* ViewController.swift */; };
+		60565A902C7E9CED002DA451 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60565A472C7E9CEB002DA451 /* ViewController.swift */; };
+		60565A912C7E9CED002DA451 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60565A482C7E9CED002DA451 /* Assets.xcassets */; };
+		60565A922C7E9CED002DA451 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60565A482C7E9CED002DA451 /* Assets.xcassets */; };
+		60565A932C7E9CED002DA451 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60565A4A2C7E9CED002DA451 /* SafariWebExtensionHandler.swift */; };
+		60565A942C7E9CED002DA451 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60565A4A2C7E9CED002DA451 /* SafariWebExtensionHandler.swift */; };
+		60565A952C7E9CED002DA451 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 60565A4C2C7E9CED002DA451 /* _locales */; };
+		60565A962C7E9CED002DA451 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 60565A4C2C7E9CED002DA451 /* _locales */; };
+		60565A972C7E9CED002DA451 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 60565A4D2C7E9CED002DA451 /* images */; };
+		60565A982C7E9CED002DA451 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 60565A4D2C7E9CED002DA451 /* images */; };
+		60565A992C7E9CED002DA451 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 60565A4E2C7E9CED002DA451 /* manifest.json */; };
+		60565A9A2C7E9CED002DA451 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 60565A4E2C7E9CED002DA451 /* manifest.json */; };
+		60565A9B2C7E9CED002DA451 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 60565A4F2C7E9CED002DA451 /* background.js */; };
+		60565A9C2C7E9CED002DA451 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 60565A4F2C7E9CED002DA451 /* background.js */; };
+		60565A9D2C7E9CED002DA451 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 60565A502C7E9CED002DA451 /* content.js */; };
+		60565A9E2C7E9CED002DA451 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 60565A502C7E9CED002DA451 /* content.js */; };
+		60565A9F2C7E9CED002DA451 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 60565A512C7E9CED002DA451 /* popup.html */; };
+		60565AA02C7E9CED002DA451 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 60565A512C7E9CED002DA451 /* popup.html */; };
+		60565AA12C7E9CED002DA451 /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = 60565A522C7E9CED002DA451 /* popup.css */; };
+		60565AA22C7E9CED002DA451 /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = 60565A522C7E9CED002DA451 /* popup.css */; };
+		60565AA32C7E9CED002DA451 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 60565A532C7E9CED002DA451 /* popup.js */; };
+		60565AA42C7E9CED002DA451 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 60565A532C7E9CED002DA451 /* popup.js */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		60565A782C7E9CED002DA451 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 60565A3C2C7E9CEB002DA451 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 60565A752C7E9CED002DA451;
+			remoteInfo = "QuoteLink Extension (iOS)";
+		};
+		60565A822C7E9CED002DA451 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 60565A3C2C7E9CEB002DA451 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 60565A7F2C7E9CED002DA451;
+			remoteInfo = "QuoteLink Extension (macOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		60565AAA2C7E9CED002DA451 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				60565A772C7E9CED002DA451 /* QuoteLink Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60565AB12C7E9CED002DA451 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				60565A812C7E9CED002DA451 /* QuoteLink Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		600F4D0D2C85F8B9008EFD53 /* localization.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = localization.js; sourceTree = "<group>"; };
+		60565A432C7E9CEB002DA451 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = ../Base.lproj/Main.html; sourceTree = "<group>"; };
+		60565A442C7E9CEB002DA451 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		60565A452C7E9CEB002DA451 /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		60565A462C7E9CEB002DA451 /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		60565A472C7E9CEB002DA451 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		60565A482C7E9CED002DA451 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		60565A4A2C7E9CED002DA451 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		60565A4C2C7E9CED002DA451 /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _locales; sourceTree = "<group>"; };
+		60565A4D2C7E9CED002DA451 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
+		60565A4E2C7E9CED002DA451 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
+		60565A4F2C7E9CED002DA451 /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = background.js; sourceTree = "<group>"; };
+		60565A502C7E9CED002DA451 /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = content.js; sourceTree = "<group>"; };
+		60565A512C7E9CED002DA451 /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = popup.html; sourceTree = "<group>"; };
+		60565A522C7E9CED002DA451 /* popup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
+		60565A532C7E9CED002DA451 /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = popup.js; sourceTree = "<group>"; };
+		60565A582C7E9CED002DA451 /* QuoteLink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuoteLink.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		60565A5B2C7E9CED002DA451 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		60565A5D2C7E9CED002DA451 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		60565A602C7E9CED002DA451 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		60565A632C7E9CED002DA451 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		60565A652C7E9CED002DA451 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60565A6A2C7E9CED002DA451 /* QuoteLink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuoteLink.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		60565A6C2C7E9CED002DA451 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		60565A6F2C7E9CED002DA451 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		60565A712C7E9CED002DA451 /* QuoteLink.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuoteLink.entitlements; sourceTree = "<group>"; };
+		60565A762C7E9CED002DA451 /* QuoteLink Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "QuoteLink Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		60565A7B2C7E9CED002DA451 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60565A802C7E9CED002DA451 /* QuoteLink Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "QuoteLink Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		60565A852C7E9CED002DA451 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60565A862C7E9CED002DA451 /* QuoteLink.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuoteLink.entitlements; sourceTree = "<group>"; };
+		60565AB52C81F2E7002DA451 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = ja; path = ../ja.lproj/Main.html; sourceTree = "<group>"; };
+		60565AB62C81F31C002DA451 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = ar; path = ../ar.lproj/Main.html; sourceTree = "<group>"; };
+		60565AB72C81F33F002DA451 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = de; path = ../de.lproj/Main.html; sourceTree = "<group>"; };
+		60565AB82C81F351002DA451 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = fr; path = ../fr.lproj/Main.html; sourceTree = "<group>"; };
+		60565AB92C81F371002DA451 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = hi; path = ../hi.lproj/Main.html; sourceTree = "<group>"; };
+		60565ABA2C81F381002DA451 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = id; path = ../id.lproj/Main.html; sourceTree = "<group>"; };
+		60565ABB2C81F393002DA451 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = nl; path = ../nl.lproj/Main.html; sourceTree = "<group>"; };
+		60565ABC2C81F3B3002DA451 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "pt-PT"; path = "../pt-PT.lproj/Main.html"; sourceTree = "<group>"; };
+		60565ABD2C81F3F1002DA451 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = th; path = ../th.lproj/Main.html; sourceTree = "<group>"; };
+		60565ABE2C81F3FD002DA451 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = tr; path = ../tr.lproj/Main.html; sourceTree = "<group>"; };
+		60565ABF2C81F454002DA451 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "zh-Hans"; path = "../zh-Hans.lproj/Main.html"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		60565A552C7E9CED002DA451 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60565A672C7E9CED002DA451 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60565A732C7E9CED002DA451 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60565A7D2C7E9CED002DA451 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		60565A3B2C7E9CEB002DA451 = {
+			isa = PBXGroup;
+			children = (
+				60565A402C7E9CEB002DA451 /* Shared (App) */,
+				60565A492C7E9CED002DA451 /* Shared (Extension) */,
+				60565A5A2C7E9CED002DA451 /* iOS (App) */,
+				60565A6B2C7E9CED002DA451 /* macOS (App) */,
+				60565A7A2C7E9CED002DA451 /* iOS (Extension) */,
+				60565A842C7E9CED002DA451 /* macOS (Extension) */,
+				60565A592C7E9CED002DA451 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		60565A402C7E9CEB002DA451 /* Shared (App) */ = {
+			isa = PBXGroup;
+			children = (
+				60565A472C7E9CEB002DA451 /* ViewController.swift */,
+				60565A482C7E9CED002DA451 /* Assets.xcassets */,
+				60565A412C7E9CEB002DA451 /* Resources */,
+			);
+			path = "Shared (App)";
+			sourceTree = "<group>";
+		};
+		60565A412C7E9CEB002DA451 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				60565A422C7E9CEB002DA451 /* Main.html */,
+				60565A442C7E9CEB002DA451 /* Icon.png */,
+				60565A452C7E9CEB002DA451 /* Style.css */,
+				60565A462C7E9CEB002DA451 /* Script.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		60565A492C7E9CED002DA451 /* Shared (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				60565A4A2C7E9CED002DA451 /* SafariWebExtensionHandler.swift */,
+				60565A4B2C7E9CED002DA451 /* Resources */,
+			);
+			path = "Shared (Extension)";
+			sourceTree = "<group>";
+		};
+		60565A4B2C7E9CED002DA451 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				60565A4C2C7E9CED002DA451 /* _locales */,
+				60565A4D2C7E9CED002DA451 /* images */,
+				60565A4E2C7E9CED002DA451 /* manifest.json */,
+				60565A4F2C7E9CED002DA451 /* background.js */,
+				60565A502C7E9CED002DA451 /* content.js */,
+				60565A512C7E9CED002DA451 /* popup.html */,
+				60565A522C7E9CED002DA451 /* popup.css */,
+				600F4D0D2C85F8B9008EFD53 /* localization.js */,
+				60565A532C7E9CED002DA451 /* popup.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		60565A592C7E9CED002DA451 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				60565A582C7E9CED002DA451 /* QuoteLink.app */,
+				60565A6A2C7E9CED002DA451 /* QuoteLink.app */,
+				60565A762C7E9CED002DA451 /* QuoteLink Extension.appex */,
+				60565A802C7E9CED002DA451 /* QuoteLink Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		60565A5A2C7E9CED002DA451 /* iOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				60565A5B2C7E9CED002DA451 /* AppDelegate.swift */,
+				60565A5D2C7E9CED002DA451 /* SceneDelegate.swift */,
+				60565A5F2C7E9CED002DA451 /* LaunchScreen.storyboard */,
+				60565A622C7E9CED002DA451 /* Main.storyboard */,
+				60565A652C7E9CED002DA451 /* Info.plist */,
+			);
+			path = "iOS (App)";
+			sourceTree = "<group>";
+		};
+		60565A6B2C7E9CED002DA451 /* macOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				60565A6C2C7E9CED002DA451 /* AppDelegate.swift */,
+				60565A6E2C7E9CED002DA451 /* Main.storyboard */,
+				60565A712C7E9CED002DA451 /* QuoteLink.entitlements */,
+			);
+			path = "macOS (App)";
+			sourceTree = "<group>";
+		};
+		60565A7A2C7E9CED002DA451 /* iOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				60565A7B2C7E9CED002DA451 /* Info.plist */,
+			);
+			path = "iOS (Extension)";
+			sourceTree = "<group>";
+		};
+		60565A842C7E9CED002DA451 /* macOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				60565A852C7E9CED002DA451 /* Info.plist */,
+				60565A862C7E9CED002DA451 /* QuoteLink.entitlements */,
+			);
+			path = "macOS (Extension)";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		60565A572C7E9CED002DA451 /* QuoteLink (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 60565AAB2C7E9CED002DA451 /* Build configuration list for PBXNativeTarget "QuoteLink (iOS)" */;
+			buildPhases = (
+				60565A542C7E9CED002DA451 /* Sources */,
+				60565A552C7E9CED002DA451 /* Frameworks */,
+				60565A562C7E9CED002DA451 /* Resources */,
+				60565AAA2C7E9CED002DA451 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				60565A792C7E9CED002DA451 /* PBXTargetDependency */,
+			);
+			name = "QuoteLink (iOS)";
+			productName = "QuoteLink (iOS)";
+			productReference = 60565A582C7E9CED002DA451 /* QuoteLink.app */;
+			productType = "com.apple.product-type.application";
+		};
+		60565A692C7E9CED002DA451 /* QuoteLink (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 60565AB22C7E9CED002DA451 /* Build configuration list for PBXNativeTarget "QuoteLink (macOS)" */;
+			buildPhases = (
+				60565A662C7E9CED002DA451 /* Sources */,
+				60565A672C7E9CED002DA451 /* Frameworks */,
+				60565A682C7E9CED002DA451 /* Resources */,
+				60565AB12C7E9CED002DA451 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				60565A832C7E9CED002DA451 /* PBXTargetDependency */,
+			);
+			name = "QuoteLink (macOS)";
+			productName = "QuoteLink (macOS)";
+			productReference = 60565A6A2C7E9CED002DA451 /* QuoteLink.app */;
+			productType = "com.apple.product-type.application";
+		};
+		60565A752C7E9CED002DA451 /* QuoteLink Extension (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 60565AA72C7E9CED002DA451 /* Build configuration list for PBXNativeTarget "QuoteLink Extension (iOS)" */;
+			buildPhases = (
+				60565A722C7E9CED002DA451 /* Sources */,
+				60565A732C7E9CED002DA451 /* Frameworks */,
+				60565A742C7E9CED002DA451 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "QuoteLink Extension (iOS)";
+			productName = "QuoteLink Extension (iOS)";
+			productReference = 60565A762C7E9CED002DA451 /* QuoteLink Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		60565A7F2C7E9CED002DA451 /* QuoteLink Extension (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 60565AAE2C7E9CED002DA451 /* Build configuration list for PBXNativeTarget "QuoteLink Extension (macOS)" */;
+			buildPhases = (
+				60565A7C2C7E9CED002DA451 /* Sources */,
+				60565A7D2C7E9CED002DA451 /* Frameworks */,
+				60565A7E2C7E9CED002DA451 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "QuoteLink Extension (macOS)";
+			productName = "QuoteLink Extension (macOS)";
+			productReference = 60565A802C7E9CED002DA451 /* QuoteLink Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		60565A3C2C7E9CEB002DA451 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					60565A572C7E9CED002DA451 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					60565A692C7E9CED002DA451 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					60565A752C7E9CED002DA451 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					60565A7F2C7E9CED002DA451 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = 60565A3F2C7E9CEB002DA451 /* Build configuration list for PBXProject "QuoteLink" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				ja,
+				ar,
+				de,
+				fr,
+				hi,
+				id,
+				nl,
+				"pt-PT",
+				th,
+				tr,
+				"zh-Hans",
+			);
+			mainGroup = 60565A3B2C7E9CEB002DA451;
+			productRefGroup = 60565A592C7E9CED002DA451 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				60565A572C7E9CED002DA451 /* QuoteLink (iOS) */,
+				60565A692C7E9CED002DA451 /* QuoteLink (macOS) */,
+				60565A752C7E9CED002DA451 /* QuoteLink Extension (iOS) */,
+				60565A7F2C7E9CED002DA451 /* QuoteLink Extension (macOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		60565A562C7E9CED002DA451 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60565A892C7E9CED002DA451 /* Icon.png in Resources */,
+				60565A612C7E9CED002DA451 /* Base in Resources */,
+				60565A872C7E9CED002DA451 /* Base in Resources */,
+				60565A8D2C7E9CED002DA451 /* Script.js in Resources */,
+				60565A912C7E9CED002DA451 /* Assets.xcassets in Resources */,
+				60565A642C7E9CED002DA451 /* Base in Resources */,
+				60565A8B2C7E9CED002DA451 /* Style.css in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60565A682C7E9CED002DA451 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60565A8A2C7E9CED002DA451 /* Icon.png in Resources */,
+				60565A8C2C7E9CED002DA451 /* Style.css in Resources */,
+				60565A702C7E9CED002DA451 /* Base in Resources */,
+				60565A8E2C7E9CED002DA451 /* Script.js in Resources */,
+				60565A922C7E9CED002DA451 /* Assets.xcassets in Resources */,
+				60565A882C7E9CED002DA451 /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60565A742C7E9CED002DA451 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60565A9B2C7E9CED002DA451 /* background.js in Resources */,
+				60565AA12C7E9CED002DA451 /* popup.css in Resources */,
+				60565A9F2C7E9CED002DA451 /* popup.html in Resources */,
+				60565A972C7E9CED002DA451 /* images in Resources */,
+				60565A992C7E9CED002DA451 /* manifest.json in Resources */,
+				60565A952C7E9CED002DA451 /* _locales in Resources */,
+				60565A9D2C7E9CED002DA451 /* content.js in Resources */,
+				60565AA32C7E9CED002DA451 /* popup.js in Resources */,
+				600F4D0F2C85F8B9008EFD53 /* localization.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60565A7E2C7E9CED002DA451 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60565A9C2C7E9CED002DA451 /* background.js in Resources */,
+				60565AA22C7E9CED002DA451 /* popup.css in Resources */,
+				60565AA02C7E9CED002DA451 /* popup.html in Resources */,
+				60565A982C7E9CED002DA451 /* images in Resources */,
+				60565A9A2C7E9CED002DA451 /* manifest.json in Resources */,
+				60565A962C7E9CED002DA451 /* _locales in Resources */,
+				60565A9E2C7E9CED002DA451 /* content.js in Resources */,
+				60565AA42C7E9CED002DA451 /* popup.js in Resources */,
+				600F4D0E2C85F8B9008EFD53 /* localization.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		60565A542C7E9CED002DA451 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60565A8F2C7E9CED002DA451 /* ViewController.swift in Sources */,
+				60565A5C2C7E9CED002DA451 /* AppDelegate.swift in Sources */,
+				60565A5E2C7E9CED002DA451 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60565A662C7E9CED002DA451 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60565A902C7E9CED002DA451 /* ViewController.swift in Sources */,
+				60565A6D2C7E9CED002DA451 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60565A722C7E9CED002DA451 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60565A932C7E9CED002DA451 /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60565A7C2C7E9CED002DA451 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60565A942C7E9CED002DA451 /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		60565A792C7E9CED002DA451 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 60565A752C7E9CED002DA451 /* QuoteLink Extension (iOS) */;
+			targetProxy = 60565A782C7E9CED002DA451 /* PBXContainerItemProxy */;
+		};
+		60565A832C7E9CED002DA451 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 60565A7F2C7E9CED002DA451 /* QuoteLink Extension (macOS) */;
+			targetProxy = 60565A822C7E9CED002DA451 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		60565A422C7E9CEB002DA451 /* Main.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				60565A432C7E9CEB002DA451 /* Base */,
+				60565AB52C81F2E7002DA451 /* ja */,
+				60565AB62C81F31C002DA451 /* ar */,
+				60565AB72C81F33F002DA451 /* de */,
+				60565AB82C81F351002DA451 /* fr */,
+				60565AB92C81F371002DA451 /* hi */,
+				60565ABA2C81F381002DA451 /* id */,
+				60565ABB2C81F393002DA451 /* nl */,
+				60565ABC2C81F3B3002DA451 /* pt-PT */,
+				60565ABD2C81F3F1002DA451 /* th */,
+				60565ABE2C81F3FD002DA451 /* tr */,
+				60565ABF2C81F454002DA451 /* zh-Hans */,
+			);
+			name = Main.html;
+			sourceTree = "<group>";
+		};
+		60565A5F2C7E9CED002DA451 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				60565A602C7E9CED002DA451 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		60565A622C7E9CED002DA451 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				60565A632C7E9CED002DA451 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		60565A6E2C7E9CED002DA451 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				60565A6F2C7E9CED002DA451 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		60565AA52C7E9CED002DA451 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		60565AA62C7E9CED002DA451 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		60565AA82C7E9CED002DA451 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R3F5JGKA7W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "QuoteLink Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hkitago.QuoteLink.Extension;
+				PRODUCT_NAME = "QuoteLink Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		60565AA92C7E9CED002DA451 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R3F5JGKA7W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "QuoteLink Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hkitago.QuoteLink.Extension;
+				PRODUCT_NAME = "QuoteLink Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		60565AAC2C7E9CED002DA451 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R3F5JGKA7W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = QuoteLink;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hkitago.QuoteLink;
+				PRODUCT_NAME = QuoteLink;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		60565AAD2C7E9CED002DA451 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R3F5JGKA7W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = QuoteLink;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hkitago.QuoteLink;
+				PRODUCT_NAME = QuoteLink;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		60565AAF2C7E9CED002DA451 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/QuoteLink.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R3F5JGKA7W;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "QuoteLink Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hkitago.QuoteLink.Extension;
+				PRODUCT_NAME = "QuoteLink Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		60565AB02C7E9CED002DA451 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/QuoteLink.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R3F5JGKA7W;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "QuoteLink Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hkitago.QuoteLink.Extension;
+				PRODUCT_NAME = "QuoteLink Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		60565AB32C7E9CED002DA451 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "macOS (App)/QuoteLink.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R3F5JGKA7W;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = QuoteLink;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hkitago.QuoteLink;
+				PRODUCT_NAME = QuoteLink;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		60565AB42C7E9CED002DA451 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "macOS (App)/QuoteLink.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R3F5JGKA7W;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = QuoteLink;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hkitago.QuoteLink;
+				PRODUCT_NAME = QuoteLink;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		60565A3F2C7E9CEB002DA451 /* Build configuration list for PBXProject "QuoteLink" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60565AA52C7E9CED002DA451 /* Debug */,
+				60565AA62C7E9CED002DA451 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		60565AA72C7E9CED002DA451 /* Build configuration list for PBXNativeTarget "QuoteLink Extension (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60565AA82C7E9CED002DA451 /* Debug */,
+				60565AA92C7E9CED002DA451 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		60565AAB2C7E9CED002DA451 /* Build configuration list for PBXNativeTarget "QuoteLink (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60565AAC2C7E9CED002DA451 /* Debug */,
+				60565AAD2C7E9CED002DA451 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		60565AAE2C7E9CED002DA451 /* Build configuration list for PBXNativeTarget "QuoteLink Extension (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60565AAF2C7E9CED002DA451 /* Debug */,
+				60565AB02C7E9CED002DA451 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		60565AB22C7E9CED002DA451 /* Build configuration list for PBXNativeTarget "QuoteLink (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60565AB32C7E9CED002DA451 /* Debug */,
+				60565AB42C7E9CED002DA451 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 60565A3C2C7E9CEB002DA451 /* Project object */;
+}

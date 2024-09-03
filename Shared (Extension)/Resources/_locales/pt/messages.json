@@ -1,0 +1,10 @@
+{
+    "extension_name": {
+        "message": "QuoteLink",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "Projetada para compartilhamento eficiente de informações, esta extensão gera automaticamente um texto com a URL de origem adicionada ao conteúdo da página da web selecionada.",
+        "description": "Description of what the extension does."
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "extension_name": {
+        "message": "QuoteLink",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "مصمم لمشاركة المعلومات بكفاءة، يقوم هذا الامتداد تلقائيًا بإنشاء نص مع إضافة عنوان URL المصدر إلى محتوى صفحة الويب المحددة.",
+        "description": "Description of what the extension does."
+    }
+}

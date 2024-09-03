@@ -1,0 +1,148 @@
+:root {
+  color-scheme: light dark;
+}
+
+* {
+  -webkit-tap-highlight-color:rgb(0 0 0/0);
+  -webkit-user-select:none;
+  -webkit-touch-callout:none;
+}
+
+html {
+  font: -apple-system-body;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 93%;
+}
+
+body {
+  background-color: rgb(240 242 242);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 15px 15px 0;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+li {
+  background-color: rgb(254 255 255);
+  overflow: hidden;
+}
+
+ul > li > div {
+  margin: 10px 20px;
+  overflow-wrap: break-word;
+  overflow: hidden;
+}
+
+ul.nav > li:not(:last-child) {
+  margin-bottom: 1px;
+}
+
+ul.nav > li.selected {
+  background-color: rgb(210 209 215);
+}
+
+ul#navPost {
+  margin-bottom: 5px;
+}
+
+ul#navPost > li {
+  display: flex;
+  align-items: center;
+}
+
+ul#navPost > li.visibilityOff {
+  display: none;
+}
+
+ul#navPost > li.isEditMode {
+  background-image: url(./images/icon-list-light.png);
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  background-size: auto 20px;
+}
+
+ul#navPost > li > div {
+  align-items: center;
+}
+
+div.toggleVisibility {
+  display: none;
+  margin-right: 0;
+}
+
+li.isEditMode > div.toggleVisibility {
+  display: block;
+}
+
+div.toggleVisibility > span {
+  display: block;
+  overflow: hidden;
+  width: 18px;
+  height: 18px;
+  background-image: url(./images/icon-circle-minus.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 100%;
+  color: transparent;
+  text-indent: -9999px;
+}
+
+div.toggleOn > span {
+  background-image: url(./images/icon-circle-plus.png);
+}
+
+div.postLabel {
+  display: flex;
+  color: rgb(70 146 254);
+}
+
+li.isEditMode > div.postLabel {
+  color: initial;
+}
+
+div#editActions, div#editDone {
+  margin: 15px 35px;
+  color: rgb(70 146 254);
+}
+
+div#editDone {
+  display: none;
+}
+
+div#editActions.selected, div#editDone.selected {
+  opacity: 0.5;
+}
+
+#refreshPageInfo {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: rgb(35 35 33);
+  }
+  
+  li {
+    background-color: rgb(44 43 45);
+  }
+  
+  ul.nav > li.selected {
+    background-color: rgb(58 57 59);
+  }
+  
+  ul#navPost > li.isEditMode {
+    background-image: url(./images/icon-list-dark.png);
+  }
+
+  li.isEditMode > div.postLabel {
+    color: white;
+  }
+}
