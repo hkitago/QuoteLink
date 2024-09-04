@@ -1,4 +1,4 @@
-# QuoteLink for Safari Extension (iOS, for the time being)
+# QuoteLink for Safari Extension
 
 This Safari extension is perfect for those who want to efficiently share web page information as a quote. It automatically adds the source URL to the text you select, making it easy to copy and share on social media. When you need to quickly convey accurate information, this app is a powerful tool to support you.
 
@@ -22,6 +22,21 @@ See also: [Get extensions to customize Safari on iPhone - Apple Support](https:/
 Notes:
 - If you enable the extension after loading the web page, it might not function correctly. In this case, please refresh the page and try again.
 - If you do not select text within the web page, the page title will be used.
+
+## Version History
+
+### [1.0.0] - 2024-09-03
+- Initial release with basic features
+
+## Known Issues
+
+- There is a rare issue where the extension may not work when a URL is passed from the in-app browser feature of other apps, such as RSS or social media apps, to Safari for display.
+
+## Roadmap
+
+- macOS Support
+- Removal of marketing parameters (e.g., Amazon affiliate links and utm parameters) and conversion to mobile-specific URLs
+- Addition of action menu (For requests to add posting destinations, please contact us via the contact information below)
 
 ## Compatibility
 
