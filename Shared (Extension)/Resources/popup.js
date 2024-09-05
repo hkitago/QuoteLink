@@ -43,16 +43,14 @@ const saveData = (data) => {
 const updateVisibility = () => {
   const data = getStoredData();
   
-  if (!data) return;
-  
+  if (!data) {
+    return false;
+  }
+
   data.forEach(item => {
     const li = document.getElementById(item.id);
     if (li) {
-      if (item.visible) {
-        li.classList.remove('visibilityOff');
-      } else {
-        li.classList.add('visibilityOff');
-      }
+      li.classList.toggle('visibilityOff', !item.visible);
     }
   });
 };
@@ -203,11 +201,7 @@ const toggleVisibility = (event) => {
 
   const toggleSpan = li.querySelector('.toggleVisibility > span');
   toggleSpan.textContent = item.visible ? '-' : '+';
-  if (!item.visible) {
-    li.querySelector('.toggleVisibility').classList.add('toggleOn');
-  } else {
-    li.querySelector('.toggleVisibility').classList.remove('toggleOn');
-  }
+  li.querySelector('.toggleVisibility').classList.toggle('toggleOn', !item.visible);
   saveData(data);
 };
 
@@ -295,6 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
   updateList();
+
   editActions.textContent = labelStrings[langCode].editActions;
   editActions.addEventListener('click', toggleEditMode);
   editActions.addEventListener('touchstart', (event) => {
@@ -303,6 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
   editActions.addEventListener('touchend', (event) => {
     event.target.classList.remove('selected');
   });
+
   editDone.textContent = labelStrings[langCode].editDone;
   editDone.addEventListener('click', toggleEditMode);
   editDone.addEventListener('touchstart', (event) => {
