@@ -92,6 +92,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		600720622C89331D0047F850 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		600F4D0D2C85F8B9008EFD53 /* localization.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = localization.js; sourceTree = "<group>"; };
 		6042C7722C87448D005EA3D3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		60565A432C7E9CEB002DA451 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = ../Base.lproj/Main.html; sourceTree = "<group>"; };
@@ -172,6 +173,7 @@
 		60565A3B2C7E9CEB002DA451 = {
 			isa = PBXGroup;
 			children = (
+				600720622C89331D0047F850 /* LICENSE */,
 				6042C7722C87448D005EA3D3 /* README.md */,
 				60565A402C7E9CEB002DA451 /* Shared (App) */,
 				60565A492C7E9CED002DA451 /* Shared (Extension) */,
