@@ -51,26 +51,29 @@ if (document.readyState !== 'loading') {
 }
 
 // Using history back or forward
-window.addEventListener('pageshow', () => {
-  if (document.readyState !== 'loading') {
-    updateSelectionAndPageInfo();
+window.addEventListener('pageshow', (event) => {
+  if (event.persisted) {
+    updatePageInfo(getCleanSelection());
+  } else if (document.readyState !== 'loading') {
+    updatePageInfo(getCleanSelection());
   } else {
-    document.addEventListener('DOMContentLoaded', updateSelectionAndPageInfo);
+    document.addEventListener('DOMContentLoaded', () => {
+      updatePageInfo(getCleanSelection());
+    });
   }
 });
 
 // Switching tabs from background.js
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === 'getPageInfo') {
-    updateSelectionAndPageInfo();
+    updatePageInfo(getCleanSelection());
   }
 });
 
 // Error handling to fail to read storage on Popover
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === 'refreshPageInfo') {
-    //updatePageInfo();
-    window.location.reload();
+    updatePageInfo(getCleanSelection());
   }
 });
 
