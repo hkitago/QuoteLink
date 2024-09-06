@@ -20,8 +20,8 @@ See also: [Get extensions to customize Safari on iPhone - Apple Support](https:/
 4. A window will slide up from the bottom; select an action and tap it.
 
 Notes:
-- If you enable the extension after loading the web page, it might not function correctly. In this case, please refresh the page and try again.
 - If you do not select text within the web page, the page title will be used.
+- If you enable the extension and it doesn't function correctly, please refresh the page, or close and restart the app, and try again.
 
 ## Version History
 
