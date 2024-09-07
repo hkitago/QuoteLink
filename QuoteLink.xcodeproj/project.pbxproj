@@ -125,17 +125,6 @@
 		60565A802C7E9CED002DA451 /* QuoteLink Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "QuoteLink Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60565A852C7E9CED002DA451 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60565A862C7E9CED002DA451 /* QuoteLink.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuoteLink.entitlements; sourceTree = "<group>"; };
-		60565AB52C81F2E7002DA451 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = ja; path = ../ja.lproj/Main.html; sourceTree = "<group>"; };
-		60565AB62C81F31C002DA451 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = ar; path = ../ar.lproj/Main.html; sourceTree = "<group>"; };
-		60565AB72C81F33F002DA451 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = de; path = ../de.lproj/Main.html; sourceTree = "<group>"; };
-		60565AB82C81F351002DA451 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = fr; path = ../fr.lproj/Main.html; sourceTree = "<group>"; };
-		60565AB92C81F371002DA451 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = hi; path = ../hi.lproj/Main.html; sourceTree = "<group>"; };
-		60565ABA2C81F381002DA451 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = id; path = ../id.lproj/Main.html; sourceTree = "<group>"; };
-		60565ABB2C81F393002DA451 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = nl; path = ../nl.lproj/Main.html; sourceTree = "<group>"; };
-		60565ABC2C81F3B3002DA451 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "pt-PT"; path = "../pt-PT.lproj/Main.html"; sourceTree = "<group>"; };
-		60565ABD2C81F3F1002DA451 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = th; path = ../th.lproj/Main.html; sourceTree = "<group>"; };
-		60565ABE2C81F3FD002DA451 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = tr; path = ../tr.lproj/Main.html; sourceTree = "<group>"; };
-		60565ABF2C81F454002DA451 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "zh-Hans"; path = "../zh-Hans.lproj/Main.html"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -387,17 +376,6 @@
 			knownRegions = (
 				en,
 				Base,
-				ja,
-				ar,
-				de,
-				fr,
-				hi,
-				id,
-				nl,
-				"pt-PT",
-				th,
-				tr,
-				"zh-Hans",
 			);
 			mainGroup = 60565A3B2C7E9CEB002DA451;
 			productRefGroup = 60565A592C7E9CED002DA451 /* Products */;
@@ -530,17 +508,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				60565A432C7E9CEB002DA451 /* Base */,
-				60565AB52C81F2E7002DA451 /* ja */,
-				60565AB62C81F31C002DA451 /* ar */,
-				60565AB72C81F33F002DA451 /* de */,
-				60565AB82C81F351002DA451 /* fr */,
-				60565AB92C81F371002DA451 /* hi */,
-				60565ABA2C81F381002DA451 /* id */,
-				60565ABB2C81F393002DA451 /* nl */,
-				60565ABC2C81F3B3002DA451 /* pt-PT */,
-				60565ABD2C81F3F1002DA451 /* th */,
-				60565ABE2C81F3FD002DA451 /* tr */,
-				60565ABF2C81F454002DA451 /* zh-Hans */,
 			);
 			name = Main.html;
 			sourceTree = "<group>";

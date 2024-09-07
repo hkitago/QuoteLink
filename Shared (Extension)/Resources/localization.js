@@ -1,5 +1,5 @@
 export const labelStrings = {
-  ar: {
+  "ar": {
     "copy2clipboard": "نسخ إلى الحافظة",
     "post2x": "نشر على X",
     "post2threds": "نشر على Threads",
@@ -13,7 +13,21 @@ export const labelStrings = {
     "editActions": "تحرير الإجراءات...",
     "editDone": "تم"
   },
-  de: {
+  "ar-SA": {
+    "copy2clipboard": "نسخ إلى الحافظة",
+    "post2x": "نشر على X",
+    "post2threds": "نشر على Threads",
+    "post2bluesky": "نشر على BlueSky",
+    "post2mastodon": "نشر على Mastodon Social",
+    "post2linkedin": "نشر على LinkedIn",
+    "post2telegram": "نشر على Telegram",
+    "post2line": "نشر على LINE",
+    "refreshPageInfo": "إعادة تحميل الصفحة",
+    "onError": "لاستخدام هذا الامتداد، يجب تفعيله قبل تحميل الصفحة. بعد تحديث الصفحة في Safari، حاول مرة أخرى.",
+    "editActions": "تحرير الإجراءات...",
+    "editDone": "تم"
+  },
+  "de": {
     "copy2clipboard": "In die Zwischenablage kopieren",
     "post2x": "Auf X posten",
     "post2threds": "Auf Threads posten",
@@ -27,7 +41,7 @@ export const labelStrings = {
     "editActions": "Aktionen bearbeiten...",
     "editDone": "Fertig"
   },
-  en: {
+  "en": {
     "copy2clipboard": "Copy to Clipboard",
     "post2x": "Post to X",
     "post2threds": "Post to Threads",
@@ -41,7 +55,7 @@ export const labelStrings = {
     "editActions": "Edit Actions...",
     "editDone": "Done"
   },
-  es: {
+  "es": {
     "copy2clipboard": "Copiar al portapapeles",
     "post2x": "Publicar en X",
     "post2threds": "Publicar en Threads",
@@ -55,7 +69,21 @@ export const labelStrings = {
     "editActions": "Editar acciones...",
     "editDone": "Hecho"
   },
-  fr: {
+  "es-MX": {
+    "copy2clipboard": "Copiar al portapapeles",
+    "post2x": "Publicar en X",
+    "post2threds": "Publicar en Threads",
+    "post2bluesky": "Publicar en BlueSky",
+    "post2mastodon": "Publicar en Mastodon Social",
+    "post2linkedin": "Publicar en LinkedIn",
+    "post2telegram": "Publicar en Telegram",
+    "post2line": "Publicar en LINE",
+    "refreshPageInfo": "Recargar página",
+    "onError": "Para usar esta extensión, debe estar habilitada antes de cargar la página. Intenta de nuevo después de actualizar la página en Safari.",
+    "editActions": "Editar acciones...",
+    "editDone": "Hecho"
+  },
+  "fr": {
     "copy2clipboard": "Copier dans le presse-papiers",
     "post2x": "Publier sur X",
     "post2threds": "Publier sur Threads",
@@ -69,7 +97,7 @@ export const labelStrings = {
     "editActions": "Modifier les actions...",
     "editDone": "Terminé"
   },
-  hi: {
+  "hi": {
     "copy2clipboard": "क्लिपबोर्ड में कॉपी करें",
     "post2x": "X पर पोस्ट करें",
     "post2threds": "Threads पर पोस्ट करें",
@@ -83,7 +111,7 @@ export const labelStrings = {
     "editActions": "क्रियाएँ संपादित करें...",
     "editDone": "पूर्ण"
   },
-  id: {
+  "id": {
     "copy2clipboard": "Salin ke Papan Klip",
     "post2x": "Posting ke X",
     "post2threds": "Posting ke Threads",
@@ -97,7 +125,7 @@ export const labelStrings = {
     "editActions": "Edit Actions...",
     "editDone": "Selesai"
   },
-  ja: {
+  "ja": {
     "copy2clipboard": "クリップボードにコピー",
     "post2x": "Xに投稿",
     "post2threds": "Threadsに投稿",
@@ -111,7 +139,21 @@ export const labelStrings = {
     "editActions": "アクションを編集...",
     "editDone": "完了"
   },
-  nl: {
+  "ko-KR": {
+    "copy2clipboard": "클립보드에 복사",
+    "post2x": "X에 게시",
+    "post2threds": "Threads에 게시",
+    "post2bluesky": "BlueSky에 게시",
+    "post2mastodon": "Mastodon Social에 게시",
+    "post2linkedin": "LinkedIn에 게시",
+    "post2telegram": "Telegram에 게시",
+    "post2line": "LINE에 게시",
+    "refreshPageInfo": "페이지 새로 고침",
+    "onError": "이 확장 프로그램을 사용하려면 페이지를 로드하기 전에 활성화되어 있어야 합니다. Safari에서 페이지를 새로 고친 후 다시 시도하세요.",
+    "editActions": "작업 편집...",
+    "editDone": "완료"
+  },
+  "nl": {
     "copy2clipboard": "Kopiëren naar klembord",
     "post2x": "Posten op X",
     "post2threds": "Posten op Threads",
@@ -125,7 +167,7 @@ export const labelStrings = {
     "editActions": "Acties bewerken...",
     "editDone": "Klaar"
   },
-  pt: {
+  "pt": {
     "copy2clipboard": "Copiar para a área de transferência",
     "post2x": "Postar no X",
     "post2threds": "Postar no Threads",
@@ -139,7 +181,35 @@ export const labelStrings = {
     "editActions": "Editar ações...",
     "editDone": "Concluído"
   },
-  th: {
+  "pt-PT": {
+    "copy2clipboard": "Copiar para a área de transferência",
+    "post2x": "Publicar no X",
+    "post2threds": "Publicar no Threads",
+    "post2bluesky": "Publicar no BlueSky",
+    "post2mastodon": "Publicar no Mastodon Social",
+    "post2linkedin": "Publicar no LinkedIn",
+    "post2telegram": "Publicar no Telegram",
+    "post2line": "Publicar no LINE",
+    "refreshPageInfo": "Recarregar página",
+    "onError": "Para usar esta extensão, ela deve estar ativada antes de carregar a página. Tente novamente após atualizar a página no Safari.",
+    "editActions": "Editar ações...",
+    "editDone": "Concluído"
+  },
+  "pt-BR": {
+    "copy2clipboard": "Copiar para a área de transferência",
+    "post2x": "Publicar no X",
+    "post2threds": "Publicar no Threads",
+    "post2bluesky": "Publicar no BlueSky",
+    "post2mastodon": "Publicar no Mastodon Social",
+    "post2linkedin": "Publicar no LinkedIn",
+    "post2telegram": "Publicar no Telegram",
+    "post2line": "Publicar no LINE",
+    "refreshPageInfo": "Recarregar página",
+    "onError": "Para usar esta extensão, ela deve estar ativada antes de carregar a página. Tente novamente após atualizar a página no Safari.",
+    "editActions": "Editar ações...",
+    "editDone": "Concluído"
+  },
+  "th": {
     "copy2clipboard": "คัดลอกไปยังคลิปบอร์ด",
     "post2x": "โพสต์ไปที่ X",
     "post2threds": "โพสต์ไปที่ Threads",
@@ -153,7 +223,7 @@ export const labelStrings = {
     "editActions": "แก้ไขการกระทำ...",
     "editDone": "เสร็จสิ้น"
   },
-  tr: {
+  "tr": {
     "copy2clipboard": "Panoya Kopyala",
     "post2x": "X'e Gönder",
     "post2threds": "Threads'e Gönder",
@@ -167,7 +237,7 @@ export const labelStrings = {
     "editActions": "Eylemleri Düzenle...",
     "editDone": "Tamamlandı"
   },
-  zh: {
+  "zh": {
     "copy2clipboard": "复制到剪贴板",
     "post2x": "发布到X",
     "post2threds": "发布到Threads",
@@ -180,9 +250,55 @@ export const labelStrings = {
     "onError": "要使用此扩展程序，必须在加载页面之前启用。请在Safari中刷新页面后重试。",
     "editActions": "编辑操作...",
     "editDone": "完成"
-  }
+  },
+  "zh-CN": {
+    "copy2clipboard": "复制到剪贴板",
+    "post2x": "发布到X",
+    "post2threds": "发布到Threads",
+    "post2bluesky": "发布到BlueSky",
+    "post2mastodon": "发布到Mastodon Social",
+    "post2linkedin": "发布到LinkedIn",
+    "post2telegram": "发布到Telegram",
+    "post2line": "发布到LINE",
+    "refreshPageInfo": "重新加载页面",
+    "onError": "要使用此扩展程序，必须在加载页面之前启用。请在Safari中刷新页面后重试。",
+    "editActions": "编辑操作...",
+    "editDone": "完成"
+  },
+  "zh-TW": {
+    "copy2clipboard": "複製到剪貼簿",
+    "post2x": "發佈到X",
+    "post2threds": "發佈到Threads",
+    "post2bluesky": "發佈到BlueSky",
+    "post2mastodon": "發佈到Mastodon Social",
+    "post2linkedin": "發佈到LinkedIn",
+    "post2telegram": "發佈到Telegram",
+    "post2line": "發佈到LINE",
+    "refreshPageInfo": "重新載入頁面",
+    "onError": "要使用此擴充功能，必須在載入頁面之前啟用。請在Safari中重新載入頁面後再試一次。",
+    "editActions": "編輯操作...",
+    "editDone": "完成"
+  },
+  "zh-HK": {
+    "copy2clipboard": "複製到剪貼簿",
+    "post2x": "發佈到X",
+    "post2threds": "發佈到Threads",
+    "post2bluesky": "發佈到BlueSky",
+    "post2mastodon": "發佈到Mastodon Social",
+    "post2linkedin": "發佈到LinkedIn",
+    "post2telegram": "發佈到Telegram",
+    "post2line": "發佈到LINE",
+    "refreshPageInfo": "重新載入頁面",
+    "onError": "要使用此擴充功能，必須在載入頁面之前啟用。請在Safari中重新載入頁面後再試一次。",
+    "editActions": "編輯操作...",
+    "editDone": "完成"
+  },
 };
 
 export const getCurrentLangCode = () => {
-  return window.navigator.language ? (window.navigator.language).substring(0, 2) : 'en';
+  const langCode = window.navigator.language || 'en';
+
+  return labelStrings[langCode]
+    ? langCode
+    : (labelStrings[langCode.substring(0, 2)] ? langCode.substring(0, 2) : 'en');
 };

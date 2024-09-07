@@ -1,99 +1,160 @@
 function show(platform, enabled, useSettingsInsteadOfPreferences) {
   // Localization
   const labelStrings = {
-    ar: {
+    "ar": {
       "iOS": "يمكنك تفعيل إضافة QuoteLink على Safari من الإعدادات.",
       "macOn": "إضافة QuoteLink مفعل حاليًا. يمكنك إيقاف تشغيله في قسم الإضافات في إعدادات Safari.",
       "macOff": "إضافة QuoteLink غير مفعلة حاليًا. يمكنك تشغيلها في قسم الإضافات في إعدادات Safari.",
       "macUnknown": "يمكنك تفعيل إضافة QuoteLink في قسم الإضافات في إعدادات Safari.",
       "macPreferences": "قم بالخروج وفتح إعدادات Safari…"
     },
-    de: {
+    "ar-SA": {
+      "iOS": "يمكنك تفعيل إضافة QuoteLink على Safari من الإعدادات.",
+      "macOn": "إضافة QuoteLink مفعل حاليًا. يمكنك إيقاف تشغيله من قسم الإضافات في إعدادات Safari.",
+      "macOff": "إضافة QuoteLink غير مفعلة حاليًا. يمكنك تفعيلها من قسم الإضافات في إعدادات Safari.",
+      "macUnknown": "يمكنك تفعيل إضافة QuoteLink في قسم الإضافات ضمن إعدادات Safari.",
+      "macPreferences": "خروج وفتح إعدادات Safari…"
+    },
+    "de": {
       "iOS": "Sie können die QuoteLink Safari-Erweiterung in den Einstellungen aktivieren.",
       "macOn": "Die QuoteLink-Erweiterung ist derzeit aktiviert. Sie können sie im Abschnitt Erweiterungen der Safari-Einstellungen deaktivieren.",
       "macOff": "Die QuoteLink-Erweiterung ist derzeit deaktiviert. Sie können sie im Abschnitt Erweiterungen der Safari-Einstellungen aktivieren.",
       "macUnknown": "Sie können die QuoteLink-Erweiterung im Abschnitt Erweiterungen der Safari-Einstellungen aktivieren.",
       "macPreferences": "Beenden und Safari-Einstellungen öffnen…"
     },
-    en: {
+    "en": {
       "iOS": "You can turn on QuoteLink’s Safari extension in Settings.",
       "macOn": "QuoteLink’s extension is currently on. You can turn it off in the Extensions section of Safari Settings.",
       "macOff": "QuoteLink’s extension is currently off. You can turn it on in the Extensions section of Safari Settings.",
       "macUnknown": "You can turn on QuoteLink’s extension in the Extensions section of Safari Settings.",
       "macPreferences": "Quit and Open Safari Settings…"
     },
-    es: {
+    "es": {
       "iOS": "Puedes activar la extensión Safari de QuoteLink en la Configuración.",
-      "macOn": "La extensión de QuoteLink está activada actualmente. Puedes desactivarla en la sección de Extensiones de la Configuración de Safari.",
-      "macOff": "La extensión de QuoteLink está desactivada actualmente. Puedes activarla en la sección de Extensiones de la Configuración de Safari.",
+      "macOn": "La extensión de QuoteLink está actualmente activada. Puedes desactivarla en la sección de Extensiones de la Configuración de Safari.",
+      "macOff": "La extensión de QuoteLink está actualmente desactivada. Puedes activarla en la sección de Extensiones de la Configuración de Safari.",
       "macUnknown": "Puedes activar la extensión Safari de QuoteLink en la sección de Extensiones de la Configuración de Safari.",
       "macPreferences": "Salir y abrir la Configuración de Safari…"
     },
-    fr: {
+    "es-MX": {
+      "iOS": "Puedes activar la extensión Safari de QuoteLink en la Configuración.",
+      "macOn": "La extensión de QuoteLink está activada. Puedes desactivarla en la sección de Extensiones de la Configuración de Safari.",
+      "macOff": "La extensión de QuoteLink está desactivada. Puedes activarla en la sección de Extensiones de la Configuración de Safari.",
+      "macUnknown": "Puedes activar la extensión Safari de QuoteLink en la sección de Extensiones de la Configuración de Safari.",
+      "macPreferences": "Salir y abrir la Configuración de Safari…"
+    },
+    "fr": {
       "iOS": "Vous pouvez activer l'extension Safari de QuoteLink dans les Réglages.",
       "macOn": "L'extension QuoteLink est actuellement activée. Vous pouvez la désactiver dans la section Extensions des Réglages Safari.",
       "macOff": "L'extension QuoteLink est actuellement désactivée. Vous pouvez l'activer dans la section Extensions des Réglages Safari.",
       "macUnknown": "Vous pouvez activer l'extension QuoteLink dans la section Extensions des Réglages Safari.",
       "macPreferences": "Quittez et ouvrez les Réglages Safari…"
     },
-    hi: {
+    "hi": {
       "iOS": "आप सेटिंग्स में QuoteLink की Safari एक्सटेंशन को चालू कर सकते हैं।",
       "macOn": "QuoteLink का एक्सटेंशन वर्तमान में चालू है। आप इसे Safari सेटिंग्स के एक्सटेंशन सेक्शन में बंद कर सकते हैं।",
       "macOff": "QuoteLink का एक्सटेंशन वर्तमान में बंद है। आप इसे Safari सेटिंग्स के एक्सटेंशन सेक्शन में चालू कर सकते हैं।",
       "macUnknown": "आप Safari सेटिंग्स के एक्सटेंशन सेक्शन में QuoteLink का एक्सटेंशन चालू कर सकते हैं।",
       "macPreferences": "बाहर निकलें और Safari सेटिंग्स खोलें…"
     },
-    id: {
+    "id": {
       "iOS": "Anda dapat mengaktifkan ekstensi Safari QuoteLink di Pengaturan.",
       "macOn": "Ekstensi QuoteLink saat ini aktif. Anda dapat mematikannya di bagian Ekstensi di Pengaturan Safari.",
       "macOff": "Ekstensi QuoteLink saat ini nonaktif. Anda dapat mengaktifkannya di bagian Ekstensi di Pengaturan Safari.",
       "macUnknown": "Anda dapat mengaktifkan ekstensi QuoteLink di bagian Ekstensi di Pengaturan Safari.",
       "macPreferences": "Keluar dan Buka Pengaturan Safari…"
     },
-    ja: {
+    "ja": {
       "iOS": "設定でQuoteLinkのSafari拡張機能を有効にすることができます。",
       "macOn": "QuoteLinkの拡張機能は現在オンになっています。Safariの設定の拡張機能セクションでオフにすることができます。",
       "macOff": "QuoteLinkの拡張機能は現在オフになっています。Safariの設定の拡張機能セクションでオンにすることができます。",
       "macUnknown": "Safariの設定の拡張機能セクションでQuoteLinkの拡張機能をオンにすることができます。",
       "macPreferences": "終了してSafari設定を開く…"
     },
-    nl: {
+    "ko-KR": {
+      "iOS": "설정에서 QuoteLink의 Safari 확장을 활성화할 수 있습니다.",
+      "macOn": "현재 QuoteLink 확장이 활성화되어 있습니다. Safari 설정의 확장 프로그램 섹션에서 비활성화할 수 있습니다.",
+      "macOff": "현재 QuoteLink 확장이 비활성화되어 있습니다. Safari 설정의 확장 프로그램 섹션에서 활성화할 수 있습니다.",
+      "macUnknown": "Safari 설정의 확장 프로그램 섹션에서 QuoteLink 확장을 활성화할 수 있습니다.",
+      "macPreferences": "Safari 설정을 열려면 종료하고 열기…"
+    },
+    "nl": {
       "iOS": "U kunt de QuoteLink Safari-extensie inschakelen in Instellingen.",
       "macOn": "De QuoteLink-extensie is momenteel ingeschakeld. U kunt deze uitschakelen in de sectie Extensies van Safari Instellingen.",
       "macOff": "De QuoteLink-extensie is momenteel uitgeschakeld. U kunt deze inschakelen in de sectie Extensies van Safari Instellingen.",
       "macUnknown": "U kunt de QuoteLink-extensie inschakelen in de sectie Extensies van Safari Instellingen.",
       "macPreferences": "Stoppen en Safari Instellingen openen…"
     },
-    pt: {
+    "pt": {
       "iOS": "Você pode ativar a extensão do Safari do QuoteLink nas Configurações.",
       "macOn": "A extensão do QuoteLink está atualmente ativada. Você pode desativá-la na seção Extensões das Configurações do Safari.",
       "macOff": "A extensão do QuoteLink está atualmente desativada. Você pode ativá-la na seção Extensões das Configurações do Safari.",
       "macUnknown": "Você pode ativar a extensão do QuoteLink na seção Extensões das Configurações do Safari.",
       "macPreferences": "Sair e abrir as Configurações do Safari…"
     },
-    th: {
+    "pt-PT": {
+      "iOS": "Pode ativar a extensão do Safari do QuoteLink nas Definições.",
+      "macOn": "A extensão do QuoteLink está atualmente ativada. Pode desativá-la na secção Extensões das Definições do Safari.",
+      "macOff": "A extensão do QuoteLink está atualmente desativada. Pode ativá-la na secção Extensões das Definições do Safari.",
+      "macUnknown": "Pode ativar a extensão do QuoteLink na secção Extensões das Definições do Safari.",
+      "macPreferences": "Saia e abra as Definições do Safari…"
+    },
+    "pt-BR": {
+      "iOS": "Você pode ativar a extensão do Safari do QuoteLink nas Configurações.",
+      "macOn": "A extensão do QuoteLink está atualmente ativada. Você pode desativá-la na seção Extensões das Configurações do Safari.",
+      "macOff": "A extensão do QuoteLink está atualmente desativada. Você pode ativá-la na seção Extensões das Configurações do Safari.",
+      "macUnknown": "Você pode ativar a extensão do QuoteLink na seção Extensões das Configurações do Safari.",
+      "macPreferences": "Saia e abra as Configurações do Safari…"
+    },
+    "th": {
       "iOS": "คุณสามารถเปิดใช้งานส่วนขยาย Safari ของ QuoteLink ได้ในการตั้งค่า",
       "macOn": "ส่วนขยายของ QuoteLink ปัจจุบันเปิดใช้งานอยู่ คุณสามารถปิดการใช้งานได้ในส่วนขยายของการตั้งค่า Safari",
       "macOff": "ส่วนขยายของ QuoteLink ปัจจุบันปิดใช้งานอยู่ คุณสามารถเปิดการใช้งานได้ในส่วนขยายของการตั้งค่า Safari",
       "macUnknown": "คุณสามารถเปิดใช้งานส่วนขยายของ QuoteLink ได้ในส่วนขยายของการตั้งค่า Safari",
       "macPreferences": "ออกและเปิดการตั้งค่า Safari…"
     },
-    tr: {
+    "tr": {
       "iOS": "QuoteLink'in Safari uzantısını Ayarlar'da açabilirsiniz.",
       "macOn": "QuoteLink'in uzantısı şu anda açık. Bunu Safari Ayarları'ndaki Uzantılar bölümünde kapatabilirsiniz.",
       "macOff": "QuoteLink'in uzantısı şu anda kapalı. Bunu Safari Ayarları'ndaki Uzantılar bölümünde açabilirsiniz.",
       "macUnknown": "QuoteLink'in uzantısını Safari Ayarları'ndaki Uzantılar bölümünde açabilirsiniz.",
       "macPreferences": "Çıkış yap ve Safari Ayarları'nı aç…"
     },
-    zh: {
+    "zh": {
       "iOS": "您可以在设置中启用 QuoteLink 的 Safari 扩展程序。",
       "macOn": "QuoteLink的扩展程序目前已启用。您可以在Safari设置的扩展程序部分将其禁用。",
       "macOff": "QuoteLink的扩展程序目前已禁用。您可以在Safari设置的扩展程序部分将其启用。",
       "macUnknown": "您可以在Safari设置的扩展程序部分启用QuoteLink的扩展程序。",
       "macPreferences": "退出并打开Safari设置…"
     },
+    "zh-CN": {
+      "iOS": "您可以在设置中启用 QuoteLink 的 Safari 扩展程序。",
+      "macOn": "QuoteLink 的扩展程序目前已启用。您可以在 Safari 设置的扩展程序部分将其禁用。",
+      "macOff": "QuoteLink 的扩展程序目前已禁用。您可以在 Safari 设置的扩展程序部分将其启用。",
+      "macUnknown": "您可以在 Safari 设置的扩展程序部分启用 QuoteLink 的扩展程序。",
+      "macPreferences": "退出并打开 Safari 设置…"
+    },
+    "zh-TW": {
+      "iOS": "您可以在設定中啟用 QuoteLink 的 Safari 擴充功能。",
+      "macOn": "QuoteLink 的擴充功能目前已啟用。您可以在 Safari 設定的擴充功能部分將其停用。",
+      "macOff": "QuoteLink 的擴充功能目前已停用。您可以在 Safari 設定的擴充功能部分將其啟用。",
+      "macUnknown": "您可以在 Safari 設定的擴充功能部分啟用 QuoteLink 的擴充功能。",
+      "macPreferences": "退出並打開 Safari 設定…"
+    },
+    "zh-HK": {
+      "iOS": "您可以在設定中啟用 QuoteLink 的 Safari 擴展程式。",
+      "macOn": "QuoteLink 的擴展程式目前已啟用。您可以在 Safari 設定的擴展程式部分將其禁用。",
+      "macOff": "QuoteLink 的擴展程式目前已禁用。您可以在 Safari 設定的擴展程式部分將其啟用。",
+      "macUnknown": "您可以在 Safari 設定的擴展程式部分啟用 QuoteLink 的擴展程式。",
+      "macPreferences": "退出並打開 Safari 設定…"
+    },
   };
-  const langCode = window.navigator.language ? (window.navigator.language).substring(0, 2) : 'en';
+
+  const langCode = labelStrings[window.navigator.language]
+    ? window.navigator.language
+    : labelStrings[window.navigator.language.substring(0, 2)]
+      ? window.navigator.language.substring(0, 2)
+      : 'en';
 
   document.getElementsByClassName('platform-ios')[0].innerText = labelStrings[langCode].iOS;
   document.getElementsByClassName('platform-mac state-on')[0].innerText = labelStrings[langCode].macOn;

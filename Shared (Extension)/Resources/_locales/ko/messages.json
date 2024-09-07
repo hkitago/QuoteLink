@@ -1,0 +1,10 @@
+{
+    "extension_name": {
+        "message": "QuoteLink",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "이 확장 기능은 선택한 콘텐츠에 원본 URL을 추가하여 텍스트를 생성합니다.",
+        "description": "Description of what the extension does."
+    }
+}
