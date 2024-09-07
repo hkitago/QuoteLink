@@ -59,14 +59,10 @@ const refreshPageInfo = async () => {
   await sendMessageToActiveTab({ action: 'refreshPageInfo' });
 };
 
-browser.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
+browser.runtime.onMessage.addListener((message) => {
   if (message.action === 'refreshPageInfo') {
-    try {
-      await refreshPageInfo();
-      sendResponse({ success: true });
-    } catch (error) {
+    refreshPageInfo().catch(error => {
       console.error('Error in refreshPageInfo:', error);
-      sendResponse({ success: false, error: error.message });
-    }
+    });
   }
 });

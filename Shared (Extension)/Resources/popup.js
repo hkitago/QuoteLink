@@ -273,16 +273,19 @@ document.addEventListener('DOMContentLoaded', () => {
           editDone.style.display = 'none';
           
           document.getElementById('selectedText').textContent = labelStrings[langCode].onError;
-          if (getiOSVersion() < 18) {
-            document.querySelector('#refreshPageInfo > li > div').textContent = labelStrings[langCode].refreshPageInfo;
-            document.getElementById('refreshPageInfo').style.display = 'block';
-            document.getElementById('refreshPageInfo').addEventListener('click', () => {
-              browser.runtime.sendMessage({ action: 'refreshPageInfo' });
-              setTimeout(() => {
+
+          document.querySelector('#refreshPageInfo > li > div').textContent = labelStrings[langCode].refreshPageInfo;
+          document.getElementById('refreshPageInfo').style.display = 'block';
+          document.getElementById('refreshPageInfo').addEventListener('click', () => {
+            browser.runtime.sendMessage({ action: 'refreshPageInfo' });
+            setTimeout(() => {
+              if (getiOSVersion() < 18) {
                 browser.runtime.reload();
-              }, 100);
-            });
-          }
+              } else {
+                window.close();
+              }
+            }, 100);
+          });
         }
       });
     }
