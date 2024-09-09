@@ -13,12 +13,10 @@ html {
 }
 
 body {
+  min-width: 400px; /* for iPad Popover */
   margin: 0;
-  padding: 0;
+  padding: 0 0 15px;
   font-size: 93%;
-}
-
-body {
   background-color: rgb(240 242 242);
 }
 
@@ -123,6 +121,21 @@ div#editActions.selected, div#editDone.selected {
 
 #refreshPageInfo {
   display: none;
+}
+
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.rtl div.toggleVisibility {
+  display: none;
+  margin-right: 20px;
+  margin-left: 0;
+}
+
+.rtl ul#navPost > li.isEditMode {
+  background-position: left 20px center;
 }
 
 @media (prefers-color-scheme: dark) {

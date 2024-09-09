@@ -211,6 +211,12 @@ const getiOSVersion = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   const langCode = getCurrentLangCode();
+  
+  if (langCode.substring(0, 2) === 'ar') {
+    document.body.classList.add('rtl');
+    document.documentElement.setAttribute('lang', 'ar');
+    document.documentElement.setAttribute('dir', 'rtl');
+  }
 
   const navPost = document.getElementById('navPost');
   const editActions = document.getElementById('editActions');
