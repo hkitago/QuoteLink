@@ -63,3 +63,7 @@ button {
 img {
   border-radius:30px;
 }
+
+p {
+  overflow-wrap: break-word;
+}

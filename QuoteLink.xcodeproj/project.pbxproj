@@ -47,6 +47,8 @@
 		60565AA22C7E9CED002DA451 /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = 60565A522C7E9CED002DA451 /* popup.css */; };
 		60565AA32C7E9CED002DA451 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 60565A532C7E9CED002DA451 /* popup.js */; };
 		60565AA42C7E9CED002DA451 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 60565A532C7E9CED002DA451 /* popup.js */; };
+		6091769C2C9033C7004CFDEE /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 6091769B2C9033C7004CFDEE /* InfoPlist.xcstrings */; };
+		6091769D2C9033C7004CFDEE /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 6091769B2C9033C7004CFDEE /* InfoPlist.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +127,7 @@
 		60565A802C7E9CED002DA451 /* QuoteLink Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "QuoteLink Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60565A852C7E9CED002DA451 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60565A862C7E9CED002DA451 /* QuoteLink.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuoteLink.entitlements; sourceTree = "<group>"; };
+		6091769B2C9033C7004CFDEE /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +183,7 @@
 				60565A472C7E9CEB002DA451 /* ViewController.swift */,
 				60565A482C7E9CED002DA451 /* Assets.xcassets */,
 				60565A412C7E9CEB002DA451 /* Resources */,
+				6091769B2C9033C7004CFDEE /* InfoPlist.xcstrings */,
 			);
 			path = "Shared (App)";
 			sourceTree = "<group>";
@@ -376,6 +380,22 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
+				ar,
+				de,
+				es,
+				"es-MX",
+				fr,
+				hi,
+				id,
+				ko,
+				nl,
+				"pt-BR",
+				"pt-PT",
+				th,
+				tr,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = 60565A3B2C7E9CEB002DA451;
 			productRefGroup = 60565A592C7E9CED002DA451 /* Products */;
@@ -401,6 +421,7 @@
 				60565A8D2C7E9CED002DA451 /* Script.js in Resources */,
 				60565A912C7E9CED002DA451 /* Assets.xcassets in Resources */,
 				60565A642C7E9CED002DA451 /* Base in Resources */,
+				6091769C2C9033C7004CFDEE /* InfoPlist.xcstrings in Resources */,
 				60565A8B2C7E9CED002DA451 /* Style.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,6 +431,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				60565A8A2C7E9CED002DA451 /* Icon.png in Resources */,
+				6091769D2C9033C7004CFDEE /* InfoPlist.xcstrings in Resources */,
 				60565A8C2C7E9CED002DA451 /* Style.css in Resources */,
 				60565A702C7E9CED002DA451 /* Base in Resources */,
 				60565A8E2C7E9CED002DA451 /* Script.js in Resources */,
