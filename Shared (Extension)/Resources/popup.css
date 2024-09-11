@@ -15,7 +15,7 @@ html {
 body {
   min-width: 400px; /* for iPad Popover */
   margin: 0;
-  padding: 0 0 15px;
+  padding: 15px 0 15px;
   font-size: 93%;
   background-color: rgb(240 242 242);
 }
@@ -23,7 +23,7 @@ body {
 ul {
   list-style: none;
   padding: 0;
-  margin: 15px 15px 0;
+  margin: 0 15px 15px;
   overflow: hidden;
   border-radius: 10px;
 }
@@ -43,12 +43,9 @@ ul.nav > li:not(:last-child) {
   margin-bottom: 1px;
 }
 
-ul.nav > li.selected {
+ul.nav > li.selected,
+ul#refreshPageInfo.selected > li {
   background-color: rgb(210 209 215);
-}
-
-ul#navPost {
-  margin-bottom: 5px;
 }
 
 ul#navPost > li {
@@ -107,7 +104,7 @@ li.isEditMode > div.postLabel {
 }
 
 div#editActions, div#editDone {
-  margin: 15px 35px;
+  margin: 0 35px 15px;
   color: rgb(70 146 254);
 }
 
