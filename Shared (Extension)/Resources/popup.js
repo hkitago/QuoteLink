@@ -1,4 +1,5 @@
 import { labelStrings, getCurrentLangCode } from './localization.js';
+const langCode = getCurrentLangCode();
 
 const socialPlatforms = {
   post2x: {
@@ -37,7 +38,13 @@ const getStoredData = () => {
 };
 
 const saveData = (data) => {
-  localStorage.setItem('navPostData', JSON.stringify(data));
+  // Remove text key
+  const validatedData = data.map(item => {
+    const { text, ...rest } = item;
+    return rest;
+  });
+  
+  localStorage.setItem('navPostData', JSON.stringify(validatedData));
 };
 
 const updateVisibility = () => {
@@ -66,7 +73,8 @@ const updateList = () => {
   data.forEach(item => {
     const li = document.createElement('li');
     li.id = item.id;
-    li.innerHTML = `<div class="toggleVisibility"><span>${item.visible ? '-' : '+'}</span></div><div class="postLabel">${item.text}</div>`;
+    li.innerHTML = `<div class="toggleVisibility"><span>${item.visible ? '-' : '+'}</span></div><div class="postLabel">${labelStrings[langCode][item.id]}</div>`;
+    
     navPost.appendChild(li);
     if (!item.visible) {
       li.querySelector('.toggleVisibility').classList.add('toggleOn');
@@ -126,7 +134,6 @@ const saveInitialData = () => {
     const initialData = Array.from(navPost.querySelectorAll('li')).map(li => ({
       id: li.id,
       visible: li.querySelector('div > span').textContent === '-',
-      text: li.querySelector('div.postLabel').textContent
     }));
     saveData(initialData);
   }
@@ -210,18 +217,20 @@ const getiOSVersion = () => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  const langCode = getCurrentLangCode();
-  
+  if (navigator.userAgent.indexOf('iPhone') > -1) {
+    document.body.style.minWidth = 'auto';
+  }
+    
   if (langCode.substring(0, 2) === 'ar') {
     document.body.classList.add('rtl');
     document.documentElement.setAttribute('lang', 'ar');
     document.documentElement.setAttribute('dir', 'rtl');
   }
-
+  
   const navPost = document.getElementById('navPost');
   const editActions = document.getElementById('editActions');
   const editDone = document.getElementById('editDone');
-
+  
   browser.tabs.query({active: true, currentWindow: true}, (tabs) => {
     if (tabs[0]) {
       const tabId = tabs[0].id;
@@ -230,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (tabInfo) {
           const quoteLinkText = tabInfo.selectedText ? `"${tabInfo.selectedText}"` : `${tabInfo.pageTitle}`;
           document.getElementById('selectedText').innerHTML = `${quoteLinkText.replace(/\n/g, '<br>')}<br>${tabInfo.currentUrl}`;
-
+          
           const copyElement = document.getElementById('copy2clipboard');
           copyElement.querySelector('div').textContent = labelStrings[langCode].copy2clipboard;
           
@@ -245,13 +254,18 @@ document.addEventListener('DOMContentLoaded', () => {
               }
             }, 100);
           });
-
+          
           copyElement.addEventListener('touchstart', (event) => {
             event.stopPropagation();
             event.target.closest('li').classList.add('selected');
           });
-
+          
           copyElement.addEventListener('touchend', (event) => {
+            event.stopPropagation();
+            event.target.closest('li').classList.remove('selected');
+          });
+
+          copyElement.addEventListener('touchcancel', (event) => {
             event.stopPropagation();
             event.target.closest('li').classList.remove('selected');
           });
@@ -263,8 +277,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (platform) {
               document.querySelector(`#${targetId} > div.postLabel`).textContent = labelStrings[langCode][platform.labelKey];
               const url = platform.urlTemplate
-                .replace('${quoteLinkText}', encodeURIComponent(quoteLinkText))
-                .replace('${currentUrl}', encodeURIComponent(tabInfo.currentUrl));
+              .replace('${quoteLinkText}', encodeURIComponent(quoteLinkText))
+              .replace('${currentUrl}', encodeURIComponent(tabInfo.currentUrl));
               
               li.onclick = () => {
                 browser.tabs.create({ url });
@@ -279,10 +293,12 @@ document.addEventListener('DOMContentLoaded', () => {
           editDone.style.display = 'none';
           
           document.getElementById('selectedText').textContent = labelStrings[langCode].onError;
+          
+          const refreshPageInfo = document.getElementById('refreshPageInfo');
 
-          document.querySelector('#refreshPageInfo > li > div').textContent = labelStrings[langCode].refreshPageInfo;
-          document.getElementById('refreshPageInfo').style.display = 'block';
-          document.getElementById('refreshPageInfo').addEventListener('click', () => {
+          refreshPageInfo.querySelector('li > div').textContent = labelStrings[langCode].refreshPageInfo;
+          refreshPageInfo.style.display = 'block';
+          refreshPageInfo.addEventListener('click', () => {
             browser.runtime.sendMessage({ action: 'refreshPageInfo' });
             setTimeout(() => {
               if (getiOSVersion() < 18) {
@@ -292,13 +308,28 @@ document.addEventListener('DOMContentLoaded', () => {
               }
             }, 100);
           });
+
+          refreshPageInfo.querySelector('li').addEventListener('touchstart', (event) => {
+            event.stopPropagation();
+            event.target.closest('li').classList.add('selected');
+          });
+          
+          refreshPageInfo.querySelector('li').addEventListener('touchend', (event) => {
+            event.stopPropagation();
+            event.target.closest('li').classList.remove('selected');
+          });
+          
+          refreshPageInfo.querySelector('li').addEventListener('touchcancel', (event) => {
+            event.stopPropagation();
+            event.target.closest('li').classList.remove('selected');
+          });
         }
       });
     }
   });
   
   updateList();
-
+  
   editActions.textContent = labelStrings[langCode].editActions;
   editActions.addEventListener('click', toggleEditMode);
   editActions.addEventListener('touchstart', (event) => {
@@ -307,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
   editActions.addEventListener('touchend', (event) => {
     event.target.classList.remove('selected');
   });
-
+  
   editDone.textContent = labelStrings[langCode].editDone;
   editDone.addEventListener('click', toggleEditMode);
   editDone.addEventListener('touchstart', (event) => {
