@@ -13,10 +13,10 @@ html {
 }
 
 body {
-  min-width: 400px; /* for iPad Popover */
+  width: 400px; /* for iPad Popover */
   margin: 0;
-  padding: 15px 0 15px;
-  font-size: 93%;
+  padding: 15px 0;
+  font-size: 94%;
   background-color: rgb(240 242 242);
 }
 
@@ -135,6 +135,29 @@ div#editActions.selected, div#editDone.selected {
   background-position: left 20px center;
 }
 
+/* macOS */
+#selectedText:hover {
+  cursor: default;
+}
+
+ul.nav > li.hover {
+  cursor: pointer;
+  background-color: rgb(210 209 215);
+}
+
+li.isEditMode.hover {
+  cursor: grab !important;
+}
+
+li.isEditMode > div.toggleVisibility:hover {
+  cursor: pointer;
+}
+
+div#editActions:hover, div#editDone:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     background-color: rgb(35 35 33);
@@ -155,4 +178,15 @@ div#editActions.selected, div#editDone.selected {
   li.isEditMode > div.postLabel {
     color: white;
   }
+  
+  /* macOS */
+  ul.nav > li.hover {
+    background-color: rgb(58 57 59);
+  }
+  
+  li.isEditMode.hover {
+    cursor: grab !important;
+    background-color: rgb(44 43 45) !important;
+  }
+
 }

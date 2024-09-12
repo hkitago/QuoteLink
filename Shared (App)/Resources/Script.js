@@ -149,35 +149,33 @@ function show(platform, enabled, useSettingsInsteadOfPreferences) {
       "macPreferences": "退出並打開 Safari 設定…"
     },
   };
-
+  
   const langCode = labelStrings[window.navigator.language]
-    ? window.navigator.language
-    : labelStrings[window.navigator.language.substring(0, 2)]
-      ? window.navigator.language.substring(0, 2)
-      : 'en';
-
+  ? window.navigator.language
+  : labelStrings[window.navigator.language.substring(0, 2)]
+  ? window.navigator.language.substring(0, 2)
+  : 'en';
+  
   document.getElementsByClassName('platform-ios')[0].innerText = labelStrings[langCode].iOS;
-  document.getElementsByClassName('platform-mac state-on')[0].innerText = labelStrings[langCode].macOn;
-  document.getElementsByClassName('platform-mac state-off')[0].innerText = labelStrings[langCode].macOff;
-  document.getElementsByClassName('platform-mac state-unknown')[0].innerText = labelStrings[langCode].macUnknown;
-  document.getElementsByClassName('platform-mac open-preferences')[0].innerText = labelStrings[langCode].macPreferences;
+  
+  document.body.classList.add(`platform-${platform}`);
+  
+  if (useSettingsInsteadOfPreferences) {
+    document.getElementsByClassName('platform-mac state-on')[0].innerText = labelStrings[langCode].macOn;
+    document.getElementsByClassName('platform-mac state-off')[0].innerText = labelStrings[langCode].macOff;
+    document.getElementsByClassName('platform-mac state-unknown')[0].innerText = labelStrings[langCode].macUnknown;
+    document.getElementsByClassName('platform-mac open-preferences')[0].innerText = labelStrings[langCode].macPreferences;
+  }
+  
+  if (typeof enabled === "boolean") {
+    document.body.classList.toggle(`state-on`, enabled);
+    document.body.classList.toggle(`state-off`, !enabled);
+  } else {
+    document.body.classList.remove(`state-on`);
+    document.body.classList.remove(`state-off`);
+  }
+  document.body.classList.add('fadeIn');
 
-    document.body.classList.add(`platform-${platform}`);
-
-    if (useSettingsInsteadOfPreferences) {
-        document.getElementsByClassName('platform-mac state-on')[0].innerText = "QuoteLink’s extension is currently on. You can turn it off in the Extensions section of Safari Settings.";
-        document.getElementsByClassName('platform-mac state-off')[0].innerText = "QuoteLink’s extension is currently off. You can turn it on in the Extensions section of Safari Settings.";
-        document.getElementsByClassName('platform-mac state-unknown')[0].innerText = "You can turn on QuoteLink’s extension in the Extensions section of Safari Settings.";
-        document.getElementsByClassName('platform-mac open-preferences')[0].innerText = "Quit and Open Safari Settings…";
-    }
-
-    if (typeof enabled === "boolean") {
-        document.body.classList.toggle(`state-on`, enabled);
-        document.body.classList.toggle(`state-off`, !enabled);
-    } else {
-        document.body.classList.remove(`state-on`);
-        document.body.classList.remove(`state-off`);
-    }
 }
 
 function openPreferences() {

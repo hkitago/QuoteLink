@@ -32,6 +32,10 @@ const socialPlatforms = {
   }
 };
 
+const isMacOS = () => {
+  return navigator.userAgent.includes('Macintosh');
+}
+
 const getStoredData = () => {
   const storedData = localStorage.getItem('navPostData');
   return storedData ? JSON.parse(storedData) : null;
@@ -78,6 +82,11 @@ const updateList = () => {
     navPost.appendChild(li);
     if (!item.visible) {
       li.querySelector('.toggleVisibility').classList.add('toggleOn');
+    }
+
+    if (isMacOS()) {
+      li.addEventListener('mouseover', onMouseOver);
+      li.addEventListener('mouseout', onMouseOut);
     }
   });
 
@@ -163,6 +172,14 @@ const onDrop = (event) => {
   }
 };
 
+const onMouseOver = (event) => {
+  event.target.closest('li').classList.add('hover');
+}
+
+const onMouseOut = (event) => {
+  event.target.closest('li').classList.remove('hover');
+}
+
 const originalClickHandlers = new Map();
 
 let isEditMode = false;
@@ -218,7 +235,7 @@ const getiOSVersion = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   if (navigator.userAgent.indexOf('iPhone') > -1) {
-    document.body.style.minWidth = 'auto';
+    document.body.style.width = 'initial';
   }
     
   if (langCode.substring(0, 2) === 'ar') {
@@ -269,6 +286,11 @@ document.addEventListener('DOMContentLoaded', () => {
             event.stopPropagation();
             event.target.closest('li').classList.remove('selected');
           });
+
+          if (isMacOS()) {
+            copyElement.addEventListener('mouseover', onMouseOver);
+            copyElement.addEventListener('mouseout', onMouseOut);
+          }
 
           navPost.querySelectorAll('li').forEach((li) => {
             const targetId = li.id;
