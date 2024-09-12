@@ -25,6 +25,11 @@ class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMess
     override func viewDidLoad() {
         super.viewDidLoad()
 
+#if os(macOS)
+      webView.setValue(false, forKey: "drawsBackground")
+      webView.setValue(NSColor.clear, forKey: "backgroundColor")
+#endif
+
         self.webView.navigationDelegate = self
 
 #if os(iOS)
