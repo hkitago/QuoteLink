@@ -33,31 +33,59 @@ const socialPlatforms = {
 };
 
 const isMacOS = () => {
-  return navigator.userAgent.includes('Macintosh');
-}
+  const isPlatformMac = navigator.platform.toLowerCase().indexOf('mac') !== -1;
 
-const getStoredData = () => {
-  const storedData = localStorage.getItem('navPostData');
-  return storedData ? JSON.parse(storedData) : null;
+  const isUserAgentMac = /Mac/.test(navigator.userAgent) &&
+                         !/iPhone/.test(navigator.userAgent) &&
+                         !/iPad/.test(navigator.userAgent);
+  
+  return (isPlatformMac || isUserAgentMac) && !('ontouchend' in document);
 };
 
-const saveData = (data) => {
-  // Remove text key
+const getStoredData = async () => {
+  try {
+    const result = await browser.storage.local.get('navPostData');
+    if (result.navPostData) {
+      return JSON.parse(result.navPostData);
+    }
+    
+    // Migrate local-storage data to browser-storage
+    const localData = localStorage.getItem('navPostData');
+    if (localData) {
+      const parsedData = JSON.parse(localData);
+      await saveData(parsedData);
+      localStorage.removeItem('navPostData');
+      return parsedData;
+    }
+
+    return null;
+  } catch (e) {
+    console.error('Storage is unavailable or insecure:', e);
+    return null;
+  }
+};
+
+const saveData = async (data) => {
   const validatedData = data.map(item => {
     const { text, ...rest } = item;
     return rest;
   });
   
-  localStorage.setItem('navPostData', JSON.stringify(validatedData));
+  try {
+    await browser.storage.local.set({navPostData: JSON.stringify(validatedData)});
+  } catch (e) {
+    console.error('Failed to save data to browser storage:', e);
+    // Use local-storage as a fallback
+    localStorage.setItem('navPostData', JSON.stringify(validatedData));
+  }
 };
 
-const updateVisibility = () => {
-  const data = getStoredData();
+const updateVisibility = async () => {
+  const data = await getStoredData();
   
   if (!data) {
     return false;
   }
-
   data.forEach(item => {
     const li = document.getElementById(item.id);
     if (li) {
@@ -66,8 +94,8 @@ const updateVisibility = () => {
   });
 };
 
-const updateList = () => {
-  const data = getStoredData();
+const updateList = async () => {
+  const data = await getStoredData();
   
   if (!data) {
     return false;
@@ -83,15 +111,13 @@ const updateList = () => {
     if (!item.visible) {
       li.querySelector('.toggleVisibility').classList.add('toggleOn');
     }
-
     if (isMacOS()) {
       li.addEventListener('mouseover', onMouseOver);
       li.addEventListener('mouseout', onMouseOut);
     }
   });
-
   if (!isEditMode) {
-    updateVisibility();
+    await updateVisibility();
     setupNormalModeListeners();
   } else {
     setupEditModeListeners();
@@ -138,13 +164,14 @@ const setupEditModeListeners = () => {
   navPost.addEventListener('click', toggleVisibility);
 };
 
-const saveInitialData = () => {
-  if (!getStoredData()) {
+const saveInitialData = async () => {
+  const storedData = await getStoredData();
+  if (!storedData) {
     const initialData = Array.from(navPost.querySelectorAll('li')).map(li => ({
       id: li.id,
       visible: li.querySelector('div > span').textContent === '-',
     }));
-    saveData(initialData);
+    await saveData(initialData);
   }
 };
 
@@ -159,16 +186,32 @@ const onDragOver = (event) => {
   event.preventDefault();
 };
 
-const onDrop = (event) => {
+const onDrop = async (event) => {
   event.preventDefault();
   if (event.target.tagName === 'LI') {
-    const data = getStoredData();
-    const fromId = data.findIndex(item => item.id === dragged.id);
-    const toId = data.findIndex(item => item.id === event.target.id);
-    const [removed] = data.splice(fromId, 1);
-    data.splice(toId, 0, removed);
-    saveData(data);
-    updateList();
+    try {
+      const data = await getStoredData();
+      if (!data || !Array.isArray(data)) {
+        console.error('Invalid data structure:', data);
+        return;
+      }
+
+      const fromId = data.findIndex(item => item.id === dragged.id);
+      const toId = data.findIndex(item => item.id === event.target.id);
+
+      if (fromId === -1 || toId === -1) {
+        console.error('Invalid item ID(s):', dragged.id, event.target.id);
+        return;
+      }
+
+      const [removed] = data.splice(fromId, 1);
+      data.splice(toId, 0, removed);
+
+      await saveData(data);
+      await updateList();
+    } catch (error) {
+      console.error('Error in onDrop:', error);
+    }
   }
 };
 
@@ -214,26 +257,40 @@ const toggleEditMode = () => {
   }
 };
 
-const toggleVisibility = (event) => {
+const toggleVisibility = async (event) => {
   const li = event.target.closest('li');
+  if (!li) return;
   event.stopPropagation();
 
-  const data = getStoredData();
-  const item = data.find(item => item.id === li.id);
+  try {
+    const data = await getStoredData();
+    if (!data || !Array.isArray(data)) {
+      console.error('Invalid data structure:', data);
+      return;
+    }
 
-  item.visible = !item.visible;
+    const item = data.find(item => item.id === li.id);
+    if (!item) {
+      console.error('Item not found:', li.id);
+      return;
+    }
 
-  const toggleSpan = li.querySelector('.toggleVisibility > span');
-  toggleSpan.textContent = item.visible ? '-' : '+';
-  li.querySelector('.toggleVisibility').classList.toggle('toggleOn', !item.visible);
-  saveData(data);
+    item.visible = !item.visible;
+    const toggleSpan = li.querySelector('.toggleVisibility > span');
+    toggleSpan.textContent = item.visible ? '-' : '+';
+    li.querySelector('.toggleVisibility').classList.toggle('toggleOn', !item.visible);
+    
+    await saveData(data);
+  } catch (error) {
+    console.error('Error in toggleVisibility:', error);
+  }
 };
 
 const getiOSVersion = () => {
   return parseInt((navigator.userAgent.match(/OS (\d+)_/) || [])[1] || 0);
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   if (navigator.userAgent.indexOf('iPhone') > -1) {
     document.body.style.width = 'initial';
   }
@@ -350,7 +407,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
   
-  updateList();
+  await updateList();
   
   editActions.textContent = labelStrings[langCode].editActions;
   editActions.addEventListener('click', toggleEditMode);
@@ -370,3 +427,4 @@ document.addEventListener('DOMContentLoaded', () => {
     event.target.classList.remove('selected');
   });
 });
+
