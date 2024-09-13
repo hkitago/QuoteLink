@@ -122,7 +122,7 @@ export const labelStrings = {
     "post2line": "Posting ke LINE",
     "refreshPageInfo": "Muat Ulang Halaman",
     "onError": "Untuk menggunakan ekstensi ini, ekstensi harus diaktifkan sebelum memuat halaman. Silakan coba lagi setelah menyegarkan halaman di Safari.",
-    "editActions": "Edit Actions...",
+    "editActions": "Edit Tindakan...",
     "editDone": "Selesai"
   },
   "ja": {
