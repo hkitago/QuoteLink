@@ -1,0 +1,10 @@
+{
+    "extension_name": {
+        "message": "CitaLink",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "Aquesta extensió genera text amb l'URL d'origen afegida al contingut seleccionat.",
+        "description": "Description of what the extension does."
+    }
+}

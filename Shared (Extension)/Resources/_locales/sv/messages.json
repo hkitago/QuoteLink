@@ -1,0 +1,10 @@
+{
+    "extension_name": {
+        "message": "CitatLink",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "Denna tilläggsprogram genererar text med käll-URL:en tillagd till det valda innehållet.",
+        "description": "Description of what the extension does."
+    }
+}

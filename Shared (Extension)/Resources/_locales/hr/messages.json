@@ -1,0 +1,10 @@
+{
+    "extension_name": {
+        "message": "CitLink",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "Ova ekstenzija generira tekst s URL-om izvora dodanim odabranom sadržaju.",
+        "description": "Description of what the extension does."
+    }
+}

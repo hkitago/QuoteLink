@@ -1,0 +1,10 @@
+{
+    "extension_name": {
+        "message": "KishLink",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "תוסף זה יוצר טקסט עם כתובת ה-URL המקורית שהוספה לתוכן הנבחר.",
+        "description": "Description of what the extension does."
+    }
+}

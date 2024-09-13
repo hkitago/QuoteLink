@@ -295,9 +295,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.body.style.width = 'initial';
   }
     
-  if (langCode.substring(0, 2) === 'ar') {
+  if (langCode.substring(0, 2) === 'ar' || langCode.substring(0, 2) === 'he') {
     document.body.classList.add('rtl');
-    document.documentElement.setAttribute('lang', 'ar');
+    document.documentElement.setAttribute('lang', langCode.substring(0, 2));
     document.documentElement.setAttribute('dir', 'rtl');
   }
   

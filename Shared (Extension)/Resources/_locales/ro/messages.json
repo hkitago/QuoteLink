@@ -1,0 +1,10 @@
+{
+    "extension_name": {
+        "message": "LinkCita",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "Această extensie generează text cu URL-ul sursă adăugat la conținutul selectat.",
+        "description": "Description of what the extension does."
+    }
+}

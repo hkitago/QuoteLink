@@ -1,0 +1,10 @@
+{
+    "extension_name": {
+        "message": "LainLink",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "Tämä laajennus luo tekstiä, jossa on lähde-URL lisättynä valittuun sisältöön.",
+        "description": "Description of what the extension does."
+    }
+}

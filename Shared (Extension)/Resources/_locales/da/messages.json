@@ -1,0 +1,10 @@
+{
+    "extension_name": {
+        "message": "CitatLink",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "Denne udvidelse genererer tekst med kilde-URL'en tilføjet til det valgte indhold.",
+        "description": "Description of what the extension does."
+    }
+}

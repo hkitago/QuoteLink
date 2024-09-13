@@ -1,0 +1,10 @@
+{
+    "extension_name": {
+        "message": "CitaLink",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "Это расширение генерирует текст с добавленным URL-адресом источника к выбранному контенту.",
+        "description": "Description of what the extension does."
+    }
+}

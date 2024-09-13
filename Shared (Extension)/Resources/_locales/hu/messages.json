@@ -1,0 +1,10 @@
+{
+    "extension_name": {
+        "message": "IdLink",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "Ez a bővítmény szöveget generál a kiválasztott tartalomhoz hozzáadott forrás URL-lel.",
+        "description": "Description of what the extension does."
+    }
+}

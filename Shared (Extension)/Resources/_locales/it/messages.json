@@ -1,0 +1,10 @@
+{
+    "extension_name": {
+        "message": "CitLink",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "Questa estensione genera testo con l'URL sorgente aggiunto al contenuto selezionato.",
+        "description": "Description of what the extension does."
+    }
+}

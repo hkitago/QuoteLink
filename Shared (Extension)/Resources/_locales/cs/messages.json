@@ -1,0 +1,10 @@
+{
+    "extension_name": {
+        "message": "CitLink",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "Tato rozšíření generuje text s přidanou URL adresou zdroje do vybraného obsahu.",
+        "description": "Description of what the extension does."
+    }
+}

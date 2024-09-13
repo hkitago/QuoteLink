@@ -1,0 +1,10 @@
+{
+    "extension_name": {
+        "message": "SyndLink",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "Αυτή η επέκταση δημιουργεί κείμενο με την προστιθέμενη διεύθυνση URL προέλευσης στο επιλεγμένο περιεχόμενο.",
+        "description": "Description of what the extension does."
+    }
+}

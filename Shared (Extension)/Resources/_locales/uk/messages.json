@@ -1,0 +1,10 @@
+{
+    "extension_name": {
+        "message": "CytLink",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "Цей розширення генерує текст з доданим URL джерела до вибраного контенту.",
+        "description": "Description of what the extension does."
+    }
+}

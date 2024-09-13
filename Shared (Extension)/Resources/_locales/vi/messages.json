@@ -1,0 +1,10 @@
+{
+    "extension_name": {
+        "message": "TrichLink",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "Tiện ích mở rộng này tạo văn bản với URL nguồn được thêm vào nội dung đã chọn.",
+        "description": "Description of what the extension does."
+    }
+}

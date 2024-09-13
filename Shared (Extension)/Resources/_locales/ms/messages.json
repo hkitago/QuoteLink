@@ -1,0 +1,10 @@
+{
+    "extension_name": {
+        "message": "PetLink",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "Pelanjutan ini menjana teks dengan URL sumber ditambahkan pada kandungan yang dipilih.",
+        "description": "Description of what the extension does."
+    }
+}
