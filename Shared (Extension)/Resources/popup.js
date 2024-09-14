@@ -1,6 +1,29 @@
 import { labelStrings, getCurrentLangCode } from './localization.js';
 const langCode = getCurrentLangCode();
 
+const appState = {
+  isEditMode: false,
+  originalClickHandlers: new Map(),
+  dragged: null,
+};
+
+function getState(key) {
+  return appState[key];
+}
+
+function setState(key, value) {
+  appState[key] = value;
+  console.log(`State updated: ${key} = ${value}`);
+}
+
+const clearOriginalClickHandlers = () => {
+  try {
+    setState('originalClickHandlers', new Map());
+  } catch (error) {
+    console.error('Error clearing originalClickHandlers:', error);
+  }
+};
+
 const socialPlatforms = {
   post2x: {
     labelKey: 'post2x',
@@ -116,7 +139,7 @@ const updateList = async () => {
       li.addEventListener('mouseout', onMouseOut);
     }
   });
-  if (!isEditMode) {
+  if (!getState('isEditMode')) {
     await updateVisibility();
     setupNormalModeListeners();
   } else {
@@ -134,7 +157,7 @@ const onNavPostTouchEndOrCancel = (event) => {
 
 const setupNormalModeListeners = () => {
   navPost.querySelectorAll('li').forEach((li) => {
-    const originalHandler = originalClickHandlers.get(li.id);
+    const originalHandler = getState('originalClickHandlers').get(li.id);
     if (originalHandler) {
       li.onclick = originalHandler;
     }
@@ -149,10 +172,9 @@ const setupEditModeListeners = () => {
     li.draggable = true;
     li.addEventListener('dragstart', onDragStart);
     li.classList.add('isEditMode')
-
     const clickHandler = li.onclick;
-    if (clickHandler && !originalClickHandlers.has(li.id)) {
-      originalClickHandlers.set(li.id, clickHandler);
+    if (clickHandler && !getState('originalClickHandlers').has(li.id)) {
+      getState('originalClickHandlers').set(li.id, clickHandler);
     }
     li.onclick = null;
     li.removeEventListener('touchstart', onNavPostTouchStart);
@@ -175,10 +197,8 @@ const saveInitialData = async () => {
   }
 };
 
-let dragged = null;
-
 const onDragStart = (event) => {
-  dragged = event.target;
+  setState('dragged', event.target);
   event.dataTransfer.setData('text/plain', event.target.id);
 };
 
@@ -195,18 +215,15 @@ const onDrop = async (event) => {
         console.error('Invalid data structure:', data);
         return;
       }
-
+      const dragged = getState('dragged');
       const fromId = data.findIndex(item => item.id === dragged.id);
       const toId = data.findIndex(item => item.id === event.target.id);
-
       if (fromId === -1 || toId === -1) {
         console.error('Invalid item ID(s):', dragged.id, event.target.id);
         return;
       }
-
       const [removed] = data.splice(fromId, 1);
       data.splice(toId, 0, removed);
-
       await saveData(data);
       await updateList();
     } catch (error) {
@@ -223,27 +240,21 @@ const onMouseOut = (event) => {
   event.target.closest('li').classList.remove('hover');
 }
 
-const originalClickHandlers = new Map();
-
-let isEditMode = false;
-
 const toggleEditMode = () => {
-  isEditMode = !isEditMode;
-
-  if (isEditMode) {
+  setState('isEditMode', !getState('isEditMode'));
+  if (getState('isEditMode')) {
     saveInitialData();
     setupEditModeListeners();
     navPost.querySelectorAll('li').forEach((li) => {
-      li.classList.remove('visibilityOff')
+      li.classList.remove('visibilityOff');
     });
-
     editActions.style.display = 'none';
     editDone.style.display = 'block';
   } else {
     navPost.querySelectorAll('li').forEach((li) => {
       li.draggable = false;
       li.removeEventListener('dragstart', onDragStart);
-      li.classList.remove('isEditMode')
+      li.classList.remove('isEditMode');
     });
     navPost.removeEventListener('dragover', onDragOver);
     navPost.removeEventListener('drop', onDrop);
@@ -251,9 +262,10 @@ const toggleEditMode = () => {
     
     setupNormalModeListeners();
     updateVisibility();
-
     editActions.style.display = 'block';
     editDone.style.display = 'none';
+    
+    clearOriginalClickHandlers();
   }
 };
 
