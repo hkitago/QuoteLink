@@ -51,6 +51,7 @@ ul#refreshPageInfo.selected > li {
 ul#navPost > li {
   display: flex;
   align-items: center;
+  min-height: 38px;
 }
 
 ul#navPost > li.visibilityOff {
