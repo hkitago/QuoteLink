@@ -41,7 +41,7 @@ Notes:
 
 - macOS Support
 - Removal of marketing parameters (e.g., Amazon affiliate links and utm parameters) and conversion to mobile-specific URLs
-- Addition of action menu (For requests to add posting destinations, please contact us via the contact information below)
+- Addition of action menu (For requests to add posting destinations, please contact me via the contact information below)
 
 ## Compatibility
 
@@ -58,3 +58,13 @@ The inspiration for this project came from two bookmarklets I developed and shar
 ## Contact
 
 You can reach me via [email](mailto:hkitago@gmail.com).
+
+## Additional Information
+
+### Development Story
+For a detailed look at the development journey and background of the project, check out our [development story blog post](https://hkitago.com/2024/09/exploring-the-extension-the-quotelink-safari-dev-journey/).
+
+### Related Links
+- App Store: [QuoteLink on the App Store](https://apps.apple.com/app/quotelink-for-safari/id6670304147)
+- Privacy Policy Page: [Privacy Policy – hkitago software dev](https://hkitago.com/wpautoterms/privacy-policy/)
+- Support Page: [hkitago/QuoteLink](https://github.com/hkitago/QuoteLink/)
