@@ -62,7 +62,7 @@ You can reach me via [email](mailto:hkitago@gmail.com).
 ## Additional Information
 
 ### Development Story
-For a detailed look at the development journey and background of the project, check out our [development story blog post](https://hkitago.com/2024/09/exploring-the-extension-the-quotelink-safari-dev-journey/).
+For a detailed look at the development journey and background of the project, check out my [development story blog post](https://hkitago.com/2024/09/exploring-the-extension-the-quotelink-safari-dev-journey/).
 
 ### Related Links
 - App Store: [QuoteLink on the App Store](https://apps.apple.com/app/quotelink-for-safari/id6670304147)
