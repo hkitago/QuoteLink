@@ -3,58 +3,18 @@ const langCode = getCurrentLangCode();
 
 const appState = {
   isEditMode: false,
-  originalClickHandlers: new Map(),
   dragged: null,
 };
 
-function getState(key) {
+const getState = (key) => {
   return appState[key];
 }
 
-function setState(key, value) {
+const setState = (key, value) => {
   appState[key] = value;
-  console.log(`State updated: ${key} = ${value}`);
 }
 
-const clearOriginalClickHandlers = () => {
-  try {
-    setState('originalClickHandlers', new Map());
-  } catch (error) {
-    console.error('Error clearing originalClickHandlers:', error);
-  }
-};
-
-const socialPlatforms = {
-  post2x: {
-    labelKey: 'post2x',
-    urlTemplate: 'https://x.com/intent/tweet?text=${quoteLinkText}&url=${currentUrl}'
-  },
-  post2threds: {
-    labelKey: 'post2threds',
-    urlTemplate: 'https://www.threads.net/intent/post?url=${currentUrl}&text=${quoteLinkText}'
-  },
-  post2bluesky: {
-    labelKey: 'post2bluesky',
-    urlTemplate: 'https://bsky.app/intent/compose?text=${quoteLinkText}%20${currentUrl}'
-  },
-  post2mastodon: {
-    labelKey: 'post2mastodon',
-    urlTemplate: 'https://mstdn.social/share?text=${quoteLinkText}%20${currentUrl}'
-  },
-  post2linkedin: {
-    labelKey: 'post2linkedin',
-    urlTemplate: 'https://www.linkedin.com/sharing/share-offsite/?url=${currentUrl}%20${quoteLinkText}'
-  },
-  post2telegram: {
-    labelKey: 'post2telegram',
-    urlTemplate: 'https://t.me/share/url?url=${currentUrl}&text=${quoteLinkText}'
-  },
-  post2line: {
-    labelKey: 'post2line',
-    urlTemplate: 'https://line.me/R/share?text=${quoteLinkText}%20${currentUrl}'
-  }
-};
-
+/* Environmental detection */
 const isMacOS = () => {
   const isPlatformMac = navigator.platform.toLowerCase().indexOf('mac') !== -1;
 
@@ -65,6 +25,11 @@ const isMacOS = () => {
   return (isPlatformMac || isUserAgentMac) && !('ontouchend' in document);
 };
 
+const getiOSVersion = () => {
+  return parseInt((navigator.userAgent.match(/OS (\d+)_/) || [])[1] || 0);
+};
+
+/* Data handling */
 const getStoredData = async () => {
   try {
     const result = await browser.storage.local.get('navPostData');
@@ -103,12 +68,55 @@ const saveData = async (data) => {
   }
 };
 
+const saveInitialData = async () => {
+  const storedData = await getStoredData();
+  if (!storedData) {
+    const initialData = Array.from(navPost.querySelectorAll('li')).map(li => ({
+      id: li.id,
+      visible: li.querySelector('div > span').textContent === '-',
+    }));
+    await saveData(initialData);
+  }
+};
+
+const syncDataWithHTML = async () => {
+  /* Debug: await browser.storage.local.clear(); return; */
+  let data = await getStoredData();
+
+  if (!data) {
+    console.error('Invalid data structure:', data);
+    return false;
+  }
+
+  const htmlItems = navPost.querySelectorAll('li');
+
+  // Add new items from HTML
+  htmlItems.forEach(htmlItem => {
+    if (!data.some(item => item.id === htmlItem.id)) {
+      data.push({
+        id: htmlItem.id,
+        text: htmlItem.querySelector('.postLabel').textContent,
+        visible: htmlItem.querySelector('.toggleVisibility span').textContent === '-'
+      });
+    }
+  });
+
+  // Remove items that no longer exist in HTML
+  const htmlIds = Array.from(htmlItems).map(htmlItem => htmlItem.id);
+  data = data.filter(item => htmlIds.includes(item.id));
+
+  await saveData(data);
+};
+
+/* Social post logic */
 const updateVisibility = async () => {
   const data = await getStoredData();
   
   if (!data) {
+    console.error('Invalid data structure:', data);
     return false;
   }
+
   data.forEach(item => {
     const li = document.getElementById(item.id);
     if (li) {
@@ -121,6 +129,7 @@ const updateList = async () => {
   const data = await getStoredData();
   
   if (!data) {
+    console.error('Invalid data structure:', data);
     return false;
   }
   
@@ -139,32 +148,30 @@ const updateList = async () => {
       li.addEventListener('mouseout', onMouseOut);
     }
   });
+
   if (!getState('isEditMode')) {
-    await updateVisibility();
     setupNormalModeListeners();
   } else {
     setupEditModeListeners();
   }
 };
 
-const onNavPostTouchStart = (event) => {
-  event.target.classList.add('selected');
-};
-
-const onNavPostTouchEndOrCancel = (event) => {
-  event.target.classList.remove('selected');
-};
-
 const setupNormalModeListeners = () => {
   navPost.querySelectorAll('li').forEach((li) => {
-    const originalHandler = getState('originalClickHandlers').get(li.id);
-    if (originalHandler) {
-      li.onclick = originalHandler;
-    }
+    li.removeEventListener('click', handleSocialPlatformClick);
+    li.addEventListener('click', handleSocialPlatformClick);
+
+    li.removeEventListener('touchstart', onNavPostTouchStart);
     li.addEventListener('touchstart', onNavPostTouchStart);
+    
+    li.removeEventListener('touchend', onNavPostTouchEndOrCancel);
     li.addEventListener('touchend', onNavPostTouchEndOrCancel);
+    
+    li.removeEventListener('touchcancel', onNavPostTouchEndOrCancel);
     li.addEventListener('touchcancel', onNavPostTouchEndOrCancel);
   });
+
+  updateVisibility();
 };
 
 const setupEditModeListeners = () => {
@@ -172,11 +179,8 @@ const setupEditModeListeners = () => {
     li.draggable = true;
     li.addEventListener('dragstart', onDragStart);
     li.classList.add('isEditMode')
-    const clickHandler = li.onclick;
-    if (clickHandler && !getState('originalClickHandlers').has(li.id)) {
-      getState('originalClickHandlers').set(li.id, clickHandler);
-    }
-    li.onclick = null;
+
+    li.removeEventListener('click', handleSocialPlatformClick);
     li.removeEventListener('touchstart', onNavPostTouchStart);
     li.removeEventListener('touchend', onNavPostTouchEndOrCancel);
     li.removeEventListener('touchcancel', onNavPostTouchEndOrCancel);
@@ -186,15 +190,140 @@ const setupEditModeListeners = () => {
   navPost.addEventListener('click', toggleVisibility);
 };
 
-const saveInitialData = async () => {
-  const storedData = await getStoredData();
-  if (!storedData) {
-    const initialData = Array.from(navPost.querySelectorAll('li')).map(li => ({
-      id: li.id,
-      visible: li.querySelector('div > span').textContent === '-',
-    }));
-    await saveData(initialData);
+const toggleEditMode = () => {
+  setState('isEditMode', !getState('isEditMode'));
+  if (getState('isEditMode')) {
+    //saveInitialData();
+    setupEditModeListeners();
+    navPost.querySelectorAll('li').forEach((li) => {
+      li.classList.remove('visibilityOff');
+    });
+    editActions.style.display = 'none';
+    editDone.style.display = 'block';
+  } else {
+    navPost.querySelectorAll('li').forEach((li) => {
+      li.draggable = false;
+      li.removeEventListener('dragstart', onDragStart);
+      li.classList.remove('isEditMode');
+    });
+    navPost.removeEventListener('dragover', onDragOver);
+    navPost.removeEventListener('drop', onDrop);
+    navPost.removeEventListener('click', toggleVisibility);
+    
+    setupNormalModeListeners();
+    
+    editActions.style.display = 'block';
+    editDone.style.display = 'none';
   }
+};
+
+const toggleVisibility = async (event) => {
+  const li = event.target.closest('li');
+  if (!li) return;
+  event.stopPropagation();
+
+  try {
+    const data = await getStoredData();
+    if (!data || !Array.isArray(data)) {
+      console.error('Invalid data structure:', data);
+      return false;
+    }
+
+    const item = data.find(item => item.id === li.id);
+    if (!item) {
+      console.error('Item not found:', li.id);
+      return;
+    }
+
+    item.visible = !item.visible;
+    const toggleSpan = li.querySelector('.toggleVisibility > span');
+    toggleSpan.textContent = item.visible ? '-' : '+';
+    li.querySelector('.toggleVisibility').classList.toggle('toggleOn', !item.visible);
+    
+    await saveData(data);
+  } catch (error) {
+    console.error('Error in toggleVisibility:', error);
+  }
+};
+
+/* Events for UI */
+const socialPlatforms = {
+  post2x: {
+    labelKey: 'post2x',
+    urlTemplate: 'https://x.com/intent/tweet?text=${quoteLinkText}&url=${currentUrl}'
+  },
+  post2threds: {
+    labelKey: 'post2threds',
+    urlTemplate: 'https://www.threads.net/intent/post?url=${currentUrl}&text=${quoteLinkText}'
+  },
+  post2bluesky: {
+    labelKey: 'post2bluesky',
+    urlTemplate: 'https://bsky.app/intent/compose?text=${quoteLinkText}%20${currentUrl}'
+  },
+  post2mastodon: {
+    labelKey: 'post2mastodon',
+    urlTemplate: 'https://mstdn.social/share?text=${quoteLinkText}%20${currentUrl}'
+  },
+  post2linkedin: {
+    labelKey: 'post2linkedin',
+    urlTemplates: {
+      macos: 'https://www.linkedin.com/feed/?shareActive=true&text=${quoteLinkText}%20${currentUrl}',
+      ios: 'https://www.linkedin.com/sharing/share-offsite/?url=${currentUrl}%20${quoteLinkText}'
+    }
+  },
+  post2telegram: {
+    labelKey: 'post2telegram',
+    urlTemplate: 'https://t.me/share/url?url=${currentUrl}&text=${quoteLinkText}'
+  },
+  post2line: {
+    labelKey: 'post2line',
+    urlTemplate: 'https://line.me/R/share?text=${quoteLinkText}%20${currentUrl}'
+  },
+  post2tumblr: {
+    labelKey: 'post2tumblr',
+    urlTemplate: 'https://www.tumblr.com/widgets/share/tool?shareSource=legacy&url=${currentUrl}&selection=${quoteLinkText}'
+  }
+};
+
+const getUrlTemplate = (platform) => {
+  if (platform.urlTemplates) {
+    return isMacOS() ? platform.urlTemplates.macos : platform.urlTemplates.ios;
+  } else if (platform.urlTemplate) {
+    return platform.urlTemplate;
+  }
+  
+  return null;
+};
+
+const handleSocialPlatformClick = (event) => {
+  const targetId = event.currentTarget.id;
+  const platform = socialPlatforms[targetId];
+  
+  if (platform) {
+    browser.tabs.query({active: true, currentWindow: true}, (tabs) => {
+      if (tabs[0]) {
+        const tabId = tabs[0].id;
+        browser.storage.local.get(tabId.toString(), (result) => {
+          const tabInfo = result[tabId];
+          if (tabInfo) {
+            const quoteLinkText = tabInfo.selectedText ? (targetId === 'post2tumblr' ? `${tabInfo.selectedText}` : `"${tabInfo.selectedText}"`) : `${tabInfo.pageTitle}`;
+            const urlTemplate = getUrlTemplate(platform);
+            const url = urlTemplate.replace('${quoteLinkText}', encodeURIComponent(quoteLinkText)).replace('${currentUrl}', encodeURIComponent(tabInfo.currentUrl));
+
+            browser.tabs.create({ url });
+          }
+        });
+      }
+    });
+  }
+};
+
+const onNavPostTouchStart = (event) => {
+  event.target.classList.add('selected');
+};
+
+const onNavPostTouchEndOrCancel = (event) => {
+  event.target.classList.remove('selected');
 };
 
 const onDragStart = (event) => {
@@ -213,7 +342,7 @@ const onDrop = async (event) => {
       const data = await getStoredData();
       if (!data || !Array.isArray(data)) {
         console.error('Invalid data structure:', data);
-        return;
+        return false;
       }
       const dragged = getState('dragged');
       const fromId = data.findIndex(item => item.id === dragged.id);
@@ -240,68 +369,7 @@ const onMouseOut = (event) => {
   event.target.closest('li').classList.remove('hover');
 }
 
-const toggleEditMode = () => {
-  setState('isEditMode', !getState('isEditMode'));
-  if (getState('isEditMode')) {
-    saveInitialData();
-    setupEditModeListeners();
-    navPost.querySelectorAll('li').forEach((li) => {
-      li.classList.remove('visibilityOff');
-    });
-    editActions.style.display = 'none';
-    editDone.style.display = 'block';
-  } else {
-    navPost.querySelectorAll('li').forEach((li) => {
-      li.draggable = false;
-      li.removeEventListener('dragstart', onDragStart);
-      li.classList.remove('isEditMode');
-    });
-    navPost.removeEventListener('dragover', onDragOver);
-    navPost.removeEventListener('drop', onDrop);
-    navPost.removeEventListener('click', toggleVisibility);
-    
-    setupNormalModeListeners();
-    updateVisibility();
-    editActions.style.display = 'block';
-    editDone.style.display = 'none';
-    
-    clearOriginalClickHandlers();
-  }
-};
-
-const toggleVisibility = async (event) => {
-  const li = event.target.closest('li');
-  if (!li) return;
-  event.stopPropagation();
-
-  try {
-    const data = await getStoredData();
-    if (!data || !Array.isArray(data)) {
-      console.error('Invalid data structure:', data);
-      return;
-    }
-
-    const item = data.find(item => item.id === li.id);
-    if (!item) {
-      console.error('Item not found:', li.id);
-      return;
-    }
-
-    item.visible = !item.visible;
-    const toggleSpan = li.querySelector('.toggleVisibility > span');
-    toggleSpan.textContent = item.visible ? '-' : '+';
-    li.querySelector('.toggleVisibility').classList.toggle('toggleOn', !item.visible);
-    
-    await saveData(data);
-  } catch (error) {
-    console.error('Error in toggleVisibility:', error);
-  }
-};
-
-const getiOSVersion = () => {
-  return parseInt((navigator.userAgent.match(/OS (\d+)_/) || [])[1] || 0);
-};
-
+/* Rendering */
 document.addEventListener('DOMContentLoaded', async () => {
   if (navigator.userAgent.indexOf('iPhone') > -1) {
     document.body.style.width = 'initial';
@@ -317,126 +385,118 @@ document.addEventListener('DOMContentLoaded', async () => {
   const editActions = document.getElementById('editActions');
   const editDone = document.getElementById('editDone');
   
-  browser.tabs.query({active: true, currentWindow: true}, (tabs) => {
+  await saveInitialData();
+  await syncDataWithHTML();
+
+  browser.tabs.query({active: true, currentWindow: true}, async (tabs) => {
     if (tabs[0]) {
       const tabId = tabs[0].id;
-      browser.storage.local.get(tabId.toString(), (result) => {
-        const tabInfo = result[tabId];
-        if (tabInfo) {
-          const quoteLinkText = tabInfo.selectedText ? `"${tabInfo.selectedText}"` : `${tabInfo.pageTitle}`;
-          document.getElementById('selectedText').innerHTML = `${quoteLinkText.replace(/\n/g, '<br>')}<br>${tabInfo.currentUrl}`;
-          
-          const copyElement = document.getElementById('copy2clipboard');
-          copyElement.querySelector('div').textContent = labelStrings[langCode].copy2clipboard;
-          
-          copyElement.addEventListener('click', (event) => {
-            navigator.clipboard.writeText(`${quoteLinkText}\n${tabInfo.currentUrl}`);
-            
+      const result = await browser.storage.local.get(tabId.toString());
+      const tabInfo = result[tabId];
+      if (tabInfo) {
+        const quoteLinkText = tabInfo.selectedText ? `"${tabInfo.selectedText}"` : `${tabInfo.pageTitle}`;
+        document.getElementById('selectedText').innerHTML = `${quoteLinkText.replace(/\n/g, '<br>')}<br>${tabInfo.currentUrl}`;
+        
+        const copyElement = document.getElementById('copy2clipboard');
+        copyElement.querySelector('div').textContent = labelStrings[langCode].copy2clipboard;
+        
+        copyElement.addEventListener('click', (event) => {
+          navigator.clipboard.writeText(`${quoteLinkText}\n${tabInfo.currentUrl}`);
+          window.close();
+          if (getiOSVersion() < 18) {
             setTimeout(() => {
-              if (getiOSVersion() >= 18) {
-                window.close();
-              } else {
-                browser.runtime.reload();
-              }
+              browser.runtime.reload();
             }, 100);
-          });
-          
-          copyElement.addEventListener('touchstart', (event) => {
-            event.stopPropagation();
-            event.target.closest('li').classList.add('selected');
-          });
-          
-          copyElement.addEventListener('touchend', (event) => {
-            event.stopPropagation();
-            event.target.closest('li').classList.remove('selected');
-          });
-
-          copyElement.addEventListener('touchcancel', (event) => {
-            event.stopPropagation();
-            event.target.closest('li').classList.remove('selected');
-          });
-
-          if (isMacOS()) {
-            copyElement.addEventListener('mouseover', onMouseOver);
-            copyElement.addEventListener('mouseout', onMouseOut);
           }
+        });
+        
+        copyElement.addEventListener('touchstart', (event) => {
+          event.stopPropagation();
+          event.target.closest('li').classList.add('selected');
+        });
+        
+        copyElement.addEventListener('touchend', (event) => {
+          event.stopPropagation();
+          event.target.closest('li').classList.remove('selected');
+        });
 
-          navPost.querySelectorAll('li').forEach((li) => {
-            const targetId = li.id;
-            const platform = socialPlatforms[targetId];
-            
-            if (platform) {
-              document.querySelector(`#${targetId} > div.postLabel`).textContent = labelStrings[langCode][platform.labelKey];
-              const url = platform.urlTemplate
-              .replace('${quoteLinkText}', encodeURIComponent(quoteLinkText))
-              .replace('${currentUrl}', encodeURIComponent(tabInfo.currentUrl));
-              
-              li.onclick = () => {
-                browser.tabs.create({ url });
-              };
-            }
-          });
-        } else {
-          document.querySelectorAll('.nav').forEach((ul) => {
-            ul.style.display = 'none';
-          });
-          editActions.style.display = 'none';
-          editDone.style.display = 'none';
-          
-          document.getElementById('selectedText').textContent = labelStrings[langCode].onError;
-          
-          const refreshPageInfo = document.getElementById('refreshPageInfo');
+        copyElement.addEventListener('touchcancel', (event) => {
+          event.stopPropagation();
+          event.target.closest('li').classList.remove('selected');
+        });
 
-          refreshPageInfo.querySelector('li > div').textContent = labelStrings[langCode].refreshPageInfo;
-          refreshPageInfo.style.display = 'block';
-          refreshPageInfo.addEventListener('click', () => {
-            browser.runtime.sendMessage({ action: 'refreshPageInfo' });
-            setTimeout(() => {
-              if (getiOSVersion() < 18) {
-                browser.runtime.reload();
-              } else {
-                window.close();
-              }
-            }, 100);
-          });
-
-          refreshPageInfo.querySelector('li').addEventListener('touchstart', (event) => {
-            event.stopPropagation();
-            event.target.closest('li').classList.add('selected');
-          });
-          
-          refreshPageInfo.querySelector('li').addEventListener('touchend', (event) => {
-            event.stopPropagation();
-            event.target.closest('li').classList.remove('selected');
-          });
-          
-          refreshPageInfo.querySelector('li').addEventListener('touchcancel', (event) => {
-            event.stopPropagation();
-            event.target.closest('li').classList.remove('selected');
-          });
+        if (isMacOS()) {
+          copyElement.addEventListener('mouseover', onMouseOver);
+          copyElement.addEventListener('mouseout', onMouseOut);
         }
-      });
+
+        navPost.querySelectorAll('li').forEach((li) => {
+          const targetId = li.id;
+          const platform = socialPlatforms[targetId];
+          
+          if (platform) {
+            document.querySelector(`#${targetId} > div.postLabel`).textContent = labelStrings[langCode][platform.labelKey];
+            li.addEventListener('click', handleSocialPlatformClick);
+          }
+        });
+        await updateList();
+        
+        editActions.textContent = labelStrings[langCode].editActions;
+        editActions.addEventListener('click', toggleEditMode);
+        editActions.addEventListener('touchstart', (event) => {
+          event.target.classList.add('selected');
+        });
+        editActions.addEventListener('touchend', (event) => {
+          event.target.classList.remove('selected');
+        });
+        
+        editDone.textContent = labelStrings[langCode].editDone;
+        editDone.addEventListener('click', toggleEditMode);
+        editDone.addEventListener('touchstart', (event) => {
+          event.target.classList.add('selected');
+        });
+        editDone.addEventListener('touchend', (event) => {
+          event.target.classList.remove('selected');
+        });
+      } else {
+        document.querySelectorAll('.nav').forEach((ul) => {
+          ul.style.display = 'none';
+        });
+        editActions.style.display = 'none';
+        editDone.style.display = 'none';
+        
+        document.getElementById('selectedText').textContent = labelStrings[langCode].onError;
+        
+        const refreshPageInfo = document.getElementById('refreshPageInfo');
+
+        refreshPageInfo.querySelector('li > div').textContent = labelStrings[langCode].refreshPageInfo;
+        refreshPageInfo.style.display = 'block';
+        refreshPageInfo.addEventListener('click', () => {
+          browser.runtime.sendMessage({ action: 'refreshPageInfo' });
+          window.close();
+          if (getiOSVersion() < 18) {
+            setTimeout(() => {
+              browser.runtime.reload();
+            }, 100);
+          }
+        });
+
+        refreshPageInfo.querySelector('li').addEventListener('touchstart', (event) => {
+          event.stopPropagation();
+          event.target.closest('li').classList.add('selected');
+        });
+        
+        refreshPageInfo.querySelector('li').addEventListener('touchend', (event) => {
+          event.stopPropagation();
+          event.target.closest('li').classList.remove('selected');
+        });
+        
+        refreshPageInfo.querySelector('li').addEventListener('touchcancel', (event) => {
+          event.stopPropagation();
+          event.target.closest('li').classList.remove('selected');
+        });
+      }
     }
-  });
-  
-  await updateList();
-  
-  editActions.textContent = labelStrings[langCode].editActions;
-  editActions.addEventListener('click', toggleEditMode);
-  editActions.addEventListener('touchstart', (event) => {
-    event.target.classList.add('selected');
-  });
-  editActions.addEventListener('touchend', (event) => {
-    event.target.classList.remove('selected');
-  });
-  
-  editDone.textContent = labelStrings[langCode].editDone;
-  editDone.addEventListener('click', toggleEditMode);
-  editDone.addEventListener('touchstart', (event) => {
-    event.target.classList.add('selected');
-  });
-  editDone.addEventListener('touchend', (event) => {
-    event.target.classList.remove('selected');
   });
 });
 
