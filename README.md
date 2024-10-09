@@ -5,25 +5,32 @@ This Safari extension is perfect for those who want to efficiently share web pag
 ## Installation & Uninstallation
 
 ### Installation
-To install the extension, go to Settings > Apps > Safari > Extensions, or enable the extension by toggling it on in the Manage Extensions option found in the Safari address bar.
+To install the extension on iOS or iPadOS, go to Settings > Apps > Safari > Extensions, or enable the extension by toggling it on in the Manage Extensions option found in the Safari address bar.
+For macOS, open Safari, go to Safari > Settings > Extensions, and enable the extension from there.
 
 ### Uninstallation
 To uninstall the extension, similarly to the installation process, toggle the extension off, or remove it completely by selecting the extension icon on the Home Screen and choosing "Delete app".
 
-See also: [Get extensions to customize Safari on iPhone - Apple Support](https://support.apple.com/guide/iphone/iphab0432bf6/17.0/ios/17.0)
+See also: 
+- [Get extensions to customize Safari on iPhone - Apple Support](https://support.apple.com/guide/iphone/iphab0432bf6/18.0/ios/18.0)
+- [Get extensions to customize Safari on Mac - Apple Support](https://support.apple.com/guide/safari/get-extensions-sfri32508/mac)
 
 ## Usage
 
 1. Load the web page.
 2. Select the text within the web page.
-3. Tap the icon on the left side of the address bar and choose the extension.
-4. A window will slide up from the bottom on iPhone, or a pop-up window will appear on iPad; select an action and tap it.
+3. Tap the icon next to the address bar and choose the extension.
+4. A window will slide up from the bottom on iPhone, or a pop-up window will appear on iPad and Mac; select an action and tap it.
 
 Notes:
 - If you do not select text within the web page, the page title will be used.
 - If you enable the extension and it doesn't function correctly, please refresh the page, or close and restart the app, and try again.
 
-## Version History
+## iOS/iPadOS Version History
+
+### [1.2] - 2024-09-20
+- Added support for all languages in the App Store
+- Updated app icon to a new design
 
 ### [1.1] - 2024-09-10
 - Addressed issues with browser back and forward buttons
@@ -33,19 +40,24 @@ Notes:
 ### [1.0] - 2024-09-03
 - Initial release with basic features
 
+## macOS Version History
+
+### [macOS 1.0] - 2024-10-03
+- Initial release with extended features from iOS/iPadOS version
+
 ## Known Issues
 
 - There is a rare issue where the extension may not work when a URL is passed from the in-app browser feature of other apps, such as RSS or social media apps, to Safari for display.
 
 ## Roadmap
 
-- macOS Support
 - Removal of marketing parameters (e.g., Amazon affiliate links and utm parameters) and conversion to mobile-specific URLs
 - Addition of action menu (For requests to add posting destinations, please contact me via the contact information below)
 
 ## Compatibility
 
-iOS 15+
+- macOS 10.14+
+- iOS/iPadOS 15+
 
 ## License
 
