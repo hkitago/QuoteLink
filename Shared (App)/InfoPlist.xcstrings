@@ -46,6 +46,12 @@
             "value" : "QuoteLink"
           }
         },
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuoteLink"
+          }
+        },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
@@ -85,7 +91,7 @@
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "KishLink"
+            "value" : "קישורציטוט"
           }
         },
         "hi" : {
@@ -273,6 +279,12 @@
             "value" : "QuoteLink"
           }
         },
+        "en-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuoteLink"
+          }
+        },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
@@ -312,7 +324,7 @@
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "KishLink"
+            "value" : "קישורציטוט"
           }
         },
         "hi" : {

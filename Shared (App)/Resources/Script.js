@@ -177,11 +177,11 @@ function show(platform, enabled, useSettingsInsteadOfPreferences) {
       "macPreferences": "Αποσυνδεθείτε και ανοίξτε τις Ρυθμίσεις Safari…"
     },
     "hr": {
-      "iOS": "אתה יכול להפעיל את הרחבת Safari של KishLink בהגדרות.",
-      "macOn": "ההרחבה של KishLink פעילה כרגע. אתה יכול לכבות אותה בחלק ההרחבות בהגדרות Safari.",
-      "macOff": "ההרחבה של KishLink כבויה כרגע. אתה יכול להפעיל אותה בחלק ההרחבות בהגדרות Safari.",
-      "macUnknown": "אתה יכול להפעיל את הרחבת KishLink בחלק ההרחבות בהגדרות Safari.",
-      "macPreferences": "צא ופתח את הגדרות Safari…"
+      "iOS": "Možete uključiti CitLink Safari proširenje u Postavkama.",
+      "macOn": "CitLink proširenje je trenutno uključeno. Možete ga isključiti u odjeljku Proširenja u Safari postavkama.",
+      "macOff": "CitLink proširenje je trenutno isključeno. Možete ga uključiti u odjeljku Proširenja u Safari postavkama.",
+      "macUnknown": "Možete uključiti CitLink proširenje u odjeljku Proširenja u Safari postavkama.",
+      "macPreferences": "Zatvori i otvori Safari postavke…"
     },
     "sv": {
       "iOS": "Du kan aktivera Safari-tillägget för CitatLink i Inställningar.",
@@ -247,10 +247,10 @@ function show(platform, enabled, useSettingsInsteadOfPreferences) {
       "macPreferences": "Thoát và mở Cài đặt Safari…"
     },
     "he": {
-      "iOS": "אתה יכול להפעיל את תוסף Safari של KishLink בהגדרות.",
-      "macOn": "התוסף של KishLink פעיל כעת. אתה יכול לכבות אותו בחלק התוספים בהגדרות Safari.",
-      "macOff": "התוסף של KishLink כבוי כעת. אתה יכול להפעיל אותו בחלק התוספים בהגדרות Safari.",
-      "macUnknown": "אתה יכול להפעיל את תוסף KishLink בחלק התוספים בהגדרות Safari.",
+      "iOS": "אתה יכול להפעיל את תוסף Safari של קישורציטוט בהגדרות.",
+      "macOn": "התוסף של קישורציטוט פעיל כעת. אתה יכול לכבות אותו בחלק התוספים בהגדרות Safari.",
+      "macOff": "התוסף של קישורציטוט כבוי כעת. אתה יכול להפעיל אותו בחלק התוספים בהגדרות Safari.",
+      "macUnknown": "אתה יכול להפעיל את תוסף קישורציטוט בחלק התוספים בהגדרות Safari.",
       "macPreferences": "סגור ופתח את הגדרות Safari…"
     },
     "pl": {
