@@ -17,8 +17,6 @@
 		60565A702C7E9CED002DA451 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 60565A6F2C7E9CED002DA451 /* Base */; };
 		60565A772C7E9CED002DA451 /* QuoteLink Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 60565A762C7E9CED002DA451 /* QuoteLink Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		60565A812C7E9CED002DA451 /* QuoteLink Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 60565A802C7E9CED002DA451 /* QuoteLink Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		60565A872C7E9CED002DA451 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 60565A432C7E9CEB002DA451 /* Base */; };
-		60565A882C7E9CED002DA451 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 60565A432C7E9CEB002DA451 /* Base */; };
 		60565A892C7E9CED002DA451 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 60565A442C7E9CEB002DA451 /* Icon.png */; };
 		60565A8A2C7E9CED002DA451 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 60565A442C7E9CEB002DA451 /* Icon.png */; };
 		60565A8B2C7E9CED002DA451 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 60565A452C7E9CEB002DA451 /* Style.css */; };
@@ -47,8 +45,10 @@
 		60565AA22C7E9CED002DA451 /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = 60565A522C7E9CED002DA451 /* popup.css */; };
 		60565AA32C7E9CED002DA451 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 60565A532C7E9CED002DA451 /* popup.js */; };
 		60565AA42C7E9CED002DA451 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 60565A532C7E9CED002DA451 /* popup.js */; };
-		6091769C2C9033C7004CFDEE /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 6091769B2C9033C7004CFDEE /* InfoPlist.xcstrings */; };
-		6091769D2C9033C7004CFDEE /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 6091769B2C9033C7004CFDEE /* InfoPlist.xcstrings */; };
+		60C2BEA02CC7295A0045F1BD /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 60C2BE9F2CC7295A0045F1BD /* InfoPlist.xcstrings */; };
+		60C2BEA12CC7295A0045F1BD /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 60C2BE9F2CC7295A0045F1BD /* InfoPlist.xcstrings */; };
+		60EDA3FE2CC5C994001E75BB /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 60EDA3FC2CC5C994001E75BB /* Main.html */; };
+		60EDA3FF2CC5C994001E75BB /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 60EDA3FC2CC5C994001E75BB /* Main.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,7 +97,6 @@
 		600720622C89331D0047F850 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		600F4D0D2C85F8B9008EFD53 /* localization.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = localization.js; sourceTree = "<group>"; };
 		6042C7722C87448D005EA3D3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		60565A432C7E9CEB002DA451 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = ../Base.lproj/Main.html; sourceTree = "<group>"; };
 		60565A442C7E9CEB002DA451 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		60565A452C7E9CEB002DA451 /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
 		60565A462C7E9CEB002DA451 /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
@@ -127,7 +126,8 @@
 		60565A802C7E9CED002DA451 /* QuoteLink Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "QuoteLink Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60565A852C7E9CED002DA451 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60565A862C7E9CED002DA451 /* QuoteLink.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuoteLink.entitlements; sourceTree = "<group>"; };
-		6091769B2C9033C7004CFDEE /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		60C2BE9F2CC7295A0045F1BD /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		60EDA3FD2CC5C994001E75BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Main.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,7 +183,7 @@
 				60565A472C7E9CEB002DA451 /* ViewController.swift */,
 				60565A482C7E9CED002DA451 /* Assets.xcassets */,
 				60565A412C7E9CEB002DA451 /* Resources */,
-				6091769B2C9033C7004CFDEE /* InfoPlist.xcstrings */,
+				60C2BE9F2CC7295A0045F1BD /* InfoPlist.xcstrings */,
 			);
 			path = "Shared (App)";
 			sourceTree = "<group>";
@@ -191,7 +191,7 @@
 		60565A412C7E9CEB002DA451 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				60565A422C7E9CEB002DA451 /* Main.html */,
+				60EDA3FC2CC5C994001E75BB /* Main.html */,
 				60565A442C7E9CEB002DA451 /* Icon.png */,
 				60565A452C7E9CEB002DA451 /* Style.css */,
 				60565A462C7E9CEB002DA451 /* Script.js */,
@@ -380,7 +380,6 @@
 			knownRegions = (
 				en,
 				Base,
-				"en-CA",
 			);
 			mainGroup = 60565A3B2C7E9CEB002DA451;
 			productRefGroup = 60565A592C7E9CED002DA451 /* Products */;
@@ -401,12 +400,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				60565A892C7E9CED002DA451 /* Icon.png in Resources */,
+				60EDA3FE2CC5C994001E75BB /* Main.html in Resources */,
 				60565A612C7E9CED002DA451 /* Base in Resources */,
-				60565A872C7E9CED002DA451 /* Base in Resources */,
+				60C2BEA12CC7295A0045F1BD /* InfoPlist.xcstrings in Resources */,
 				60565A8D2C7E9CED002DA451 /* Script.js in Resources */,
 				60565A912C7E9CED002DA451 /* Assets.xcassets in Resources */,
 				60565A642C7E9CED002DA451 /* Base in Resources */,
-				6091769C2C9033C7004CFDEE /* InfoPlist.xcstrings in Resources */,
 				60565A8B2C7E9CED002DA451 /* Style.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,12 +415,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				60565A8A2C7E9CED002DA451 /* Icon.png in Resources */,
-				6091769D2C9033C7004CFDEE /* InfoPlist.xcstrings in Resources */,
 				60565A8C2C7E9CED002DA451 /* Style.css in Resources */,
 				60565A702C7E9CED002DA451 /* Base in Resources */,
 				60565A8E2C7E9CED002DA451 /* Script.js in Resources */,
+				60EDA3FF2CC5C994001E75BB /* Main.html in Resources */,
+				60C2BEA02CC7295A0045F1BD /* InfoPlist.xcstrings in Resources */,
 				60565A922C7E9CED002DA451 /* Assets.xcassets in Resources */,
-				60565A882C7E9CED002DA451 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,14 +510,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		60565A422C7E9CEB002DA451 /* Main.html */ = {
-			isa = PBXVariantGroup;
-			children = (
-				60565A432C7E9CEB002DA451 /* Base */,
-			);
-			name = Main.html;
-			sourceTree = "<group>";
-		};
 		60565A5F2C7E9CED002DA451 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -541,6 +532,14 @@
 				60565A6F2C7E9CED002DA451 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		60EDA3FC2CC5C994001E75BB /* Main.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				60EDA3FD2CC5C994001E75BB /* Base */,
+			);
+			name = Main.html;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -605,6 +604,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -661,6 +661,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
 			name = Release;
 		};
@@ -809,7 +810,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/QuoteLink.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = R3F5JGKA7W;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -823,7 +824,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.3;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -842,7 +843,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/QuoteLink.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = R3F5JGKA7W;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -856,7 +857,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.3;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -877,7 +878,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "macOS (App)/QuoteLink.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = R3F5JGKA7W;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -891,7 +892,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.3;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -913,7 +914,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "macOS (App)/QuoteLink.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = R3F5JGKA7W;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -927,7 +928,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.3;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
