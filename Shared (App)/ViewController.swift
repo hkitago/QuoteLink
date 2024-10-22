@@ -64,23 +64,42 @@ class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMess
 #endif
     }
 
-    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-#if os(macOS)
-        if (message.body as! String != "open-preferences") {
-            return
-        }
+  func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+      let messageBody = message.body as! String
+      var url: URL?
 
-        SFSafariApplication.showPreferencesForExtension(withIdentifier: extensionBundleIdentifier) { error in
-            guard error == nil else {
-                // Insert code to inform the user that something went wrong.
-                return
-            }
+      if messageBody == "open-support" {
+          url = URL(string: "https://github.com/hkitago/InvertDark/")
+      }
 
-            DispatchQueue.main.async {
-                NSApp.terminate(self)
-            }
-        }
-#endif
-    }
+  #if os(macOS)
+      if messageBody == "open-preferences" {
+          SFSafariApplication.showPreferencesForExtension(withIdentifier: extensionBundleIdentifier) { error in
+              guard error == nil else {
+                  return
+              }
+              DispatchQueue.main.async {
+                  NSApp.terminate(self)
+              }
+          }
+          return
+      }
+
+      if let validURL = url {
+          NSWorkspace.shared.open(validURL)
+      }
+
+  #elseif os(iOS)
+      if messageBody == "open-settings" {
+          url = URL(string: UIApplication.openSettingsURLString)
+      }
+
+      if let validURL = url {
+          UIApplication.shared.open(validURL)
+      }
+  #endif
+  }
+
 
 }
+
