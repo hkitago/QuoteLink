@@ -43,6 +43,9 @@ Notes:
 
 ## macOS Version History
 
+### 1.3.1 - 2024-10-24
+- Fixed the link to the support page
+
 ### 1.3 - 2024-10-23
 - Added new localization languages and adjusted some existing languages.
 - Changed and adjusted the toolbar icon format.
