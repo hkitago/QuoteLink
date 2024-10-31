@@ -1,11 +1,22 @@
+// When enabled with tabs already open, just tricky part for Safari
+browser.runtime.onInstalled.addListener(async () => {
+  const tabs = await browser.tabs.query({});
+
+  for (const tab of tabs) {
+    if (tab.url.startsWith('http') || tab.url.startsWith('https')) {
+      await browser.tabs.reload(tab.id);
+    }
+  }
+});
+
 // Handle messages received from content.js to store data in local storage
-browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  if (request.action === "updatePageInfo") {
+browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.action === "updatePageInfo") {
     browser.storage.local.set({
       [sender.tab.id]: {
-        selectedText: request.text,
-        pageTitle: request.title,
-        currentUrl: request.url
+        selectedText: message.text,
+        pageTitle: message.title,
+        currentUrl: message.url
       }
     });
   }
