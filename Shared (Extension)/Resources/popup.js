@@ -281,7 +281,7 @@ const socialPlatforms = {
   },
   post2tumblr: {
     labelKey: 'post2tumblr',
-    urlTemplate: 'https://www.tumblr.com/widgets/share/tool?shareSource=legacy&url=${currentUrl}&selection=${quoteLinkText}'
+    urlTemplate: 'https://www.tumblr.com/widgets/share/tool?url=${currentUrl}&selection=${quoteLinkText}'
   }
 };
 
