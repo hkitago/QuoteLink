@@ -29,9 +29,18 @@ Notes:
 
 ## Version History
 
-1.4 - 2024-11-01
+### 1.5
 
-- Fixed issues with enabling the extension on already opened web pages.
+#### **macOS** - 2024-12-10
+
+- Added a new option for sharing
+- Updated strings for label in multiple languages for better localization
+
+### 1.4 - 2024-11-01
+
+#### **Common**
+
+- Fixed issues with enabling the extension on already opened web pages
 
 #### **macOS**
 
@@ -49,9 +58,9 @@ Notes:
 
 #### **macOS** - 2024-10-23
 
-- Added new localization languages and adjusted some existing languages.
-- Changed and adjusted the toolbar icon format.
-- Adjusted the version number to align with iOS.
+- Added new localization languages and adjusted some existing languages
+- Changed and adjusted the toolbar icon format
+- Adjusted the version number to align with iOS
 
 ### 1.2
 
@@ -101,6 +110,8 @@ This project is open-source and available under the [MIT License](LICENSE). Feel
 ## Acknowledgments
 
 The inspiration for this project came from two bookmarklets I developed and shared on GitHub Gist. You can view them [here](https://gist.github.com/hkitago/67ed3a91c7941ab9a2c6b657bac692cb) and [here](https://gist.github.com/hkitago/1009207b098773cf0a29b76636eb03c5). I would like to acknowledge the role of these bookmarklets in shaping the idea for the QuoteLink extension and helping to bring it to fruition.
+
+Special thanks to [bradvin/social-share-urls: Social Share URLs](https://github.com/bradvin/social-share-urls) for handling Social Share URLs.
 
 ## Contact
 
