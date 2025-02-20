@@ -18,7 +18,7 @@ To uninstall the extension, similarly to the installation process, toggle the ex
 ## Usage
 
 1. Load the web page.
-2. Select the text within the web page.
+2. Select the text on the web page.
 3. Tap the icon next to the address bar and choose the extension.
 4. A window will slide up from the bottom on iPhone, or a pop-up window will appear on iPad and Mac; select an action and tap it.
 
