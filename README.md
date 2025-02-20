@@ -1,4 +1,4 @@
-# QuoteLink for Safari Extension
+# <img src="https://raw.githubusercontent.com/hkitago/QuoteLink/refs/heads/main/Shared%20(App)/Resources/Icon.png" height="36" valign="bottom"/> QuoteLink for Safari Extension
 
 This Safari extension significantly streamlines the process of web page citation. Instead of repeatedly copying and pasting text and URLs, simply select the text and press the extension button to automatically generate a citation with the source URL. It can be quickly utilized for various purposes, such as creating papers, presentation materials, saving important recipes, or noting interesting information for later reference.
 
@@ -30,6 +30,13 @@ Notes:
 ## Version History
 
 ### 1.5
+
+#### **iOS/iPadOS** - 2025-02-19
+
+- Add a new option for sharing through the OS standard menu
+- Fix an issue with the link in the preset SNS sharing options
+- Chang minimum version requirement to 16
+- Fix app names and phrasing in certain languages for localization improvements
 
 #### **macOS** - 2024-12-10
 
