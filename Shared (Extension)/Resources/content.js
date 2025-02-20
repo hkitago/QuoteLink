@@ -75,7 +75,7 @@
   if (document.readyState !== 'loading') {
     updatePageInfo();
   } else {
-    document.addEventListener('DOMContentLoaded', updatePageInfo);
+    document.addEventListener('DOMContentLoaded', updatePageInfo, { once: true });
   }
 
   // Using history back or forward
