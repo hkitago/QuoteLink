@@ -59,7 +59,7 @@ ul#navPost > li.visibilityOff {
 }
 
 ul#navPost > li.isEditMode {
-  background-image: url(./images/icon-list-light.png);
+  background-image: url(./images/icon-list-light.svg);
   background-repeat: no-repeat;
   background-position: right 20px center;
   background-size: auto 20px;
@@ -83,7 +83,7 @@ div.toggleVisibility > span {
   overflow: hidden;
   width: 18px;
   height: 18px;
-  background-image: url(./images/icon-circle-minus.png);
+  background-image: url(./images/icon-minus.svg);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: auto 100%;
@@ -92,7 +92,7 @@ div.toggleVisibility > span {
 }
 
 div.toggleOn > span {
-  background-image: url(./images/icon-circle-plus.png);
+  background-image: url(./images/icon-plus.svg);
 }
 
 div.postLabel {
@@ -172,14 +172,14 @@ div#editActions:hover, div#editDone:hover {
     background-color: rgb(58 57 59);
   }
   
-  ul#navPost > li.isEditMode {
-    background-image: url(./images/icon-list-dark.png);
-  }
-
   li.isEditMode > div.postLabel {
     color: white;
   }
-  
+
+  ul#navPost > li.isEditMode {
+    background-image: url(./images/icon-list-dark.svg);
+  }
+
   /* macOS */
   ul.nav > li.hover {
     background-color: rgb(58 57 59);

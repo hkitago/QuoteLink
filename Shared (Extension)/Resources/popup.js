@@ -1,5 +1,4 @@
-import { labelStrings, getCurrentLangCode } from './localization.js';
-const langCode = getCurrentLangCode();
+import { getCurrentLangLabelString, applyRTLSupport } from './localization.js';
 
 const appState = {
   isEditMode: false,
@@ -29,6 +28,16 @@ const getiOSVersion = () => {
   return parseInt((navigator.userAgent.match(/OS (\d+)_/) || [])[1] || 0);
 };
 
+const closeWindow = () => {
+  window.close();
+  
+  if (getiOSVersion() < 18) {
+    setTimeout(() => {
+      browser.runtime.reload();
+    }, 100);
+  }
+};
+
 /* Data handling */
 const getStoredData = async () => {
   try {
@@ -47,8 +56,8 @@ const getStoredData = async () => {
     }
 
     return null;
-  } catch (e) {
-    console.error('Storage is unavailable or insecure:', e);
+  } catch (error) {
+    console.error('Storage is unavailable or insecure:', error);
     return null;
   }
 };
@@ -61,8 +70,8 @@ const saveData = async (data) => {
   
   try {
     await browser.storage.local.set({navPostData: JSON.stringify(validatedData)});
-  } catch (e) {
-    console.error('Failed to save data to browser storage:', e);
+  } catch (error) {
+    console.error('Failed to save data to browser storage:', error);
     // Use local-storage as a fallback
     localStorage.setItem('navPostData', JSON.stringify(validatedData));
   }
@@ -135,10 +144,14 @@ const updateList = async () => {
   
   navPost.innerHTML = '';
   data.forEach(item => {
+    const platform = socialPlatforms[item.id];
+    const urlTemplate = getUrlTemplate(platform);
+    if (!urlTemplate) return;
+    
     const li = document.createElement('li');
     li.id = item.id;
-    li.innerHTML = `<div class="toggleVisibility"><span>${item.visible ? '-' : '+'}</span></div><div class="postLabel">${labelStrings[langCode][item.id]}</div>`;
-    
+    li.innerHTML = `<div class="toggleVisibility"><span>${item.visible ? '-' : '+'}</span></div><div class="postLabel">${getCurrentLangLabelString(item.id)}</div>`;
+
     navPost.appendChild(li);
     if (!item.visible) {
       li.querySelector('.toggleVisibility').classList.add('toggleOn');
@@ -262,7 +275,7 @@ const socialPlatforms = {
   },
   post2mastodon: {
     labelKey: 'post2mastodon',
-    urlTemplate: 'https://mstdn.social/share?text=${quoteLinkText}%20${currentUrl}'
+    urlTemplate: 'https://mastodon.social/share?text=${quoteLinkText}%20${currentUrl}'
   },
   post2linkedin: {
     labelKey: 'post2linkedin',
@@ -277,7 +290,10 @@ const socialPlatforms = {
   },
   post2line: {
     labelKey: 'post2line',
-    urlTemplate: 'https://line.me/R/share?text=${quoteLinkText}%20${currentUrl}'
+    urlTemplates: {
+      macos: '',
+      ios: 'https://line.me/R/share?text=${quoteLinkText}%20${currentUrl}'
+    }
   },
   post2tumblr: {
     labelKey: 'post2tumblr',
@@ -369,17 +385,31 @@ const onMouseOut = (event) => {
   event.target.closest('li').classList.remove('hover');
 }
 
+const normalizeUrl = (url) => {
+  try {
+    let u = new URL(url);
+    u.hash = u.hash.includes("~:text=") ? "" : u.hash;
+    return u.toString();
+  } catch (error) {
+      console.error("Invalid URL:", url);
+      return url;
+  }
+};
+
+const constructFragmentUrl = (sharedUrl, quoteText) => {
+  const url = normalizeUrl(sharedUrl);
+  const params = `${encodeURIComponent(quoteText)}`;
+
+  return `${url}#:~:text=${params}`;
+};
+
 /* Rendering */
 document.addEventListener('DOMContentLoaded', async () => {
   if (navigator.userAgent.indexOf('iPhone') > -1) {
     document.body.style.width = 'initial';
   }
     
-  if (langCode.substring(0, 2) === 'ar' || langCode.substring(0, 2) === 'he') {
-    document.body.classList.add('rtl');
-    document.documentElement.setAttribute('lang', langCode.substring(0, 2));
-    document.documentElement.setAttribute('dir', 'rtl');
-  }
+  applyRTLSupport();
   
   const navPost = document.getElementById('navPost');
   const editActions = document.getElementById('editActions');
@@ -398,16 +428,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('selectedText').innerHTML = `${quoteLinkText.replace(/\n/g, '<br>')}<br>${tabInfo.currentUrl}`;
         
         const copyElement = document.getElementById('copy2clipboard');
-        copyElement.querySelector('div').textContent = labelStrings[langCode].copy2clipboard;
-        
+        copyElement.querySelector('div').textContent = `${getCurrentLangLabelString('copy2clipboard')}`;
+
         copyElement.addEventListener('click', (event) => {
           navigator.clipboard.writeText(`${quoteLinkText}\n${tabInfo.currentUrl}`);
-          window.close();
-          if (getiOSVersion() < 18) {
-            setTimeout(() => {
-              browser.runtime.reload();
-            }, 100);
-          }
+          closeWindow();
         });
         
         copyElement.addEventListener('touchstart', (event) => {
@@ -429,19 +454,61 @@ document.addEventListener('DOMContentLoaded', async () => {
           copyElement.addEventListener('mouseover', onMouseOver);
           copyElement.addEventListener('mouseout', onMouseOut);
         }
+        
+        if (navigator.share) {
+          const shareDiv = document.createElement('div');
+          shareDiv.textContent = `${getCurrentLangLabelString('sharelink')}`;
+
+          const shareLi = document.createElement('li');
+          const shareTitle = tabInfo.pageTitle ? tabInfo.pageTitle : '';
+          const shareText = tabInfo.selectedText ? `"${tabInfo.selectedText}"` : '';
+          const shareUrl = tabInfo.currentUrl ? tabInfo.currentUrl : '';
+          const urlWithFragment = constructFragmentUrl(shareUrl, `${tabInfo.selectedText}`);
+
+          shareLi.addEventListener('click', (event) => {
+            navigator.share({
+              title: shareTitle,
+              //text: shareText,
+              url: urlWithFragment
+            });
+          });
+          
+          shareLi.appendChild(shareDiv);
+          document.getElementById('navSystem').appendChild(shareLi);
+
+          shareLi.addEventListener('touchstart', (event) => {
+            event.stopPropagation();
+            event.target.closest('li').classList.add('selected');
+          });
+          
+          shareLi.addEventListener('touchend', (event) => {
+            event.stopPropagation();
+            event.target.closest('li').classList.remove('selected');
+          });
+
+          shareLi.addEventListener('touchcancel', (event) => {
+            event.stopPropagation();
+            event.target.closest('li').classList.remove('selected');
+          });
+
+          if (isMacOS()) {
+            shareLi.addEventListener('mouseover', onMouseOver);
+            shareLi.addEventListener('mouseout', onMouseOut);
+          }
+        }
 
         navPost.querySelectorAll('li').forEach((li) => {
           const targetId = li.id;
           const platform = socialPlatforms[targetId];
           
           if (platform) {
-            document.querySelector(`#${targetId} > div.postLabel`).textContent = labelStrings[langCode][platform.labelKey];
+            document.querySelector(`#${targetId} > div.postLabel`).textContent = `${getCurrentLangLabelString(platform.labelKey)}`;
             li.addEventListener('click', handleSocialPlatformClick);
           }
         });
         await updateList();
         
-        editActions.textContent = labelStrings[langCode].editActions;
+        editActions.textContent = `${getCurrentLangLabelString('editActions')}`;
         editActions.addEventListener('click', toggleEditMode);
         editActions.addEventListener('touchstart', (event) => {
           event.target.classList.add('selected');
@@ -450,7 +517,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           event.target.classList.remove('selected');
         });
         
-        editDone.textContent = labelStrings[langCode].editDone;
+        editDone.textContent = `${getCurrentLangLabelString('editDone')}`;
         editDone.addEventListener('click', toggleEditMode);
         editDone.addEventListener('touchstart', (event) => {
           event.target.classList.add('selected');
@@ -465,20 +532,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         editActions.style.display = 'none';
         editDone.style.display = 'none';
         
-        document.getElementById('selectedText').textContent = labelStrings[langCode].onError;
-        
+        document.getElementById('selectedText').textContent = `${getCurrentLangLabelString('onError')}`;
+
         const refreshPageInfo = document.getElementById('refreshPageInfo');
 
-        refreshPageInfo.querySelector('li > div').textContent = labelStrings[langCode].refreshPageInfo;
+        refreshPageInfo.querySelector('li > div').textContent = `${getCurrentLangLabelString('refreshPageInfo')}`;
         refreshPageInfo.style.display = 'block';
         refreshPageInfo.addEventListener('click', () => {
           browser.runtime.sendMessage({ action: 'refreshPageInfo' });
-          window.close();
-          if (getiOSVersion() < 18) {
-            setTimeout(() => {
-              browser.runtime.reload();
-            }, 100);
-          }
+          closeWindow();
         });
 
         refreshPageInfo.querySelector('li').addEventListener('touchstart', (event) => {
@@ -498,5 +560,5 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
     }
   });
-});
+}, { once: true });
 
