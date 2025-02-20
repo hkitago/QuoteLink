@@ -107,8 +107,8 @@ Notes:
 
 ## Compatibility
 
-- iOS/iPadOS 15+
-- macOS 10.14+
+- iOS/iPadOS 16.6+
+- macOS 12.4+
 
 ## License
 
