@@ -29,6 +29,14 @@ Notes:
 
 ## Version History
 
+### 1.5.1
+
+#### **Common** - 2025-05-19
+
+- Update the list editing interface to make checklist marks more intuitive  
+- Add support for two new platforms in the SNS sharing presets  
+- Improve overall usability and performance for a smoother experience
+
 ### 1.5
 
 #### **iOS/iPadOS** - 2025-02-19
