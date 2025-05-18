@@ -149,10 +149,15 @@ const updateList = async () => {
     if (!urlTemplate) return;
     
     const li = document.createElement('li');
+    li.title = `${getCurrentLangLabelString(item.id)}`;
     li.id = item.id;
     li.innerHTML = `<div class="toggleVisibility"><span>${item.visible ? '-' : '+'}</span></div><div class="postLabel">${getCurrentLangLabelString(item.id)}</div>`;
 
     navPost.appendChild(li);
+    
+//    li.querySelector('.toggleVisibility').title = 'Toggle Item';
+    li.querySelector('.toggleVisibility').title = `${getCurrentLangLabelString('tooltip')['toggleBullet']}`;
+
     if (!item.visible) {
       li.querySelector('.toggleVisibility').classList.add('toggleOn');
     }
@@ -210,6 +215,8 @@ const toggleEditMode = () => {
     setupEditModeListeners();
     navPost.querySelectorAll('li').forEach((li) => {
       li.classList.remove('visibilityOff');
+//      li.title = 'Move item';
+      li.title = `${getCurrentLangLabelString('tooltip')['dragItem']}`;
     });
     editActions.style.display = 'none';
     editDone.style.display = 'block';
@@ -218,17 +225,24 @@ const toggleEditMode = () => {
       li.draggable = false;
       li.removeEventListener('dragstart', onDragStart);
       li.classList.remove('isEditMode');
+
+      const postLabel = li.querySelector('.postLabel');
+      if (postLabel && postLabel.firstChild) {
+        li.title = postLabel.firstChild.textContent.trim();
+      }
     });
+
     navPost.removeEventListener('dragover', onDragOver);
     navPost.removeEventListener('drop', onDrop);
     navPost.removeEventListener('click', toggleVisibility);
     
     setupNormalModeListeners();
-    
+
     editActions.style.display = 'block';
     editDone.style.display = 'none';
   }
 };
+
 
 const toggleVisibility = async (event) => {
   const li = event.target.closest('li');
@@ -265,8 +279,8 @@ const socialPlatforms = {
     labelKey: 'post2x',
     urlTemplate: 'https://x.com/intent/tweet?text=${quoteLinkText}&url=${currentUrl}'
   },
-  post2threds: {
-    labelKey: 'post2threds',
+  post2threads: {
+    labelKey: 'post2threads ',
     urlTemplate: 'https://www.threads.net/intent/post?url=${currentUrl}&text=${quoteLinkText}'
   },
   post2bluesky: {
@@ -298,6 +312,14 @@ const socialPlatforms = {
   post2tumblr: {
     labelKey: 'post2tumblr',
     urlTemplate: 'https://www.tumblr.com/widgets/share/tool?url=${currentUrl}&selection=${quoteLinkText}'
+  },
+  post2vk: {
+    labelKey: 'post2vk',
+    urlTemplate: 'https://vk.com/share.php?url=${currentUrl}&comment=${quoteLinkText}'
+  },
+  post2weibo: {
+    labelKey: 'post2weibo',
+    urlTemplate: 'https://service.weibo.com/share/share.php?url=${currentUrl}&title=${quoteLinkText}'
   }
 };
 
@@ -322,9 +344,23 @@ const handleSocialPlatformClick = (event) => {
         browser.storage.local.get(tabId.toString(), (result) => {
           const tabInfo = result[tabId];
           if (tabInfo) {
-            const quoteLinkText = tabInfo.selectedText ? (targetId === 'post2tumblr' ? `${tabInfo.selectedText}` : `"${tabInfo.selectedText}"`) : `${tabInfo.pageTitle}`;
+            let quoteLinkText;
+
+            if (tabInfo.selectedText) {
+              if (targetId === 'post2tumblr') {
+                quoteLinkText = tabInfo.selectedText;
+              } else if (targetId === 'post2weibo') {
+                const raw = `「${tabInfo.selectedText}」`;
+                quoteLinkText = encodeURIComponent(raw);
+              } else {
+                quoteLinkText = encodeURIComponent(`"${tabInfo.selectedText}"`);
+              }
+            }
+
             const urlTemplate = getUrlTemplate(platform);
-            const url = urlTemplate.replace('${quoteLinkText}', encodeURIComponent(quoteLinkText)).replace('${currentUrl}', encodeURIComponent(tabInfo.currentUrl));
+            const url = urlTemplate
+              .replace('${quoteLinkText}', quoteLinkText)
+              .replace('${currentUrl}', encodeURIComponent(tabInfo.currentUrl));
 
             browser.tabs.create({ url });
           }
@@ -428,6 +464,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('selectedText').innerHTML = `${quoteLinkText.replace(/\n/g, '<br>')}<br>${tabInfo.currentUrl}`;
         
         const copyElement = document.getElementById('copy2clipboard');
+        copyElement.title = `${getCurrentLangLabelString('copy2clipboard')}`;
         copyElement.querySelector('div').textContent = `${getCurrentLangLabelString('copy2clipboard')}`;
 
         copyElement.addEventListener('click', (event) => {
@@ -464,6 +501,8 @@ document.addEventListener('DOMContentLoaded', async () => {
           const shareText = tabInfo.selectedText ? `"${tabInfo.selectedText}"` : '';
           const shareUrl = tabInfo.currentUrl ? tabInfo.currentUrl : '';
           const urlWithFragment = constructFragmentUrl(shareUrl, `${tabInfo.selectedText}`);
+
+          shareLi.title = `${getCurrentLangLabelString('sharelink')}`;
 
           shareLi.addEventListener('click', (event) => {
             navigator.share({
@@ -508,6 +547,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
         await updateList();
         
+        editActions.title = `${getCurrentLangLabelString('editActions')}`;
         editActions.textContent = `${getCurrentLangLabelString('editActions')}`;
         editActions.addEventListener('click', toggleEditMode);
         editActions.addEventListener('touchstart', (event) => {
@@ -517,6 +557,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           event.target.classList.remove('selected');
         });
         
+        editDone.title = `${getCurrentLangLabelString('editDone')}`;
         editDone.textContent = `${getCurrentLangLabelString('editDone')}`;
         editDone.addEventListener('click', toggleEditMode);
         editDone.addEventListener('touchstart', (event) => {
