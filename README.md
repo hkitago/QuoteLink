@@ -22,10 +22,9 @@ To uninstall the extension, similarly to the installation process, toggle the ex
 3. Tap the icon next to the address bar and choose the extension.
 4. A window will slide up from the bottom on iPhone, or a pop-up window will appear on iPad and Mac; select an action and tap it.
 
-Notes:
-
-- If you do not select text within the web page, the page title will be used.
-- If you enable the extension and it doesn't function correctly, please refresh the page, or close and restart the app, and try again.
+> [!NOTE]  
+> - If you do not select text within the web page, the page title will be used.
+> - If you enable the extension and it doesn't function correctly, please refresh the page, or close and restart the app, and try again.
 
 ## Version History
 
