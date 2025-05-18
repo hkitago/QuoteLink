@@ -33,7 +33,7 @@
       }
 
       await browser.runtime.sendMessage({
-        action: "updatePageInfo",
+        action: 'updatePageInfo',
         text: selection,
         title: pageTitle,
         url: window.location.href
