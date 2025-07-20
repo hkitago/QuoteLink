@@ -25,8 +25,16 @@ To uninstall the extension, similarly to the installation process, toggle the ex
 > [!NOTE]  
 > - If you do not select text within the web page, the page title will be used.
 > - If you enable the extension and it doesn't function correctly, please refresh the page, or close and restart the app, and try again.
+> - The current version (v1.5.2) removes many marketing tracking parameters (e.g., UTM, fbclid, gclid) but excludes affiliate-related parameters, planned for a future release.
 
 ## Version History
+
+### 1.5.2
+
+#### **macOS** - 2025-07-20
+
+- Added support for 11 quote styles, including Markdown formatting
+- Improved link handling by automatically removing marketing-related tracking parameters
 
 ### 1.5.1
 
