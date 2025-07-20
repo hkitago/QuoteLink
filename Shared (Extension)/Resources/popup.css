@@ -20,6 +20,90 @@ body {
   background-color: rgb(240 242 242);
 }
 
+/* Edit Menu Nav Labels */
+div.editNav {
+  margin: 0 30px 15px;
+}
+
+div.editNav div {
+  color: rgb(70 146 254);
+}
+
+div.editNav div.selected {
+  opacity: 0.5;
+}
+
+div#settingsDone, div#editDone {
+  display: none;
+}
+
+div.editNav div:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+/* Settings */
+label {
+  white-space: nowrap;
+  max-width: 25vw;
+  overflow: hidden;
+}
+
+select {
+  -webkit-appearance: none;
+  font: inherit;
+  color: inherit;
+  padding: 0 0 0 0.5em;
+  border: 1px solid rgb(136 136 136/.5);
+  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIj48c3R5bGU+LmNscy0yIHtmaWxsOiM4ODg4ODg7fTwvc3R5bGU+PHBvbHlnb24gY2xhc3M9ImNscy0yIiBwb2ludHM9IjEuNDEgNC42NyAyLjQ4IDMuMTggMy41NCA0LjY3IDEuNDEgNC42NyIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIzLjU0IDUuMzMgMi40OCA2LjgyIDEuNDEgNS4zMyAzLjU0IDUuMzMiLz48L3N2Zz4=') no-repeat right 2px center;
+  background-size: 12px auto;
+  height: 24px;
+  width: 60px;
+  border-radius: 6px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+select:focus {
+  outline: none;
+}
+
+input[type='checkbox'] {
+  display: none;
+}
+
+.toggle {
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  background: #CCC;
+  border-radius: 24px;
+  position: relative;
+  cursor: pointer;
+  transition: 0.2s;
+  margin: 0 5px;
+}
+
+.toggle::before {
+  content: '';
+  position: absolute;
+  top: 2px; left: 2px;
+  width: 20px;
+  height: 20px;
+  background: #FFF;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+input[type='checkbox']:checked ~ .toggle {
+  background: #4CAF50;
+}
+
+input[type='checkbox']:checked ~ .toggle::before {
+  transform: translateX(20px);
+}
+
+/* Main */
 ul {
   list-style: none;
   padding: 0;
@@ -34,17 +118,31 @@ li {
 }
 
 ul > li > div {
-  margin: 10px 20px;
+  margin: 10px 15px;
   overflow-wrap: break-word;
   overflow: hidden;
+}
+
+li#settings {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+li#settings > div {
+  display: flex;
+  align-items: center;
+}
+
+li#settings > div > label::after {
+  content: ':';
 }
 
 ul.nav > li:not(:last-child) {
   margin-bottom: 1px;
 }
 
-ul.nav > li.selected,
-ul#refreshPageInfo.selected > li {
+ul.nav > li.selected {
   background-color: rgb(210 209 215);
 }
 
@@ -104,23 +202,6 @@ li.isEditMode > div.postLabel {
   color: initial;
 }
 
-div#editActions, div#editDone {
-  margin: 0 35px 15px;
-  color: rgb(70 146 254);
-}
-
-div#editDone {
-  display: none;
-}
-
-div#editActions.selected, div#editDone.selected {
-  opacity: 0.5;
-}
-
-#refreshPageInfo {
-  display: none;
-}
-
 .rtl {
   direction: rtl;
   text-align: right;
@@ -152,11 +233,6 @@ li.isEditMode.hover {
 
 li.isEditMode > div.toggleVisibility:hover {
   cursor: pointer;
-}
-
-div#editActions:hover, div#editDone:hover {
-  cursor: pointer;
-  opacity: 0.5;
 }
 
 @media (prefers-color-scheme: dark) {

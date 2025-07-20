@@ -6,7 +6,9 @@
   <script type="module" src="popup.js"></script>
 </head>
 <body>
-<ul><li><div id="selectedText"></div></li></ul>
+<ul id="quoteLink"><li><div id="selectedText"></div></li></ul>
+<div class="editNav"><div id="settings">Settings</div><div id="settingsDone">Done</div></div>
+
 <ul class="nav" id="navSystem">
   <li id="copy2clipboard"><div>Copy to Clipboard</div></li>
 </ul>
@@ -22,10 +24,6 @@
   <li id="post2vk"><div class="toggleVisibility"><span>-</span></div><div class="postLabel">Post to VK</div></li>
   <li id="post2weibo"><div class="toggleVisibility"><span>-</span></div><div class="postLabel">Post to Weibo</div></li>
 </ul>
-<div id="editActions">Edit Actions...</div>
-<div id="editDone">Done</div>
-<ul class="nav" id="refreshPageInfo">
-  <li><div>Reload Page</div></li>
-</ul>
+<div class="editNav"><div id="editActions">Edit Actions...</div><div id="editDone">Done</div></div>
 </body>
 </html>
