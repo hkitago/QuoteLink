@@ -17,7 +17,7 @@ To uninstall the extension, similarly to the installation process, toggle the ex
 
 ## Usage
 
-1. Load the web page.
+1. Load a web page.
 2. Select the text on the web page.
 3. Tap the icon next to the address bar and choose the extension.
 4. A window will slide up from the bottom on iPhone, or a pop-up window will appear on iPad and Mac; select an action and tap it.
@@ -116,7 +116,6 @@ To uninstall the extension, similarly to the installation process, toggle the ex
 
 ## Roadmap
 
-- Removal of marketing parameters (e.g., Amazon affiliate links and utm parameters) and conversion to mobile-specific URLs
 - Addition of action menu (For requests to add posting destinations, please contact me via the contact information below)
 - Creation and exporting with image
 
