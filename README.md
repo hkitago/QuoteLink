@@ -135,6 +135,8 @@ The inspiration for this project came from two bookmarklets I developed and shar
 
 Special thanks to [bradvin/social-share-urls: Social Share URLs](https://github.com/bradvin/social-share-urls) for handling Social Share URLs.
 
+Inspired in part by [ClearURLs](https://github.com/ClearURLs/Rules), whose work helped inform the list of removable tracking parameters.
+
 ## Contact
 
 You can reach me via [email](mailto:hkitago@icloud.com?subject=Support%20for%20QuoteLink).
