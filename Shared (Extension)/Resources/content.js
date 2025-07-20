@@ -3,34 +3,44 @@
     return window.getSelection().toString().trim().replace(/\r\n/g, '\n').replace(/\r/g, '\n');
   };
 
+  const getPageTitle = async (defaultFilename = 'Untitled') => {
+    let pageTitle = document.title;
+    if (pageTitle) return pageTitle;
+
+    try {
+      pageTitle = await new Promise((resolve) => {
+        const headElement = document.querySelector('head');
+        if (!headElement) {
+          resolve('');
+          return;
+        }
+
+        const observer = new MutationObserver((mutations, obs) => {
+          const titleElement = document.querySelector('title');
+          if (titleElement && document.title) {
+            obs.disconnect();
+            resolve(document.title);
+          }
+        });
+
+        observer.observe(headElement, { childList: true, subtree: true });
+
+        setTimeout(() => {
+          observer.disconnect();
+          resolve(document.title || defaultFilename);
+        }, 3000);
+      });
+
+      return pageTitle;
+    } catch (error) {
+      console.error('Failed to get page title:', error);
+      return defaultFilename;
+    }
+  };
+
   const updatePageInfo = async (selection) => {
     try {
-      let pageTitle = document.title;
-
-      if (!pageTitle) {
-        pageTitle = await new Promise((resolve) => {
-          const titleObserver = new MutationObserver((mutations, observer) => {
-            if (document.title) {
-              observer.disconnect();
-              resolve(document.title);
-            }
-          });
-
-          const titleElement = document.querySelector('title');
-          if (titleElement) {
-            titleObserver.observe(titleElement, {
-              subtree: true,
-              characterData: true,
-              childList: true
-            });
-          }
-
-          setTimeout(() => {
-            titleObserver.disconnect();
-            resolve(document.title || '');
-          }, 5000);
-        });
-      }
+      const pageTitle = await getPageTitle();
 
       await browser.runtime.sendMessage({
         action: 'updatePageInfo',
@@ -45,7 +55,7 @@
 
   const debounce = (func, wait) => {
     let timeout;
-    return function executedFunction(...args) {
+    return (...args) => {
       const later = () => {
         clearTimeout(timeout);
         func(...args);
@@ -71,11 +81,15 @@
 
   document.addEventListener('selectionchange', updateSelectionAndPageInfo);
 
+  const initializeContent = () => {
+    updatePageInfo();
+  };
+  
   // Init with tricky part https://developer.apple.com/forums/thread/651215
   if (document.readyState !== 'loading') {
-    updatePageInfo();
+    initializeContent();
   } else {
-    document.addEventListener('DOMContentLoaded', updatePageInfo, { once: true });
+    document.addEventListener('DOMContentLoaded', initializeContent, { once: true });
   }
 
   // Using history back or forward
@@ -94,13 +108,6 @@
   // Switching tabs from background.js
   browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === 'getPageInfo') {
-      updatePageInfo(getCleanSelection());
-    }
-  });
-
-  // Error handling to fail to read storage on Popover
-  browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    if (message.action === 'refreshPageInfo') {
       updatePageInfo(getCleanSelection());
     }
   });
