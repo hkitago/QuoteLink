@@ -31,7 +31,7 @@ To uninstall the extension, similarly to the installation process, toggle the ex
 
 ### 1.5.2
 
-#### **macOS** - 2025-07-20
+#### **Common** - 2025-05-19
 
 - Added support for 11 quote styles, including Markdown formatting
 - Improved link handling by automatically removing marketing-related tracking parameters
