@@ -34,7 +34,7 @@ const removeParams = [
   'mc_cid', 'mc_eid', 'mc_source', 'mc_medium', 'mc_campaign', 'mc_term', 'mc_content', 'mc_id', 'mc_aid', 'mc_linkid',
 
   // LinkedIn
-  'li_fat_id', 'li_source', 'li_medium', 'li_campaign', 'li_term', 'li_content', 'li_id', 'li_vid', 'li_aid', 'li_linkid',
+  'li_fat_id', 'li_source', 'li_medium', 'li_campaign', 'li_term', 'li_content', 'li_id', 'li_vid', 'li_aid', 'li_linkid', 'rcm',
 
   // HubSpot
   '_hsenc', '_hsmi', 'hsa_acc', 'hsa_cam', 'hsa_grp', 'hsa_ad', 'hsa_src', 'hsa_tgt', 'hsa_kw', 'hsa_mt', 'hsa_net', 'hsa_ver', 'hs_source', 'hs_medium', 'hs_campaign', 'hs_term', 'hs_content', 'hs_id', 'hs_aid', 'hs_linkid',
