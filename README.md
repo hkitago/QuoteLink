@@ -29,6 +29,12 @@ To uninstall the extension, similarly to the installation process, toggle the ex
 
 ## Version History
 
+### 1.5.3
+
+#### **macOS** - 2025-09-24
+
+- Updated for the latest OS with new user interface and theme-optimized icons
+
 ### 1.5.2
 
 #### **Common** - 2025-05-19
