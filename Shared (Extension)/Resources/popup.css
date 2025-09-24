@@ -10,34 +10,41 @@
 
 html {
   font: -apple-system-body;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  width: 400px; /* for iPad Popover */
-  margin: 0;
-  padding: 15px 0;
-  font-size: 94%;
+  min-width: 375px;
+  max-width: 452px;
+  margin: 0 0 15px;
+  padding: 0;
   background-color: rgb(240 242 242);
+}
+
+body.os-macos {
+  width: 452px;
 }
 
 /* Edit Menu Nav Labels */
 div.editNav {
-  margin: 0 30px 15px;
+  overflow: hidden;
+  margin: 15px 30px 0;
 }
 
-div.editNav div {
+div.editNav > div {
   color: rgb(70 146 254);
 }
 
-div.editNav div.selected {
+div.editNav > div.selected {
   opacity: 0.5;
 }
 
-div#settingsDone, div#editDone {
+div#settingsDoneBtn, div#editDone {
   display: none;
 }
 
-div.editNav div:hover {
+div.editNav > div:hover {
   cursor: pointer;
   opacity: 0.5;
 }
@@ -55,10 +62,10 @@ select {
   color: inherit;
   padding: 0 0 0 0.5em;
   border: 1px solid rgb(136 136 136/.5);
-  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIj48c3R5bGU+LmNscy0yIHtmaWxsOiM4ODg4ODg7fTwvc3R5bGU+PHBvbHlnb24gY2xhc3M9ImNscy0yIiBwb2ludHM9IjEuNDEgNC42NyAyLjQ4IDMuMTggMy41NCA0LjY3IDEuNDEgNC42NyIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIzLjU0IDUuMzMgMi40OCA2LjgyIDEuNDEgNS4zMyAzLjU0IDUuMzMiLz48L3N2Zz4=') no-repeat right 2px center;
-  background-size: 12px auto;
+  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMSAyMCI+PHN0eWxlPi5hcnJvdy1saW5lIHtmaWxsOiBub25lOyBzdHJva2U6ICM4ODg4ODg7IHN0cm9rZS13aWR0aDogMS44OyBzdHJva2UtbGluZWNhcDogcm91bmQ7IHN0cm9rZS1saW5lam9pbjogcm91bmQ7fTwvc3R5bGU+PHBvbHlsaW5lIGNsYXNzPSJhcnJvdy1saW5lIiBwb2ludHM9IjUsNyAxMC41LDEgMTYsNyIvPjxwb2x5bGluZSBjbGFzcz0iYXJyb3ctbGluZSIgcG9pbnRzPSI1LDEyIDEwLjUsMTggMTYsMTIiLz48L3N2Zz4=') no-repeat right 3px center;
+  background-size: auto 10px;
   height: 24px;
-  width: 60px;
+  width: 64px;
   border-radius: 6px;
   margin: 0 5px;
   cursor: pointer;
@@ -68,48 +75,84 @@ select:focus {
   outline: none;
 }
 
+.quotes-disabled > * {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 input[type='checkbox'] {
   display: none;
 }
 
 .toggle {
   display: inline-block;
-  width: 44px;
-  height: 24px;
-  background: #CCC;
-  border-radius: 24px;
+  width: 48px;
+  height: 22px;
+  background: rgb(197 197 197);
+  border-radius: 11px;
   position: relative;
   cursor: pointer;
-  transition: 0.2s;
   margin: 0 5px;
+}
+
+.os-macos .toggle {
+  background: rgb(221 221 221);
 }
 
 .toggle::before {
   content: '';
   position: absolute;
-  top: 2px; left: 2px;
-  width: 20px;
-  height: 20px;
+  top: 2px;
+  left: 2px;
+  width: 28px;
+  height: 18px;
   background: #FFF;
-  border-radius: 50%;
-  transition: 0.2s;
+  border-radius: 9px;
 }
 
 input[type='checkbox']:checked ~ .toggle {
-  background: #4CAF50;
+  background: rgb(53 199 89);
+}
+
+.os-macos input[type='checkbox']:checked ~ .toggle {
+  background: rgb(18 122 246);
 }
 
 input[type='checkbox']:checked ~ .toggle::before {
-  transform: translateX(20px);
+  transform: translateX(16px);
+}
+
+@keyframes bounce-on {
+  0%   { transform: translateX(0px) scale(1); opacity: 1; }
+  50%  { transform: translateX(16px) scale(2); opacity: 0.5; }
+  100% { transform: translateX(16px) scale(1); opacity: 1; }
+}
+
+@keyframes bounce-off {
+  0%   { transform: translateX(16px) scale(1); opacity: 1; }
+  50%  { transform: translateX(0px) scale(2);  opacity: 0.5; }
+  100% { transform: translateX(0px) scale(1); opacity: 1; }
+}
+
+input[type='checkbox'].toggle-disabled ~ .toggle::before {
+  animation: none !important;
+}
+
+input[type='checkbox']:checked ~ .toggle::before {
+  animation: bounce-on 0.4s ease forwards;
+}
+
+input[type='checkbox']:not(:checked) ~ .toggle::before {
+  animation: bounce-off 0.4s ease forwards;
 }
 
 /* Main */
 ul {
   list-style: none;
   padding: 0;
-  margin: 0 15px 15px;
+  margin: 15px 15px 0;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 15px;
 }
 
 li {
@@ -120,21 +163,20 @@ li {
 ul > li > div {
   margin: 10px 15px;
   overflow-wrap: break-word;
-  overflow: hidden;
 }
 
-li#settings {
+li#settingsList {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-li#settings > div {
+li#settingsList > div {
   display: flex;
   align-items: center;
 }
 
-li#settings > div > label::after {
+li#settingsList > div > label::after {
   content: ':';
 }
 
@@ -237,11 +279,11 @@ li.isEditMode > div.toggleVisibility:hover {
 
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: rgb(35 35 33);
+    background-color: rgb(30 30 30);
   }
   
   li {
-    background-color: rgb(44 43 45);
+    background-color: rgb(37 37 37);
   }
   
   ul.nav > li.selected {
@@ -264,6 +306,14 @@ li.isEditMode > div.toggleVisibility:hover {
   li.isEditMode.hover {
     cursor: grab !important;
     background-color: rgb(44 43 45) !important;
+  }
+
+  .toggle {
+    background: rgb(89 89 94);
+  }
+
+  .os-macos .toggle {
+    background: rgb(58 58 58);
   }
 
 }

@@ -266,8 +266,12 @@ const setupEditModeListeners = () => {
 
 const toggleEditMode = () => {
   setState('isEditMode', !getState('isEditMode'));
+
   if (getState('isEditMode')) {
-    //saveInitialData();
+    if (document.documentElement.hasAttribute('style')) {
+      document.documentElement.removeAttribute('style');
+    }
+
     setupEditModeListeners();
     navPost.querySelectorAll('li').forEach((li) => {
       li.classList.remove('visibilityOff');
@@ -295,6 +299,18 @@ const toggleEditMode = () => {
 
     editActions.style.display = 'block';
     editDone.style.display = 'none';
+
+    if (isMacOS()) {
+      setTimeout(() => {
+        const htmlNode = document.documentElement;
+        const htmlRect = htmlNode.getBoundingClientRect();
+        if (htmlRect.height < 600) {
+          htmlNode.style.position = 'absolute';
+          htmlNode.style.top = `${Math.abs(htmlRect.y)}px`;
+        }
+        htmlNode.style.minHeight = '600px';
+      },10);
+    }
   }
 };
 
@@ -549,21 +565,21 @@ const createQuoteLink = (tabInfo, quoteStyle = 'double', isCleanUrl = false) => 
 };
 
 const buildPopup = async (settings) => {
-  if (navigator.userAgent.indexOf('iPhone') > -1) {
-    document.body.style.width = 'initial';
+  if (isMacOS()) {
+    document.body.classList.add('os-macos');
   }
     
   applyRTLSupport();
   
-  const quoteLinkElement = document.getElementById('quoteLink');
-  const settingsElement = document.getElementById('settings');
-  const settingsDone = document.getElementById('settingsDone');
+  const quoteLinkView = document.getElementById('quoteLinkView');
+  const settingsBtn = document.getElementById('settingsBtn');
+  const settingsDoneBtn = document.getElementById('settingsDoneBtn');
   const navPost = document.getElementById('navPost');
   const editActions = document.getElementById('editActions');
   const editDone = document.getElementById('editDone');
   
   const showError = () => {
-    settingsElement.style.display = 'none';
+    settingsBtn.style.display = 'none';
 
     document.querySelectorAll('.nav').forEach((ul) => {
       ul.style.display = 'none';
@@ -594,7 +610,7 @@ const buildPopup = async (settings) => {
       createQuoteLink(tabInfo, quoteStyle, isCleanUrl);
 
       const settingsLi = document.createElement('li');
-      settingsLi.id = 'settings';
+      settingsLi.id = 'settingsList';
       settingsLi.style.display = 'none';
 
       const quoteStyleDiv = document.createElement('div');
@@ -628,6 +644,7 @@ const buildPopup = async (settings) => {
       const cleanUrlCheckbox = document.createElement('input');
       cleanUrlCheckbox.type = 'checkbox';
       cleanUrlCheckbox.id = 'settings-cleanUrl';
+      cleanUrlCheckbox.classList.add('toggle-disabled');
       if (isCleanUrl) {
         cleanUrlCheckbox.checked = true;
       }
@@ -637,51 +654,59 @@ const buildPopup = async (settings) => {
       toggleSpan.classList.add('toggle');
       
       toggleSpan.addEventListener('click', async (event) => {
-        if (cleanUrlCheckbox && cleanUrlCheckbox.type === 'checkbox') {
-          cleanUrlCheckbox.checked = !cleanUrlCheckbox.checked;
-          cleanUrlCheckbox.dispatchEvent(new Event('change', { bubbles: true }));
+        cleanUrlCheckbox.click();
+      });
 
-          await settings.set('isCleanUrl', cleanUrlCheckbox.checked);
+      cleanUrlCheckbox.addEventListener('change', async (event) => {
+        cleanUrlCheckbox.classList.remove('toggle-disabled');
+        await settings.set('isCleanUrl', cleanUrlCheckbox.checked);
 
-          const quoteStyle = settings.get('quoteStyle');
-          createQuoteLink(tabInfo, quoteStyle, cleanUrlCheckbox.checked);
-        }
+        const quoteStyle = settings.get('quoteStyle');
+        createQuoteLink(tabInfo, quoteStyle, cleanUrlCheckbox.checked);
       });
 
       cleanUrlDiv.appendChild(toggleSpan);
       settingsLi.appendChild(cleanUrlDiv);
-      quoteLinkElement.appendChild(settingsLi);
+      quoteLinkView.appendChild(settingsLi);
 
       const toggleSettingsMode = () => {
         setState('isSettingsMode', !getState('isSettingsMode'));
+        document.documentElement.style.height = '';
+
         if (getState('isSettingsMode')) {
           settingsLi.style.display = 'flex';
-          settingsElement.style.display = 'none';
-          settingsDone.style.display = 'block';
+          settingsBtn.style.display = 'none';
+          settingsDoneBtn.style.display = 'block';
+
+          if (!tabInfo.selectedText) {
+            settingsLi.querySelector(':first-child').classList.add('quotes-disabled');
+            quoteSelect.disabled = true;
+          }
         } else {
           settingsLi.style.display = 'none';
-          settingsElement.style.display = 'block';
-          settingsDone.style.display = 'none';
+          settingsBtn.style.display = 'block';
+          settingsDoneBtn.style.display = 'none';
+          cleanUrlCheckbox.classList.add('toggle-disabled');
         }
       };
-      
-      settingsElement.title = `${getCurrentLangLabelString('settings')}`;
-      settingsElement.textContent = `${getCurrentLangLabelString('settings')}`;
-      settingsElement.addEventListener('click', toggleSettingsMode);
-      settingsElement.addEventListener('touchstart', (event) => {
+
+      settingsBtn.title = `${getCurrentLangLabelString('settings')}`;
+      settingsBtn.textContent = `${getCurrentLangLabelString('settings')}`;
+      settingsBtn.addEventListener('click', toggleSettingsMode);
+      settingsBtn.addEventListener('touchstart', (event) => {
         event.target.classList.add('selected');
       });
-      settingsElement.addEventListener('touchend', (event) => {
+      settingsBtn.addEventListener('touchend', (event) => {
         event.target.classList.remove('selected');
       });
-      
-      settingsDone.title = `${getCurrentLangLabelString('editDone')}`;
-      settingsDone.textContent = `${getCurrentLangLabelString('editDone')}`;
-      settingsDone.addEventListener('click', toggleSettingsMode);
-      settingsDone.addEventListener('touchstart', (event) => {
+
+      settingsDoneBtn.title = `${getCurrentLangLabelString('editDone')}`;
+      settingsDoneBtn.textContent = `${getCurrentLangLabelString('editDone')}`;
+      settingsDoneBtn.addEventListener('click', toggleSettingsMode);
+      settingsDoneBtn.addEventListener('touchstart', (event) => {
         event.target.classList.add('selected');
       });
-      settingsDone.addEventListener('touchend', (event) => {
+      settingsDoneBtn.addEventListener('touchend', (event) => {
         event.target.classList.remove('selected');
       });
 
