@@ -1,4 +1,5 @@
 import { getCurrentLangLabelString, applyRTLSupport } from './localization.js';
+import { isIOS, isIPadOS, isMacOS, getIOSMajorVersion, applyPlatformClass } from './utils.js';
 import { removeParams, getCleanUrl } from './cleanurl.js';
 
 const appState = {
@@ -15,27 +16,18 @@ const setState = (key, value) => {
   appState[key] = value;
 }
 
-/* Environmental detection */
-const isMacOS = () => {
-  const isPlatformMac = navigator.platform.toLowerCase().indexOf('mac') !== -1;
-
-  const isUserAgentMac = /Mac/.test(navigator.userAgent) &&
-                         !/iPhone/.test(navigator.userAgent) &&
-                         !/iPad/.test(navigator.userAgent);
-  
-  return (isPlatformMac || isUserAgentMac) && !('ontouchend' in document);
-};
-
-const getiOSVersion = () => {
-  return parseInt((navigator.userAgent.match(/OS (\d+)_/) || [])[1] || 0);
-};
-
 const closeWindow = () => {
   window.close();
-  
-  if (getiOSVersion() < 18) {
+
+  // In older iOS versions (<18), reloading the extension helped with some popup issues
+  // Might no longer be necessary — safe to remove if no issues found
+  if (getIOSMajorVersion() > 0 && getIOSMajorVersion() < 18) {
     setTimeout(() => {
-      browser.runtime.reload();
+      try {
+        browser.runtime.reload();
+      } catch (error) {
+        console.warn('browser.runtime.reload failed:', error);
+      }
     }, 100);
   }
 };
@@ -556,10 +548,7 @@ const createQuoteLink = (tabInfo, quoteStyle = 'double', isCleanUrl = false) => 
 };
 
 const buildPopup = async (settings) => {
-  if (isMacOS()) {
-    document.body.classList.add('os-macos');
-  }
-    
+  applyPlatformClass();
   applyRTLSupport();
   
   const quoteLinkView = document.getElementById('quoteLinkView');
