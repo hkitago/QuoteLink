@@ -1,5 +1,10 @@
 :root {
   color-scheme: light dark;
+  --toggle-x: 16px;
+}
+
+.os-macos {
+  --toggle-x: 12px;
 }
 
 * {
@@ -15,15 +20,22 @@ html {
 }
 
 body {
-  min-width: 375px;
-  max-width: 452px;
+  width: 452px;
   margin: 0 0 15px;
   padding: 0;
+}
+
+body.os-ios {
+  width: 100%;
+}
+
+body.os-ios, body.os-ipados {
   background-color: rgb(240 242 242);
 }
 
-body.os-macos {
-  width: 452px;
+.rtl {
+  direction: rtl;
+  text-align: right;
 }
 
 /* Edit Menu Nav Labels */
@@ -76,8 +88,7 @@ select:focus {
 }
 
 .quotes-disabled > * {
-  opacity: 0.5;
-  cursor: not-allowed;
+  opacity: 0;
 }
 
 input[type='checkbox'] {
@@ -97,6 +108,8 @@ input[type='checkbox'] {
 
 .os-macos .toggle {
   background: rgb(221 221 221);
+  width: 36px;
+  height: 16px;
 }
 
 .toggle::before {
@@ -110,6 +123,14 @@ input[type='checkbox'] {
   border-radius: 9px;
 }
 
+.os-macos .toggle::before {
+  top: 1px;
+  left: 1px;
+  width: 22px;
+  height: 14px;
+  border-radius: 7px;
+}
+
 input[type='checkbox']:checked ~ .toggle {
   background: rgb(53 199 89);
 }
@@ -119,17 +140,21 @@ input[type='checkbox']:checked ~ .toggle {
 }
 
 input[type='checkbox']:checked ~ .toggle::before {
-  transform: translateX(16px);
+  transform: translateX(var(--toggle-x));
+}
+
+.os-macos input[type='checkbox']:checked ~ .toggle::before {
+  transform: translateX(var(--toggle-x));
 }
 
 @keyframes bounce-on {
-  0%   { transform: translateX(0px) scale(1); opacity: 1; }
-  50%  { transform: translateX(16px) scale(2); opacity: 0.5; }
-  100% { transform: translateX(16px) scale(1); opacity: 1; }
+  0%   { transform: translateX(0px) scale(2); opacity: 1; }
+  50%  { transform: translateX(var(--toggle-x)) scale(2); opacity: 0.5; }
+  100% { transform: translateX(var(--toggle-x)) scale(1); opacity: 1; }
 }
 
 @keyframes bounce-off {
-  0%   { transform: translateX(16px) scale(1); opacity: 1; }
+  0%   { transform: translateX(var(--toggle-x)) scale(2); opacity: 1; }
   50%  { transform: translateX(0px) scale(2);  opacity: 0.5; }
   100% { transform: translateX(0px) scale(1); opacity: 1; }
 }
@@ -278,10 +303,10 @@ li.isEditMode > div.toggleVisibility:hover {
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
+  body.os-ios, body.os-ipados {
     background-color: rgb(30 30 30);
   }
-  
+
   li {
     background-color: rgb(37 37 37);
   }
@@ -314,6 +339,30 @@ li.isEditMode > div.toggleVisibility:hover {
 
   .os-macos .toggle {
     background: rgb(58 58 58);
+  }
+
+}
+
+@supports (-apple-visual-effect: -apple-system-glass-material) {
+  html {
+    background: transparent;
+    -apple-visual-effect: -apple-system-glass-material;
+  }
+  
+  body {
+    background: transparent;
+  }
+
+  @keyframes bounce-on {
+    0%   { transform: translateX(0px) scale(2); background: transparent; -apple-visual-effect: -apple-system-glass-material;   }
+    50%  { transform: translateX(var(--toggle-x)) scale(2); background: transparent; -apple-visual-effect: -apple-system-glass-material; }
+    100% { transform: translateX(var(--toggle-x)) scale(1); }
+  }
+
+  @keyframes bounce-off {
+    0%   { transform: translateX(var(--toggle-x)) scale(2); background: transparent; -apple-visual-effect: -apple-system-glass-material; }
+    50%  { transform: translateX(0px) scale(2); background: transparent; -apple-visual-effect: -apple-system-glass-material; }
+    100% { transform: translateX(0px) scale(1); }
   }
 
 }
