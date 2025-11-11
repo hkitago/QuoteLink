@@ -33,7 +33,7 @@
 
       return pageTitle;
     } catch (error) {
-      console.error('Failed to get page title:', error);
+      console.error('[QuoteLinkExtension] Failed to get page title:', error);
       return defaultFilename;
     }
   };
@@ -49,7 +49,7 @@
         url: window.location.href
       });
     } catch (error) {
-      console.error('Error sending updatePageInfo message:', error);
+      console.error('[QuoteLinkExtension] Error sending updatePageInfo message:', error);
     }
   };
 
@@ -75,7 +75,7 @@
         await updatePageInfo(currentSelection);
       }
     } catch (error) {
-      console.error('Error in updateSelectionAndPageInfo:', error);
+      console.error('[QuoteLinkExtension] Error in updateSelectionAndPageInfo:', error);
     }
   }, 300);
 
@@ -85,7 +85,6 @@
     updatePageInfo();
   };
   
-  // Init with tricky part https://developer.apple.com/forums/thread/651215
   if (document.readyState !== 'loading') {
     initializeContent();
   } else {
