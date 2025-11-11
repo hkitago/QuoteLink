@@ -1,5 +1,5 @@
 import { getCurrentLangLabelString, applyRTLSupport } from './localization.js';
-import { getCleanUrl } from './cleanurl.js';
+import { removeParams, getCleanUrl } from './cleanurl.js';
 
 const appState = {
   isSettingsMode: false,
@@ -53,15 +53,6 @@ const quoteStyles = [
   { quoteValue: 'guillemet-single', quoteLabel: '‹ … ›', openQuote: '‹', closeQuote: '›', multilinePrefix: false },
   { quoteValue: 'guillemet-reversed', quoteLabel: '» … «', openQuote: '»', closeQuote: '«', multilinePrefix: false },
   { quoteValue: 'angled-bracket-prefix', quoteLabel: '> …', openQuote: '> ', closeQuote: '', multilinePrefix: true }
-];
-
-const removeParams = [
-  'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'utm_id', 'utm_term_id', 'utm_creative', 'utm_placement', 'utm_device', 'utm_adgroup', /* UTM Tracking */
-  'fbclid', 'gclid', 'msclkid', 'twclid', 'igsc', 'li_fat_id', 'mc_cid', 'mc_eid', /* Social Advertising */
-  'ga_campaign', 'ga_content', 'ga_medium', 'ga_source', /* Google Analytics */
-  '_openstat', 'yclid', /* Yandex */
-  'oly_anon_id', 'oly_enc_id', /* Ometria */
-  'wickedid', 'mbid', 'fb_source', 'vero_conv', 'elqTrackId', 'icid', 'experiment_id', 'campaignid', 'adid', 'clickid', 'tracking_id', 'sessionid', '_hsenc', '_hsmi', 's_cid', 'pk_campaign', 'pk_kwd', 'scid', 'ttclid',
 ];
 
 const settings = (() => {
