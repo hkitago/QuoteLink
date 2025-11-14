@@ -1,4 +1,4 @@
-# <img src="https://raw.githubusercontent.com/hkitago/QuoteLink/refs/heads/main/Shared%20(App)/Resources/Icon.png" height="36" valign="bottom"/> QuoteLink for Safari Extension
+# <img src="https://raw.githubusercontent.com/hkitago/QuoteLink/refs/heads/main/Shared%20(Extension)/Resources/images/icon.svg" height="36" valign="bottom"/> QuoteLink for Safari Extension
 
 This Safari extension significantly streamlines the process of web page citation. Instead of repeatedly copying and pasting text and URLs, simply select the text and press the extension button to automatically generate a citation with the source URL. It can be quickly utilized for various purposes, such as creating papers, presentation materials, saving important recipes, or noting interesting information for later reference.
 
@@ -25,26 +25,24 @@ To uninstall the extension, similarly to the installation process, toggle the ex
 > [!NOTE]  
 > - If you do not select text within the web page, the page title will be used.
 > - If you enable the extension and it doesn't function correctly, please refresh the page, or close and restart the app, and try again.
-> - The current version (v1.5.2) removes many marketing tracking parameters (e.g., UTM, fbclid, gclid) but excludes affiliate-related parameters, planned for a future release.
 
 ## Version History
 
-### 1.5.3
+### 1.5.4 - 2025-11-14
 
-#### **macOS** - 2025-09-24
+- Expanded to include more removable URL parameters for cleaner sharing links
+- Additional improvements to appearance and refined icons for v26 themes
+
+### 1.5.3 - 2025-09-24
 
 - Updated for the latest OS with new user interface and theme-optimized icons
 
-### 1.5.2
-
-#### **Common** - 2025-05-19
+### 1.5.2 - 2025-05-19
 
 - Added support for 11 quote styles, including Markdown formatting
 - Improved link handling by automatically removing marketing-related tracking parameters
 
-### 1.5.1
-
-#### **Common** - 2025-05-19
+### 1.5.1 - 2025-05-19
 
 - Update the list editing interface to make checklist marks more intuitive  
 - Add support for two new platforms in the SNS sharing presets  
