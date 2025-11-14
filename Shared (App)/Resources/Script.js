@@ -429,12 +429,19 @@ function openSupport() {
 
 const btn = document.querySelector("button.support-button");
 btn.addEventListener("click", openSupport);
-btn.addEventListener("touchstart", (event) => {
-  event.target.style.opacity = '0.5';
+
+document.querySelectorAll('button').forEach(btn => {
+  btn.addEventListener('touchstart', () => btn.classList.add('active'), { passive: true });
+  btn.addEventListener('touchend', () => btn.classList.remove('active'));
+  btn.addEventListener('touchcancel', () => btn.classList.remove('active'));
+  btn.addEventListener('mouseleave', () => btn.classList.remove('active'));
+  if (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) {
+    btn.style.minWidth = '70vw';
+  }
 });
-btn.addEventListener("touchend", (event) => {
-  event.target.style.opacity = 'initial';
-});
-btn.addEventListener("touchcancel", (event) => {
-  event.target.style.opacity = 'initial';
-});
+
+if (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) {
+  document.querySelectorAll('p').forEach(pNode => {
+    pNode.style.width = '70vw';
+  });
+}

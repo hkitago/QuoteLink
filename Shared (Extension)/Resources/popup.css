@@ -73,9 +73,12 @@ select {
   font: inherit;
   color: inherit;
   padding: 0 0 0 0.5em;
-  border: 1px solid rgb(136 136 136/.5);
-  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMSAyMCI+PHN0eWxlPi5hcnJvdy1saW5lIHtmaWxsOiBub25lOyBzdHJva2U6ICM4ODg4ODg7IHN0cm9rZS13aWR0aDogMS44OyBzdHJva2UtbGluZWNhcDogcm91bmQ7IHN0cm9rZS1saW5lam9pbjogcm91bmQ7fTwvc3R5bGU+PHBvbHlsaW5lIGNsYXNzPSJhcnJvdy1saW5lIiBwb2ludHM9IjUsNyAxMC41LDEgMTYsNyIvPjxwb2x5bGluZSBjbGFzcz0iYXJyb3ctbGluZSIgcG9pbnRzPSI1LDEyIDEwLjUsMTggMTYsMTIiLz48L3N2Zz4=') no-repeat right 3px center;
-  background-size: auto 10px;
+  border: none;
+  background-color: transparent;
+  background-image: url(./images/chevron.svg);
+  background-repeat: no-repeat;
+  background-position: right 3px center;
+  background-size: auto 16px;
   height: 24px;
   width: 64px;
   border-radius: 6px;
@@ -85,6 +88,14 @@ select {
 
 select:focus {
   outline: none;
+}
+
+.os-macos select {
+  background-image: url(./images/chevron-default.svg);
+}
+
+.os-macos select:hover {
+  background-color: rgb(228 228 228);
 }
 
 .quotes-disabled > * {
@@ -181,7 +192,7 @@ ul {
 }
 
 li {
-  background-color: rgb(254 255 255);
+  background-color: rgb(247 247 247);
   overflow: hidden;
 }
 
@@ -331,6 +342,14 @@ li.isEditMode > div.toggleVisibility:hover {
   li.isEditMode.hover {
     cursor: grab !important;
     background-color: rgb(44 43 45) !important;
+  }
+
+  .os-macos select {
+    background-image: url(./images/chevron-dark.svg);
+  }
+
+  .os-macos select:hover {
+    background-color: rgb(53 53 53);
   }
 
   .toggle {
