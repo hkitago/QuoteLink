@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		600F4D0E2C85F8B9008EFD53 /* localization.js in Resources */ = {isa = PBXBuildFile; fileRef = 600F4D0D2C85F8B9008EFD53 /* localization.js */; };
 		600F4D0F2C85F8B9008EFD53 /* localization.js in Resources */ = {isa = PBXBuildFile; fileRef = 600F4D0D2C85F8B9008EFD53 /* localization.js */; };
+		60211BFB2EC2CAEE00DB997A /* utils.js in Resources */ = {isa = PBXBuildFile; fileRef = 60211BFA2EC2CAE100DB997A /* utils.js */; };
+		60211BFC2EC2CAEE00DB997A /* utils.js in Resources */ = {isa = PBXBuildFile; fileRef = 60211BFA2EC2CAE100DB997A /* utils.js */; };
 		60565A5C2C7E9CED002DA451 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60565A5B2C7E9CED002DA451 /* AppDelegate.swift */; };
 		60565A5E2C7E9CED002DA451 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60565A5D2C7E9CED002DA451 /* SceneDelegate.swift */; };
 		60565A612C7E9CED002DA451 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 60565A602C7E9CED002DA451 /* Base */; };
@@ -102,6 +104,7 @@
 /* Begin PBXFileReference section */
 		600720622C89331D0047F850 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		600F4D0D2C85F8B9008EFD53 /* localization.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = localization.js; sourceTree = "<group>"; };
+		60211BFA2EC2CAE100DB997A /* utils.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = utils.js; sourceTree = "<group>"; };
 		6042C7722C87448D005EA3D3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		60565A452C7E9CEB002DA451 /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
 		60565A462C7E9CEB002DA451 /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
@@ -232,6 +235,7 @@
 				60565A522C7E9CED002DA451 /* popup.css */,
 				600F4D0D2C85F8B9008EFD53 /* localization.js */,
 				60565A532C7E9CED002DA451 /* popup.js */,
+				60211BFA2EC2CAE100DB997A /* utils.js */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -446,6 +450,7 @@
 			files = (
 				60EB65F02E29F9AD00905D00 /* cleanurl.js in Resources */,
 				60565A9B2C7E9CED002DA451 /* background.js in Resources */,
+				60211BFC2EC2CAEE00DB997A /* utils.js in Resources */,
 				60565AA12C7E9CED002DA451 /* popup.css in Resources */,
 				60565A9F2C7E9CED002DA451 /* popup.html in Resources */,
 				60565A972C7E9CED002DA451 /* images in Resources */,
@@ -463,6 +468,7 @@
 			files = (
 				60EB65F12E29F9AD00905D00 /* cleanurl.js in Resources */,
 				60565A9C2C7E9CED002DA451 /* background.js in Resources */,
+				60211BFB2EC2CAEE00DB997A /* utils.js in Resources */,
 				60565AA22C7E9CED002DA451 /* popup.css in Resources */,
 				60565AA02C7E9CED002DA451 /* popup.html in Resources */,
 				60565A982C7E9CED002DA451 /* images in Resources */,
@@ -691,7 +697,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "QuoteLink Extension";
@@ -702,7 +708,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5.3;
+				MARKETING_VERSION = 1.5.4;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -721,7 +727,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "QuoteLink Extension";
@@ -732,7 +738,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5.3;
+				MARKETING_VERSION = 1.5.4;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -755,7 +761,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = QuoteLink;
@@ -770,7 +776,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5.3;
+				MARKETING_VERSION = 1.5.4;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -793,7 +799,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = QuoteLink;
@@ -808,7 +814,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5.3;
+				MARKETING_VERSION = 1.5.4;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -830,7 +836,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/QuoteLink.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEAD_CODE_STRIPPING = YES;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -845,7 +851,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				MARKETING_VERSION = 1.5.3;
+				MARKETING_VERSION = 1.5.4;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -864,7 +870,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/QuoteLink.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEAD_CODE_STRIPPING = YES;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -879,7 +885,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				MARKETING_VERSION = 1.5.3;
+				MARKETING_VERSION = 1.5.4;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -901,7 +907,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = "macOS (App)/QuoteLink.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEAD_CODE_STRIPPING = YES;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -917,7 +923,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				MARKETING_VERSION = 1.5.3;
+				MARKETING_VERSION = 1.5.4;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -940,7 +946,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = "macOS (App)/QuoteLink.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEAD_CODE_STRIPPING = YES;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -956,7 +962,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				MARKETING_VERSION = 1.5.3;
+				MARKETING_VERSION = 1.5.4;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
