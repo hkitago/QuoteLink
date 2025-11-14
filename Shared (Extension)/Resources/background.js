@@ -12,7 +12,7 @@ browser.runtime.onInstalled.addListener(async () => {
 // Send a message to content.js on when switching tab
 browser.tabs.onActivated.addListener((activeInfo) => {
   browser.tabs.sendMessage(activeInfo.tabId, { action: 'getPageInfo' })
-    .catch(error => console.error('Error getting page info:', error));
+    .catch(error => console.error('[QuoteLinkExtension] Error getting page info:', error));
 });
 
 browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
@@ -25,14 +25,14 @@ browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   // Send a message to content.js when the tab's status is complete
   if (changeInfo.status === 'complete') {
     browser.tabs.sendMessage(tabId, { action: 'getPageInfo' })
-      .catch(error => console.error('Error getting page info after update:', error));
+      .catch(error => console.error('[QuoteLinkExtension] Error getting page info after update:', error));
   }
 });
 
 // Remove the stored data to a closed tab
 browser.tabs.onRemoved.addListener((tabId, removeInfo) => {
   browser.storage.local.remove(tabId.toString())
-    .catch(error => console.error('Error removing tab info from storage:', error));
+    .catch(error => console.error('[QuoteLinkExtension] Error removing tab info from storage:', error));
 });
 
 const sendMessageToActiveTab = async (message) => {
@@ -41,10 +41,10 @@ const sendMessageToActiveTab = async (message) => {
     if (tabs.length > 0 && tabs[0].id) {
       await browser.tabs.sendMessage(tabs[0].id, message);
     } else {
-      console.warn('No active tab found');
+      console.warn('[QuoteLinkExtension] No active tab found');
     }
   } catch (error) {
-    console.error('Error sending message to active tab:', error);
+    console.error('[QuoteLinkExtension] Error sending message to active tab:', error);
   }
 };
 

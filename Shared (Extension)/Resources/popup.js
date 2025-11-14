@@ -26,7 +26,7 @@ const closeWindow = () => {
       try {
         browser.runtime.reload();
       } catch (error) {
-        console.warn('browser.runtime.reload failed:', error);
+        console.warn('[QuoteLinkExtension] browser.runtime.reload failed:', error);
       }
     }, 100);
   }
@@ -60,7 +60,7 @@ const settings = (() => {
       const { settings: stored } = await browser.storage.local.get('settings');
       cache = { ...DEFAULT_SETTINGS, ...stored };
     } catch (error) {
-      console.error('Failed to load settings:', error);
+      console.error('[QuoteLinkExtension] Failed to load settings:', error);
     }
   };
 
@@ -71,7 +71,7 @@ const settings = (() => {
     try {
       await browser.storage.local.set({ settings: cache });
     } catch (error) {
-      console.error('Failed to save settings:', error);
+      console.error('[QuoteLinkExtension] Failed to save settings:', error);
     }
   };
 
@@ -97,7 +97,7 @@ const getStoredData = async () => {
 
     return null;
   } catch (error) {
-    console.error('Storage is unavailable or insecure:', error);
+    console.error('[QuoteLinkExtension] Storage is unavailable or insecure:', error);
     return null;
   }
 };
@@ -111,7 +111,7 @@ const saveData = async (data) => {
   try {
     await browser.storage.local.set({navPostData: JSON.stringify(validatedData)});
   } catch (error) {
-    console.error('Failed to save data to browser storage:', error);
+    console.error('[QuoteLinkExtension] Failed to save data to browser storage:', error);
     // Use local-storage as a fallback
     localStorage.setItem('navPostData', JSON.stringify(validatedData));
   }
@@ -133,7 +133,7 @@ const syncDataWithHTML = async () => {
   let data = await getStoredData();
 
   if (!data) {
-    console.error('Invalid data structure:', data);
+    console.error('[QuoteLinkExtension] Invalid data structure:', data);
     return false;
   }
 
@@ -162,7 +162,7 @@ const updateVisibility = async () => {
   const data = await getStoredData();
   
   if (!data) {
-    console.error('Invalid data structure:', data);
+    console.error('[QuoteLinkExtension] Invalid data structure:', data);
     return false;
   }
 
@@ -178,7 +178,7 @@ const updateList = async () => {
   const data = await getStoredData();
   
   if (!data) {
-    console.error('Invalid data structure:', data);
+    console.error('[QuoteLinkExtension] Invalid data structure:', data);
     return false;
   }
   
@@ -305,13 +305,13 @@ const toggleVisibility = async (event) => {
   try {
     const data = await getStoredData();
     if (!data || !Array.isArray(data)) {
-      console.error('Invalid data structure:', data);
+      console.error('[QuoteLinkExtension] Invalid data structure:', data);
       return false;
     }
 
     const item = data.find(item => item.id === li.id);
     if (!item) {
-      console.error('Item not found:', li.id);
+      console.error('[QuoteLinkExtension] Item not found:', li.id);
       return;
     }
 
@@ -322,7 +322,7 @@ const toggleVisibility = async (event) => {
     
     await saveData(data);
   } catch (error) {
-    console.error('Error in toggleVisibility:', error);
+    console.error('[QuoteLinkExtension] Error in toggleVisibility:', error);
   }
 };
 
@@ -452,14 +452,14 @@ const onDrop = async (event) => {
     try {
       const data = await getStoredData();
       if (!data || !Array.isArray(data)) {
-        console.error('Invalid data structure:', data);
+        console.error('[QuoteLinkExtension] Invalid data structure:', data);
         return false;
       }
       const dragged = getState('dragged');
       const fromId = data.findIndex(item => item.id === dragged.id);
       const toId = data.findIndex(item => item.id === event.target.id);
       if (fromId === -1 || toId === -1) {
-        console.error('Invalid item ID(s):', dragged.id, event.target.id);
+        console.error('[QuoteLinkExtension] Invalid item ID(s):', dragged.id, event.target.id);
         return;
       }
       const [removed] = data.splice(fromId, 1);
@@ -467,7 +467,7 @@ const onDrop = async (event) => {
       await saveData(data);
       await updateList();
     } catch (error) {
-      console.error('Error in onDrop:', error);
+      console.error('[QuoteLinkExtension] Error in onDrop:', error);
     }
   }
 };
@@ -486,7 +486,7 @@ const normalizeUrl = (url) => {
     u.hash = u.hash.includes('~:text=') ? '' : u.hash;
     return u.toString();
   } catch (error) {
-    console.error('Invalid URL:', url);
+    console.error('[QuoteLinkExtension] Invalid URL:', url);
     return url;
   }
 };
@@ -812,7 +812,7 @@ const initializePopup = async () => {
   try {
     await buildPopup(settings);
   } catch (error) {
-    console.error('Fail to initialize to build the popup:', error);
+    console.error('[QuoteLinkExtension] Fail to initialize to build the popup:', error);
     isInitialized = false;
   }
 };

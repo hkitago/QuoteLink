@@ -129,7 +129,7 @@ export const getCleanUrl = (url, isCleanUrl) => {
 
     return urlObj.toString();
   } catch (error) {
-    console.error('Invalid URL:', error);
+    console.error('[QuoteLinkExtension] Invalid URL:', error);
     return url;
   }
 };
