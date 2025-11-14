@@ -120,11 +120,17 @@ export const removeParams = [
 
 export const getCleanUrl = (url, isCleanUrl) => {
   try {
-    if (!isCleanUrl) return url;
-    
     const urlObj = new URL(url);
-    const params = urlObj.searchParams;
 
+    urlObj.pathname = urlObj.pathname
+      .split('/')
+      .map(seg => {
+        return seg.replace(/!+$/, match => '%21'.repeat(match.length));
+      })
+      .join('/');
+
+    if (!isCleanUrl) return urlObj.toString();
+    
     removeParams.forEach(param => urlObj.searchParams.delete(param));
 
     return urlObj.toString();
