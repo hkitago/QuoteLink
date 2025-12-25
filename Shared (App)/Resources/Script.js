@@ -382,23 +382,40 @@ function show(platform, enabled, useSettingsInsteadOfPreferences) {
 
   };
   
-  const langCode = labelStrings[window.navigator.language]
-  ? window.navigator.language
-  : labelStrings[window.navigator.language.substring(0, 2)]
-  ? window.navigator.language.substring(0, 2)
-  : 'en';
-  
-  document.getElementsByClassName('platform-ios')[0].innerText = labelStrings[langCode].iOS;
-  document.getElementsByClassName('platform-ios open-settings')[0].innerText = labelStrings[langCode].iOSSettings;
-  document.getElementsByClassName('support-button')[0].innerText = labelStrings[langCode].SupportPage;
+  const getLabelString = (key) => {
+    const browserLang = window.navigator.language || 'en';
+    const baseLang = browserLang.split('-')[0];
+    
+    return (
+      labelStrings[browserLang]?.[key] ??
+      labelStrings[baseLang]?.[key] ??
+      labelStrings.en[key]
+    );
+  };
+
+  const browserLang = window.navigator.language || 'en';
+  const baseLang = browserLang.split('-')[0];
+
+  if (baseLang === 'ar' || baseLang === 'he') {
+    document.body.classList.add('rtl');
+    document.documentElement.setAttribute('lang', baseLang);
+    document.documentElement.setAttribute('dir', 'rtl');
+  } else {
+    document.body.classList.remove('rtl');
+    document.documentElement.removeAttribute('dir');
+  }
+
+  document.getElementsByClassName('platform-ios')[0].innerText = getLabelString('iOS');
+  document.getElementsByClassName('platform-ios open-settings')[0].innerText = getLabelString('iOSSettings');
+  document.getElementsByClassName('support-button')[0].innerText = getLabelString('SupportPage');
 
   document.body.classList.add(`platform-${platform}`);
   
   if (useSettingsInsteadOfPreferences) {
-    document.getElementsByClassName('platform-mac state-on')[0].innerText = labelStrings[langCode].macOn;
-    document.getElementsByClassName('platform-mac state-off')[0].innerText = labelStrings[langCode].macOff;
-    document.getElementsByClassName('platform-mac state-unknown')[0].innerText = labelStrings[langCode].macUnknown;
-    document.getElementsByClassName('platform-mac open-preferences')[0].innerText = labelStrings[langCode].macPreferences;
+    document.getElementsByClassName('platform-mac state-on')[0].innerText = getLabelString('macOn');
+    document.getElementsByClassName('platform-mac state-off')[0].innerText = getLabelString('macOff');
+    document.getElementsByClassName('platform-mac state-unknown')[0].innerText = getLabelString('macUnknown');
+    document.getElementsByClassName('platform-mac open-preferences')[0].innerText = getLabelString('macPreferences');
   }
   
   if (typeof enabled === "boolean") {
