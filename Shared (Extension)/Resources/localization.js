@@ -12,6 +12,8 @@ const labelStrings = {
     "post2tumblr": "Post to Tumblr",
     "post2vk": "Post to VK",
     "post2weibo": "Post to Weibo",
+    "post2chatgpt": "Post to ChatGPT",
+    "post2claude": "Post to Claude",
     "onError": "To use this extension, it must be enabled before loading the page. Please try again after refreshing the page in Safari.",
     "settings": "Settings",
     "quoteStyleSetting": "Quotes",
@@ -20,7 +22,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Click to toggle",
       "dragItem": "Drag to reorder"
-    }
+    },
+    "taskContext": "Verify whether this quotation is consistent with the context of its source, and if necessary, briefly explain relevant background information based on the source."
   },
   "ar": {
     "copy2clipboard": "نسخ إلى الحافظة",
@@ -35,6 +38,8 @@ const labelStrings = {
     "post2tumblr": "نشر على Tumblr",
     "post2vk": "نشر على VK",
     "post2weibo": "نشر على Weibo",
+    "post2chatgpt": "نشر على ChatGPT",
+    "post2claude": "نشر على Claude",
     "onError": "لاستخدام هذا الامتداد، يجب تفعيله قبل تحميل الصفحة. بعد تحديث الصفحة في Safari، حاول مرة أخرى.",
     "settings": "الإعدادات",
     "quoteStyleSetting": "اقتباس",
@@ -43,7 +48,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "انقر للتبديل",
       "dragItem": "اسحب لإعادة الترتيب"
-    }
+    },
+    "taskContext": "تحقق مما إذا كان هذا الاقتباس متسقًا مع سياق مصدره، وإذا لزم الأمر، اشرح بإيجاز المعلومات الخلفية ذات الصلة بناءً على المصدر."
   },
   "ar-SA": {
     "copy2clipboard": "نسخ إلى الحافظة",
@@ -58,6 +64,8 @@ const labelStrings = {
     "post2tumblr": "نشر على Tumblr",
     "post2vk": "نشر على VK",
     "post2weibo": "نشر على Weibo",
+    "post2chatgpt": "نشر على ChatGPT",
+    "post2claude": "نشر على Claude",
     "onError": "لاستخدام هذا الامتداد، يجب تفعيله قبل تحميل الصفحة. بعد تحديث الصفحة في Safari، حاول مرة أخرى.",
     "settings": "الإعدادات",
     "quoteStyleSetting": "اقتباس",
@@ -66,7 +74,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "انقر للتبديل",
       "dragItem": "اسحب لإعادة الترتيب"
-    }
+    },
+    "taskContext": "تحقق مما إذا كان هذا الاقتباس متسقًا مع سياق مصدره، وإذا لزم الأمر، اشرح بإيجاز المعلومات الخلفية ذات الصلة بناءً على المصدر."
   },
   "ca": {
     "copy2clipboard": "Copiar al portapapers",
@@ -81,6 +90,8 @@ const labelStrings = {
     "post2tumblr": "Publicar a Tumblr",
     "post2vk": "Publicar a VK",
     "post2weibo": "Publicar a Weibo",
+    "post2chatgpt": "Publicar a ChatGPT",
+    "post2claude": "Publicar a Claude",
     "onError": "Per utilitzar aquesta extensió, ha d'estar activada abans de carregar la pàgina. Torneu-ho a intentar després d'actualitzar la pàgina a Safari.",
     "settings": "Configuració",
     "quoteStyleSetting": "Cometes",
@@ -89,7 +100,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Feu clic per alternar",
       "dragItem": "Arrossegueu per reordenar"
-    }
+    },
+    "taskContext": "Verifica si aquesta cita és coherent amb el context de la seva font i, si cal, explica breument la informació de fons rellevant basada en la font."
   },
   "cs": {
     "copy2clipboard": "Kopírovat do schránky",
@@ -104,6 +116,8 @@ const labelStrings = {
     "post2tumblr": "Odeslat na Tumblr",
     "post2vk": "Odeslat na VK",
     "post2weibo": "Odeslat na Weibo",
+    "post2chatgpt": "Odeslat na ChatGPT",
+    "post2claude": "Odeslat na Claude",
     "onError": "Pro použití tohoto rozšíření musí být aktivováno před načtením stránky. Zkuste to znovu po obnovení stránky v Safari.",
     "settings": "Nastavení",
     "quoteStyleSetting": "Uvozovky",
@@ -112,7 +126,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Kliknutím přepnete",
       "dragItem": "Přetáhněte pro změnu pořadí"
-    }
+    },
+    "taskContext": "Ověřte, zda je tento citát v souladu s kontextem svého zdroje, a v případě potřeby stručně vysvětlete relevantní kontextové informace na základě zdroje."
   },
   "da": {
     "copy2clipboard": "Kopier til udklipsholder",
@@ -127,6 +142,8 @@ const labelStrings = {
     "post2tumblr": "Post til Tumblr",
     "post2vk": "Post til VK",
     "post2weibo": "Post til Weibo",
+    "post2chatgpt": "Post til ChatGPT",
+    "post2claude": "Post til Claude",
     "onError": "For at bruge denne udvidelse skal den være aktiveret, før siden indlæses. Prøv igen efter at have opdateret siden i Safari.",
     "settings": "Indstillinger",
     "quoteStyleSetting": "Anførsel",
@@ -135,7 +152,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Klik for at skifte",
       "dragItem": "Træk for at ændre rækkefølge"
-    }
+    },
+    "taskContext": "Kontrollér, om dette citat er i overensstemmelse med konteksten i kilden, og forklar om nødvendigt kort relevant baggrundsinformation baseret på kilden."
   },
   "de": {
     "copy2clipboard": "In die Zwischenablage kopieren",
@@ -150,6 +168,8 @@ const labelStrings = {
     "post2tumblr": "Auf Tumblr posten",
     "post2vk": "Auf VK posten",
     "post2weibo": "Auf VK Weibo",
+    "post2chatgpt": "Auf VK ChatGPT",
+    "post2claude": "Auf VK Claude",
     "onError": "Um diese Erweiterung zu verwenden, muss sie vor dem Laden der Seite aktiviert werden. Bitte versuchen Sie es erneut, nachdem Sie die Seite in Safari aktualisiert haben.",
     "settings": "Einstellungen",
     "quoteStyleSetting": "Anführung",
@@ -158,7 +178,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Klicken zum Umschalten",
       "dragItem": "Ziehen zum Neuordnen"
-    }
+    },
+    "taskContext": "Überprüfen Sie, ob dieses Zitat mit dem Kontext seiner Quelle übereinstimmt, und erläutern Sie gegebenenfalls kurz relevante Hintergrundinformationen auf Grundlage der Quelle."
   },
   "el": {
     "copy2clipboard": "Αντιγραφή στο πρόχειρο",
@@ -173,6 +194,8 @@ const labelStrings = {
     "post2tumblr": "Δημοσίευση στο Tumblr",
     "post2vk": "Δημοσίευση στο VK",
     "post2weibo": "Δημοσίευση στο Weibo",
+    "post2chatgpt": "Δημοσίευση στο ChatGPT",
+    "post2claude": "Δημοσίευση στο Claude",
     "onError": "Για να χρησιμοποιήσετε αυτήν την επέκταση, πρέπει να είναι ενεργοποιημένη πριν από την φόρτωση της σελίδας. Δοκιμάστε ξανά μετά την ανανέωση της σελίδας στο Safari.",
     "settings": "Ρυθμίσεις",
     "quoteStyleSetting": "Εισαγωγικά",
@@ -181,7 +204,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Κάντε κλικ για εναλλαγή",
       "dragItem": "Σύρετε για αναδιάταξη"
-    }
+    },
+    "taskContext": "Επαληθεύστε εάν αυτό το απόσπασμα είναι συνεπές με το πλαίσιο της πηγής του και, εάν είναι απαραίτητο, εξηγήστε συνοπτικά σχετικές πληροφορίες υποβάθρου βάσει της πηγής."
   },
   "en-GB": {
     "copy2clipboard": "Copy to Clipboard",
@@ -196,6 +220,8 @@ const labelStrings = {
     "post2tumblr": "Post to Tumblr",
     "post2vk": "Post to VK",
     "post2weibo": "Post to Weibo",
+    "post2chatgpt": "Post to ChatGPT",
+    "post2claude": "Post to Claude",
     "onError": "To use this extension, it must be enabled before loading the page. Please try again after refreshing the page in Safari.",
     "settings": "Settings",
     "quoteStyleSetting": "Quotes",
@@ -204,7 +230,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Click to toggle",
       "dragItem": "Drag to reorder"
-    }
+    },
+    "taskContext": "Verify whether this quotation is consistent with the context of its source, and if necessary, briefly explain relevant background information based on the source."
   },
   "en-AU": {
     "copy2clipboard": "Copy to Clipboard",
@@ -219,6 +246,8 @@ const labelStrings = {
     "post2tumblr": "Post to Tumblr",
     "post2vk": "Post to VK",
     "post2weibo": "Post to Weibo",
+    "post2chatgpt": "Post to ChatGPT",
+    "post2claude": "Post to Claude",
     "onError": "To use this extension, it must be enabled before loading the page. Please try again after refreshing the page in Safari.",
     "settings": "Settings",
     "quoteStyleSetting": "Quotes",
@@ -227,7 +256,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Click to toggle",
       "dragItem": "Drag to reorder"
-    }
+    },
+    "taskContext": "Verify whether this quotation is consistent with the context of its source, and if necessary, briefly explain relevant background information based on the source."
   },
   "en-CA": {
     "copy2clipboard": "Copy to Clipboard",
@@ -242,6 +272,8 @@ const labelStrings = {
     "post2tumblr": "Post to Tumblr",
     "post2vk": "Post to VK",
     "post2weibo": "Post to Weibo",
+    "post2chatgpt": "Post to ChatGPT",
+    "post2claude": "Post to Claude",
     "onError": "To use this extension, it must be enabled before loading the page. Please try again after refreshing the page in Safari.",
     "settings": "Settings",
     "quoteStyleSetting": "Quotes",
@@ -250,7 +282,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Click to toggle",
       "dragItem": "Drag to reorder"
-    }
+    },
+    "taskContext": "Verify whether this quotation is consistent with the context of its source, and if necessary, briefly explain relevant background information based on the source."
   },
   "es": {
     "copy2clipboard": "Copiar al portapapeles",
@@ -265,6 +298,8 @@ const labelStrings = {
     "post2tumblr": "Publicar en Tumblr",
     "post2vk": "Publicar en VK",
     "post2weibo": "Publicar en Weibo",
+    "post2chatgpt": "Publicar en ChatGPT",
+    "post2claude": "Publicar en Claude",
     "onError": "Para usar esta extensión, debe estar habilitada antes de cargar la página. Intenta de nuevo después de actualizar la página en Safari.",
     "settings": "Configuración",
     "quoteStyleSetting": "Comillas",
@@ -273,7 +308,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Clic para alternar",
       "dragItem": "Arrastrar para reordenar"
-    }
+    },
+    "taskContext": "Verifique si esta cita es coherente con el contexto de su fuente y, si es necesario, explique brevemente la información de contexto relevante basada en la fuente."
   },
   "es-MX": {
     "copy2clipboard": "Copiar al portapapeles",
@@ -288,6 +324,8 @@ const labelStrings = {
     "post2tumblr": "Publicar en Tumblr",
     "post2vk": "Publicar en VK",
     "post2weibo": "Publicar en Weibo",
+    "post2chatgpt": "Publicar en ChatGPT",
+    "post2claude": "Publicar en Claude",
     "onError": "Para usar esta extensión, debe estar habilitada antes de cargar la página. Intenta de nuevo después de actualizar la página en Safari.",
     "settings": "Configuración",
     "quoteStyleSetting": "Comillas",
@@ -296,7 +334,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Clic para alternar",
       "dragItem": "Arrastrar para reordenar"
-    }
+    },
+    "taskContext": "Verifique si esta cita es coherente con el contexto de su fuente y, si es necesario, explique brevemente la información de contexto relevante basada en la fuente."
   },
   "fi": {
     "copy2clipboard": "Kopioi leikepöydälle",
@@ -311,6 +350,8 @@ const labelStrings = {
     "post2tumblr": "Julkaise Tumblr:ssä",
     "post2vk": "Julkaise VK:ssä",
     "post2weibo": "Julkaise Weibo:ssä",
+    "post2chatgpt": "Julkaise ChatGPT:ssä",
+    "post2claude": "Julkaise Claude:ssä",
     "onError": "Jotta voit käyttää tätä laajennusta, se on otettava käyttöön ennen sivun lataamista. Yritä uudelleen, kun olet päivittänyt sivun Safarissa.",
     "settings": "Asetukset",
     "quoteStyleSetting": "Lainaus",
@@ -319,7 +360,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Napsauta vaihtaaksesi",
       "dragItem": "Vedä järjestääksesi uudelleen"
-    }
+    },
+    "taskContext": "Tarkista, onko tämä lainaus yhdenmukainen lähteensä kontekstin kanssa, ja selitä tarvittaessa lyhyesti lähteeseen perustuvat taustatiedot."
   },
   "fr": {
     "copy2clipboard": "Copier dans le presse-papiers",
@@ -334,6 +376,8 @@ const labelStrings = {
     "post2tumblr": "Publier sur Tumblr",
     "post2vk": "Publier sur VK",
     "post2weibo": "Publier sur Weibo",
+    "post2chatgpt": "Publier sur ChatGPT",
+    "post2claude": "Publier sur Claude",
     "onError": "Pour utiliser cette extension, elle doit être activée avant de charger la page. Veuillez réessayer après avoir actualisé la page dans Safari.",
     "settings": "Réglages",
     "quoteStyleSetting": "Guillemets",
@@ -342,7 +386,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Cliquer pour basculer",
       "dragItem": "Faire glisser pour réorganiser"
-    }
+    },
+    "taskContext": "Vérifiez si cette citation est cohérente avec le contexte de sa source et, si nécessaire, expliquez brièvement les informations de contexte pertinentes basées sur la source."
   },
   "fr-CA": {
     "copy2clipboard": "Copier dans le presse-papiers",
@@ -357,6 +402,8 @@ const labelStrings = {
     "post2tumblr": "Publier sur Tumblr",
     "post2vk": "Publier sur VK",
     "post2weibo": "Publier sur Weibo",
+    "post2chatgpt": "Publier sur ChatGPT",
+    "post2claude": "Publier sur Claude",
     "onError": "Pour utiliser cette extension, elle doit être activée avant de charger la page. Veuillez réessayer après avoir actualisé la page dans Safari.",
     "settings": "Réglages",
     "quoteStyleSetting": "Guillemets",
@@ -365,7 +412,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Cliquer pour basculer",
       "dragItem": "Faire glisser pour réorganiser"
-    }
+    },
+    "taskContext": "Vérifiez si cette citation est cohérente avec le contexte de sa source et, si nécessaire, expliquez brièvement les informations de contexte pertinentes basées sur la source."
   },
   "hu": {
     "copy2clipboard": "Másolás a vágólapra",
@@ -380,6 +428,8 @@ const labelStrings = {
     "post2tumblr": "Közzététel a Tumblr-on",
     "post2vk": "Közzététel a VK-on",
     "post2weibo": "Közzététel a Weibo-on",
+    "post2chatgpt": "Közzététel a ChatGPT",
+    "post2claude": "Közzététel a Claude",
     "onError": "Ahhoz, hogy ezt az alkalmazást használni tudja, engedélyezni kell az oldal betöltése előtt. Kérjük, próbálja újra az oldal Safari-ban történő frissítése után.",
     "settings": "Beállítások",
     "quoteStyleSetting": "Idézőjel",
@@ -388,7 +438,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Kattintson a váltáshoz",
       "dragItem": "Húzza az átrendezéshez"
-    }
+    },
+    "taskContext": "Ellenőrizze, hogy ez az idézet összhangban van-e a forrás kontextusával, és szükség esetén röviden magyarázza el a forráson alapuló háttérinformációkat."
   },
   "he": {
     "copy2clipboard": "העתק ללוח",
@@ -403,6 +454,8 @@ const labelStrings = {
     "post2tumblr": "פרסם ל-Tumblr",
     "post2vk": "פרסם ל-VK",
     "post2weibo": "פרסם ל-Weibo",
+    "post2chatgpt": "פרסם ל-ChatGPT",
+    "post2claude": "פרסם ל-Claude",
     "onError": "כדי להשתמש בתוסף זה, יש להפעיל אותו לפני טעינת הדף. אנא נסה שוב לאחר רענון הדף ב-Safari.",
     "settings": "הגדרות",
     "quoteStyleSetting": "מרכאות",
@@ -411,7 +464,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "לחץ כדי להחליף",
       "dragItem": "גרור כדי לסדר מחדש"
-    }
+    },
+    "taskContext": "בדוק אם ציטוט זה תואם את ההקשר של מקורו, ואם יש צורך, הסבר בקצרה מידע רקע רלוונטי המבוסס על המקור."
   },
   "hr": {
     "copy2clipboard": "Kopiraj u međuspremnik",
@@ -426,6 +480,8 @@ const labelStrings = {
     "post2tumblr": "Objavi na Tumblr",
     "post2vk": "Objavi na VK",
     "post2weibo": "Objavi na Weibo",
+    "post2chatgpt": "Objavi na ChatGPT",
+    "post2claude": "Objavi na Claude",
     "onError": "Da biste koristili ovu ekstenziju, mora biti omogućena prije učitavanja stranice. Pokušajte ponovo nakon što osvježite stranicu u Safariju.",
     "settings": "Postavke",
     "quoteStyleSetting": "Navodnici",
@@ -434,7 +490,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Click to toggle",
       "dragItem": "Drag to reorder"
-    }
+    },
+    "taskContext": "Provjerite je li ovaj citat u skladu s kontekstom izvora te, ako je potrebno, ukratko objasnite relevantne pozadinske informacije na temelju izvora."
   },
   "hi": {
     "copy2clipboard": "क्लिपबोर्ड में कॉपी करें",
@@ -449,6 +506,8 @@ const labelStrings = {
     "post2tumblr": "Tumblr पर पोस्ट करें",
     "post2vk": "VK पर पोस्ट करें",
     "post2weibo": "Weibo पर पोस्ट करें",
+    "post2chatgpt": "ChatGPT पर पोस्ट करें",
+    "post2claude": "Claude पर पोस्ट करें",
     "onError": "इस एक्सटेंशन का उपयोग करने के लिए, इसे पेज लोड करने से पहले सक्षम करना होगा। सफारी में पेज को रीफ्रेश करने के बाद फिर से प्रयास करें।",
     "settings": "सेटिंग्स",
     "quoteStyleSetting": "उद्धरण",
@@ -457,7 +516,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "टॉगल करने के लिए क्लिक करें",
       "dragItem": "पुनर्व्यवस्थित करने के लिए खींचें"
-    }
+    },
+    "taskContext": "जाँच करें कि यह उद्धरण अपने स्रोत के संदर्भ के अनुरूप है या नहीं, और यदि आवश्यक हो, तो स्रोत के आधार पर प्रासंगिक पृष्ठभूमि जानकारी को संक्षेप में समझाएँ।"
   },
   "id": {
     "copy2clipboard": "Salin ke Papan Klip",
@@ -472,6 +532,8 @@ const labelStrings = {
     "post2tumblr": "Posting ke Tumblr",
     "post2vk": "Posting ke VK",
     "post2weibo": "Posting ke Weibo",
+    "post2chatgpt": "Posting ke ChatGPT",
+    "post2claude": "Posting ke Claude",
     "onError": "Untuk menggunakan ekstensi ini, ekstensi harus diaktifkan sebelum memuat halaman. Silakan coba lagi setelah menyegarkan halaman di Safari.",
     "settings": "Pengaturan",
     "quoteStyleSetting": "Kutip",
@@ -480,7 +542,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Klik untuk beralih",
       "dragItem": "Seret untuk mengatur ulang"
-    }
+    },
+    "taskContext": "Periksa apakah kutipan ini konsisten dengan konteks sumbernya, dan jika perlu, jelaskan secara singkat informasi latar belakang yang relevan berdasarkan sumber tersebut."
   },
   "it": {
     "copy2clipboard": "Copia negli Appunti",
@@ -495,6 +558,8 @@ const labelStrings = {
     "post2tumblr": "Pubblica su Tumblr",
     "post2vk": "Pubblica su VK",
     "post2weibo": "Pubblica su Weibo",
+    "post2chatgpt": "Pubblica su ChatGPT",
+    "post2claude": "Pubblica su Claude",
     "onError": "Per utilizzare questa estensione, deve essere abilitata prima di caricare la pagina. Per favore, riprova dopo aver aggiornato la pagina in Safari.",
     "settings": "Impostazioni",
     "quoteStyleSetting": "Virgolette",
@@ -503,7 +568,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Clicca per attivare/disattivare",
       "dragItem": "Trascina per riordinare"
-    }
+    },
+    "taskContext": "Verifica se questa citazione è coerente con il contesto della sua fonte e, se necessario, spiega brevemente le informazioni di contesto rilevanti basate sulla fonte."
   },
   "ja": {
     "copy2clipboard": "クリップボードにコピー",
@@ -518,6 +584,8 @@ const labelStrings = {
     "post2tumblr": "Tumblrに投稿",
     "post2vk": "VKに投稿",
     "post2weibo": "Weiboに投稿",
+    "post2chatgpt": "ChatGPTに投稿",
+    "post2claude": "Claudeに投稿",
     "onError": "この機能拡張を使用するには、ページを読み込む前に有効化する必要があります。Safariでページを更新してから、再度お試しください。",
     "settings": "設定",
     "quoteStyleSetting": "引用符",
@@ -526,7 +594,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "クリックして切り替え",
       "dragItem": "ドラッグして並べ替え"
-    }
+    },
+    "taskContext": "この引用が出典の文脈と整合しているか検証し、必要に応じて出典に基づいた背景情報を簡潔に説明してください。"
   },
   "ko-KR": {
     "copy2clipboard": "클립보드에 복사",
@@ -541,6 +610,8 @@ const labelStrings = {
     "post2tumblr": "Tumblr에 게시",
     "post2vk": "VK에 게시",
     "post2weibo": "Weibo에 게시",
+    "post2chatgpt": "ChatGPT에 게시",
+    "post2claude": "Claude에 게시",
     "onError": "이 확장 프로그램을 사용하려면 페이지를 로드하기 전에 활성화되어 있어야 합니다. Safari에서 페이지를 새로 고친 후 다시 시도하세요.",
     "settings": "설정",
     "quoteStyleSetting": "따옴표",
@@ -549,7 +620,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "클릭하여 전환",
       "dragItem": "드래그하여 순서 변경"
-    }
+    },
+    "taskContext": "이 인용문이 출처의 문맥과 일치하는지 검증하고, 필요한 경우 출처에 기반한 관련 배경 정보를 간략히 설명해 주세요."
   },
   "ms": {
     "copy2clipboard": "Salin ke Papan Klip",
@@ -564,6 +636,8 @@ const labelStrings = {
     "post2tumblr": "Kongsi di Tumblr",
     "post2vk": "Kongsi di VK",
     "post2weibo": "Kongsi di Weibo",
+    "post2chatgpt": "Kongsi di ChatGPT",
+    "post2claude": "Kongsi di Claude",
     "onError": "Untuk menggunakan sambungan ini, ia mesti diaktifkan sebelum memuatkan halaman. Sila cuba lagi selepas menyegarkan halaman di Safari.",
     "settings": "Tetapan",
     "quoteStyleSetting": "Petik",
@@ -572,7 +646,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Klik untuk togol",
       "dragItem": "Seret untuk menyusun semula"
-    }
+    },
+    "taskContext": "Sahkan sama ada petikan ini selaras dengan konteks sumbernya, dan jika perlu, terangkan secara ringkas maklumat latar belakang yang berkaitan berdasarkan sumber tersebut."
   },
   "nb": {
     "copy2clipboard": "Kopier til utklippstavle",
@@ -587,6 +662,8 @@ const labelStrings = {
     "post2tumblr": "Legg ut til Tumblr",
     "post2vk": "Legg ut til VK",
     "post2weibo": "Legg ut til Weibo",
+    "post2chatgpt": "Legg ut til ChatGPT",
+    "post2claude": "Legg ut til Claude",
     "onError": "For å bruke denne utvidelsen må den være aktivert før siden lastes. Prøv igjen etter å ha oppdatert siden i Safari.",
     "settings": "Innstillinger",
     "quoteStyleSetting": "Anførselstegn",
@@ -595,7 +672,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Klikk for å veksle",
       "dragItem": "Dra for å endre rekkefølge"
-    }
+    },
+    "taskContext": "Kontroller om dette sitatet er i samsvar med konteksten i kilden, og forklar om nødvendig kort relevant bakgrunnsinformasjon basert på kilden."
   },
   "nl": {
     "copy2clipboard": "Kopiëren naar klembord",
@@ -610,6 +688,8 @@ const labelStrings = {
     "post2tumblr": "Posten op Tumblr",
     "post2vk": "Posten op VK",
     "post2weibo": "Posten op Weibo",
+    "post2chatgpt": "Posten op ChatGPT",
+    "post2claude": "Posten op Claude",
     "onError": "Om deze extensie te gebruiken, moet deze vóór het laden van de pagina worden ingeschakeld. Probeer het opnieuw nadat u de pagina in Safari hebt vernieuwd.",
     "settings": "Instellingen",
     "quoteStyleSetting": "Aanhalings",
@@ -618,7 +698,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Klik om te schakelen",
       "dragItem": "Sleep om te herschikken"
-    }
+    },
+    "taskContext": "Controleer of dit citaat consistent is met de context van de bron en licht indien nodig kort relevante achtergrondinformatie toe op basis van de bron."
   },
   "pl": {
     "copy2clipboard": "Skopiuj do schowka",
@@ -633,6 +714,8 @@ const labelStrings = {
     "post2tumblr": "Opublikuj na Tumblr",
     "post2vk": "Opublikuj na VK",
     "post2weibo": "Opublikuj na Weibo",
+    "post2chatgpt": "Opublikuj na ChatGPT",
+    "post2claude": "Opublikuj na Claude",
     "onError": "Aby użyć tego rozszerzenia, musi być ono włączone przed załadowaniem strony. Spróbuj ponownie po odświeżeniu strony w Safari.",
     "settings": "Ustawienia",
     "quoteStyleSetting": "Cudzysłowy",
@@ -641,7 +724,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Kliknij, aby przełączyć",
       "dragItem": "Przeciągnij, aby zmienić kolejność"
-    }
+    },
+    "taskContext": "Sprawdź, czy ten cytat jest zgodny z kontekstem swojego źródła, a w razie potrzeby krótko wyjaśnij istotne informacje kontekstowe na podstawie źródła."
   },
   "pt": {
     "copy2clipboard": "Copiar para a área de transferência",
@@ -656,6 +740,8 @@ const labelStrings = {
     "post2tumblr": "Postar no Tumblr",
     "post2vk": "Postar no VK",
     "post2weibo": "Postar no Weibo",
+    "post2chatgpt": "Postar no ChatGPT",
+    "post2claude": "Postar no Claude",
     "onError": "Para usar esta extensão, ela deve estar ativada antes de carregar a página. Tente novamente após atualizar a página no Safari.",
     "settings": "Configurações",
     "quoteStyleSetting": "Aspas",
@@ -664,7 +750,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Clique para alternar",
       "dragItem": "Arraste para reordenar"
-    }
+    },
+    "taskContext": "Verifique se esta citação é consistente com o contexto da sua fonte e, se necessário, explique brevemente informações de contexto relevantes com base na fonte."
   },
   "pt-PT": {
     "copy2clipboard": "Copiar para a área de transferência",
@@ -679,6 +766,8 @@ const labelStrings = {
     "post2tumblr": "Publicar no Tumblr",
     "post2vk": "Publicar no VK",
     "post2weibo": "Publicar no Weibo",
+    "post2chatgpt": "Publicar no ChatGPT",
+    "post2claude": "Publicar no Claude",
     "onError": "Para usar esta extensão, ela deve estar ativada antes de carregar a página. Tente novamente após atualizar a página no Safari.",
     "settings": "Definições",
     "quoteStyleSetting": "Aspas",
@@ -687,7 +776,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Clique para alternar",
       "dragItem": "Arraste para reordenar"
-    }
+    },
+    "taskContext": "Verifique se esta citação é consistente com o contexto da sua fonte e, se necessário, explique brevemente informações de contexto relevantes com base na fonte."
   },
   "pt-BR": {
     "copy2clipboard": "Copiar para a área de transferência",
@@ -702,6 +792,8 @@ const labelStrings = {
     "post2tumblr": "Publicar no Tumblr",
     "post2vk": "Publicar no VK",
     "post2weibo": "Publicar no Weibo",
+    "post2chatgpt": "Publicar no ChatGPT",
+    "post2claude": "Publicar no Claude",
     "onError": "Para usar esta extensão, ela deve estar ativada antes de carregar a página. Tente novamente após atualizar a página no Safari.",
     "settings": "Configurações",
     "quoteStyleSetting": "Aspas",
@@ -710,7 +802,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Clique para alternar",
       "dragItem": "Arraste para reordenar"
-    }
+    },
+    "taskContext": "Verifique se esta citação é consistente com o contexto de sua fonte e, se necessário, explique brevemente informações de contexto relevantes com base na fonte."
   },
   "ro": {
     "copy2clipboard": "Copiază în Clipboard",
@@ -725,6 +818,8 @@ const labelStrings = {
     "post2tumblr": "Publică pe Tumblr",
     "post2vk": "Publică pe VK",
     "post2weibo": "Publică pe Weibo",
+    "post2chatgpt": "Publică pe ChatGPT",
+    "post2claude": "Publică pe Claude",
     "onError": "Pentru a folosi această extensie, trebuie să fie activată înainte de a încărca pagina. Te rugăm să încerci din nou după ce ai reîncărcat pagina în Safari.",
     "settings": "Setări",
     "quoteStyleSetting": "Ghilimele",
@@ -733,7 +828,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Click pentru a comuta",
       "dragItem": "Trageți pentru a reordona"
-    }
+    },
+    "taskContext": "Verificați dacă acest citat este coerent cu contextul sursei sale și, dacă este necesar, explicați pe scurt informațiile de context relevante pe baza sursei."
   },
   "ru": {
     "copy2clipboard": "Скопировать в буфер обмена",
@@ -748,6 +844,8 @@ const labelStrings = {
     "post2tumblr": "Опубликовать в Tumblr",
     "post2vk": "Опубликовать в VK",
     "post2weibo": "Опубликовать в Weibo",
+    "post2chatgpt": "Опубликовать в ChatGPT",
+    "post2claude": "Опубликовать в Claude",
     "onError": "Для использования этого расширения его нужно активировать перед загрузкой страницы. Пожалуйста, попробуйте снова после перезагрузки страницы в Safari.",
     "settings": "Настройки",
     "quoteStyleSetting": "Кавычки",
@@ -756,7 +854,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Нажмите для переключения",
       "dragItem": "Перетащите для изменения порядка"
-    }
+    },
+    "taskContext": "Проверьте, соответствует ли эта цитата контексту своего источника, и при необходимости кратко объясните соответствующую справочную информацию на основе источника."
   },
   "sk": {
     "copy2clipboard": "Kopírovať do schránky",
@@ -771,6 +870,8 @@ const labelStrings = {
     "post2tumblr": "Zverejniť na Tumblr",
     "post2vk": "Zverejniť na VK",
     "post2weibo": "Zverejniť na Weibo",
+    "post2chatgpt": "Zverejniť na ChatGPT",
+    "post2claude": "Zverejniť na Claude",
     "onError": "Na používanie tohto rozšírenia musí byť aktivované pred načítaním stránky. Skúste to znova po obnovení stránky v Safari.",
     "settings": "Nastavenia",
     "quoteStyleSetting": "Úvodzovky",
@@ -779,7 +880,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Kliknite pre prepnutie",
       "dragItem": "Potiahnite pre zmenu poradia"
-    }
+    },
+    "taskContext": "Overte, či je tento citát v súlade s kontextom svojho zdroja, a v prípade potreby stručne vysvetlite relevantné kontextové informácie na základe zdroja."
   },
   "sv": {
     "copy2clipboard": "Kopiera till urklipp",
@@ -794,6 +896,8 @@ const labelStrings = {
     "post2tumblr": "Publicera på Tumblr",
     "post2vk": "Publicera på VK",
     "post2weibo": "Publicera på Weibo",
+    "post2chatgpt": "Publicera på ChatGPT",
+    "post2claude": "Publicera på Claude",
     "onError": "För att använda denna tillägg måste den vara aktiverad innan sidan laddas. Försök igen efter att du har uppdaterat sidan i Safari.",
     "settings": "Inställningar",
     "quoteStyleSetting": "Citat",
@@ -802,7 +906,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Klicka för att växla",
       "dragItem": "Dra för att ändra ordning"
-    }
+    },
+    "taskContext": "Kontrollera om detta citat är förenligt med kontexten i sin källa och förklara vid behov kort relevant bakgrundsinformation baserad på källan."
   },
   "th": {
     "copy2clipboard": "คัดลอกไปยังคลิปบอร์ด",
@@ -817,6 +922,8 @@ const labelStrings = {
     "post2tumblr": "โพสต์ไปที่ Tumblr",
     "post2vk": "โพสต์ไปที่ VK",
     "post2weibo": "โพสต์ไปที่ Weibo",
+    "post2chatgpt": "โพสต์ไปที่ ChatGPT",
+    "post2claude": "โพสต์ไปที่ Claude",
     "onError": "ในการใช้ส่วนขยายนี้ จำเป็นต้องเปิดใช้งานก่อนโหลดหน้าเว็บ กรุณากดปุ่มด้านล่างเพื่อทดลองอีกครั้งหลังจากที่อัปเดตหน้าใน Safari",
     "settings": "การตั้งค่า",
     "quoteStyleSetting": "คำพูด",
@@ -825,7 +932,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "คลิกเพื่อสลับ",
       "dragItem": "ลากเพื่อจัดลำดับใหม่"
-    }
+    },
+    "taskContext": "ตรวจสอบว่าข้อความอ้างอิงนี้สอดคล้องกับบริบทของแหล่งที่มาหรือไม่ และหากจำเป็น ให้อธิบายข้อมูลพื้นฐานที่เกี่ยวข้องโดยย่อโดยอ้างอิงจากแหล่งที่มา"
   },
   "tr": {
     "copy2clipboard": "Panoya Kopyala",
@@ -840,6 +948,8 @@ const labelStrings = {
     "post2tumblr": "Tumblr'a Gönder",
     "post2vk": "VK'a Gönder",
     "post2weibo": "Weibo'a Gönder",
+    "post2chatgpt": "Weibo'a ChatGPT",
+    "post2claude": "Weibo'a Claude",
     "onError": "Bu uzantıyı kullanmak için, sayfayı yüklemeden önce etkinleştirilmiş olmalıdır. Safari'de sayfayı yeniledikten sonra tekrar deneyin.",
     "settings": "Ayarlar",
     "quoteStyleSetting": "Tırnak",
@@ -848,7 +958,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Açıp kapatmak için tıklayın",
       "dragItem": "Yeniden sıralamak için sürükleyin"
-    }
+    },
+    "taskContext": "Bu alıntının kaynağının bağlamıyla tutarlı olup olmadığını doğrulayın ve gerekirse kaynağa dayalı ilgili arka plan bilgilerini kısaca açıklayın."
   },
   "uk": {
     "copy2clipboard": "Скопіювати в буфер обміну",
@@ -863,6 +974,8 @@ const labelStrings = {
     "post2tumblr": "Опублікувати в Tumblr",
     "post2vk": "Опублікувати в VK",
     "post2weibo": "Опублікувати в Weibo",
+    "post2chatgpt": "Опублікувати в ChatGPT",
+    "post2claude": "Опублікувати в Claude",
     "onError": "Щоб використовувати це розширення, воно повинно бути увімкнене перед завантаженням сторінки. Спробуйте знову після оновлення сторінки в Safari.",
     "settings": "Налаштування",
     "quoteStyleSetting": "Лапки",
@@ -871,7 +984,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Натисніть, щоб перемкнути",
       "dragItem": "Перетягніть для зміни порядку"
-    }
+    },
+    "taskContext": "Перевірте, чи відповідає ця цитата контексту свого джерела, і за потреби коротко поясніть відповідну довідкову інформацію на основі джерела."
   },
   "vi": {
     "copy2clipboard": "Sao chép vào Clipboard",
@@ -886,6 +1000,8 @@ const labelStrings = {
     "post2tumblr": "Đăng lên Tumblr",
     "post2vk": "Đăng lên VK",
     "post2weibo": "Đăng lên Weibo",
+    "post2chatgpt": "Đăng lên ChatGPT",
+    "post2claude": "Đăng lên Claude",
     "onError": "Để sử dụng tiện ích mở rộng này, bạn phải kích hoạt nó trước khi tải trang. Vui lòng thử lại sau khi làm mới trang trong Safari.",
     "settings": "Cài đặt",
     "quoteStyleSetting": "Dấu ngoặc",
@@ -894,7 +1010,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "Nhấp để chuyển đổi",
       "dragItem": "Kéo để sắp xếp lại"
-    }
+    },
+    "taskContext": "Xác minh xem trích dẫn này có nhất quán với ngữ cảnh của nguồn hay không và nếu cần, hãy giải thích ngắn gọn thông tin nền liên quan dựa trên nguồn."
   },
   "zh": {
     "copy2clipboard": "复制到剪贴板",
@@ -909,6 +1026,8 @@ const labelStrings = {
     "post2tumblr": "发布到Tumblr",
     "post2vk": "发布到VK",
     "post2weibo": "发布到Weibo",
+    "post2chatgpt": "ChatGPT发布到",
+    "post2claude": "Claude发布到",
     "onError": "要使用此扩展程序，必须在加载页面之前启用。请在Safari中刷新页面后重试。",
     "settings": "设置",
     "quoteStyleSetting": "引号",
@@ -917,7 +1036,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "点击切换",
       "dragItem": "拖动重新排序"
-    }
+    },
+    "taskContext": "请核实该引文是否与其来源的语境一致，并在必要时基于来源简要说明相关背景信息。"
   },
   "zh-CN": {
     "copy2clipboard": "复制到剪贴板",
@@ -932,6 +1052,8 @@ const labelStrings = {
     "post2tumblr": "发布到Tumblr",
     "post2vk": "发布到VK",
     "post2weibo": "发布到Weibo",
+    "post2chatgpt": "ChatGPT发布到",
+    "post2claude": "Claude发布到",
     "onError": "要使用此扩展程序，必须在加载页面之前启用。请在Safari中刷新页面后重试。",
     "settings": "设置",
     "quoteStyleSetting": "引号",
@@ -940,7 +1062,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "点击切换",
       "dragItem": "拖动重新排序"
-    }
+    },
+    "taskContext": "请核实该引文是否与其来源的语境一致，并在必要时基于来源简要说明相关背景信息。"
   },
   "zh-TW": {
     "copy2clipboard": "複製到剪貼簿",
@@ -955,6 +1078,8 @@ const labelStrings = {
     "post2tumblr": "發佈到Tumblr",
     "post2vk": "發佈到VK",
     "post2weibo": "發佈到Weibo",
+    "post2chatgpt": "ChatGPT發佈到",
+    "post2claude": "Claude發佈到",
     "onError": "要使用此擴充功能，必須在載入頁面之前啟用。請在Safari中重新載入頁面後再試一次。",
     "settings": "設定",
     "quoteStyleSetting": "引號",
@@ -963,7 +1088,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "點擊切換",
       "dragItem": "拖動重新排序"
-    }
+    },
+    "taskContext": "請確認此引文是否與其來源的語境一致，並在必要時根據來源簡要說明相關背景資訊。"
   },
   "zh-HK": {
     "copy2clipboard": "複製到剪貼簿",
@@ -978,6 +1104,8 @@ const labelStrings = {
     "post2tumblr": "發佈到Tumblr",
     "post2vk": "發佈到VK",
     "post2weibo": "發佈到Weibo",
+    "post2chatgpt": "ChatGPT發佈到",
+    "post2claude": "Claude發佈到",
     "onError": "要使用此擴充功能，必須在載入頁面之前啟用。請在Safari中重新載入頁面後再試一次。",
     "settings": "設定",
     "quoteStyleSetting": "引號",
@@ -986,7 +1114,8 @@ const labelStrings = {
     "tooltip": {
       "toggleBullet": "點擊切換",
       "dragItem": "拖動重新排序"
-    }
+    },
+    "taskContext": "請核實此引文是否與其來源的語境一致，並在需要時根據來源簡要說明相關背景資訊。"
   },
 };
 

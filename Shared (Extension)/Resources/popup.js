@@ -1,6 +1,6 @@
 import { getCurrentLangLabelString, applyRTLSupport } from './localization.js';
 import { isIOS, isIPadOS, isMacOS, getIOSMajorVersion, applyPlatformClass } from './utils.js';
-import { removeParams, getCleanUrl } from './cleanurl.js';
+import { getCleanUrl } from './cleanurl.js';
 
 const appState = {
   isSettingsMode: false,
@@ -184,7 +184,7 @@ const updateList = async () => {
   
   navPost.innerHTML = '';
   data.forEach(item => {
-    const platform = socialPlatforms[item.id];
+    const platform = intentTargets[item.id];
     const urlTemplate = getUrlTemplate(platform);
     if (!urlTemplate) return;
     
@@ -215,8 +215,8 @@ const updateList = async () => {
 
 const setupNormalModeListeners = () => {
   navPost.querySelectorAll('li').forEach((li) => {
-    li.removeEventListener('click', handleSocialPlatformClick);
-    li.addEventListener('click', handleSocialPlatformClick);
+    li.removeEventListener('click', handlePlatformClick);
+    li.addEventListener('click', handlePlatformClick);
 
     li.removeEventListener('touchstart', onNavPostTouchStart);
     li.addEventListener('touchstart', onNavPostTouchStart);
@@ -237,7 +237,7 @@ const setupEditModeListeners = () => {
     li.addEventListener('dragstart', onDragStart);
     li.classList.add('isEditMode')
 
-    li.removeEventListener('click', handleSocialPlatformClick);
+    li.removeEventListener('click', handlePlatformClick);
     li.removeEventListener('touchstart', onNavPostTouchStart);
     li.removeEventListener('touchend', onNavPostTouchEndOrCancel);
     li.removeEventListener('touchcancel', onNavPostTouchEndOrCancel);
@@ -327,25 +327,30 @@ const toggleVisibility = async (event) => {
 };
 
 /* Events for UI */
-const socialPlatforms = {
+const intentTargets = {
   post2x: {
     labelKey: 'post2x',
+    type: 'sns',
     urlTemplate: 'https://x.com/intent/tweet?text=${quoteLinkText}&url=${currentUrl}'
   },
   post2threads: {
     labelKey: 'post2threads ',
+    type: 'sns',
     urlTemplate: 'https://www.threads.net/intent/post?url=${currentUrl}&text=${quoteLinkText}'
   },
   post2bluesky: {
     labelKey: 'post2bluesky',
+    type: 'sns',
     urlTemplate: 'https://bsky.app/intent/compose?text=${quoteLinkText}%20${currentUrl}'
   },
   post2mastodon: {
     labelKey: 'post2mastodon',
+    type: 'sns',
     urlTemplate: 'https://mastodon.social/share?text=${quoteLinkText}%20${currentUrl}'
   },
   post2linkedin: {
     labelKey: 'post2linkedin',
+    type: 'sns',
     urlTemplates: {
       macos: 'https://www.linkedin.com/feed/?shareActive=true&text=${quoteLinkText}%20${currentUrl}',
       ios: 'https://www.linkedin.com/sharing/share-offsite/?url=${currentUrl}%20${quoteLinkText}'
@@ -353,10 +358,12 @@ const socialPlatforms = {
   },
   post2telegram: {
     labelKey: 'post2telegram',
+    type: 'sns',
     urlTemplate: 'https://t.me/share/url?url=${currentUrl}&text=${quoteLinkText}'
   },
   post2line: {
     labelKey: 'post2line',
+    type: 'sns',
     urlTemplates: {
       macos: '',
       ios: 'https://line.me/R/share?text=${quoteLinkText}%20${currentUrl}'
@@ -364,15 +371,28 @@ const socialPlatforms = {
   },
   post2tumblr: {
     labelKey: 'post2tumblr',
+    type: 'sns',
     urlTemplate: 'https://www.tumblr.com/widgets/share/tool?url=${currentUrl}&selection=${quoteLinkText}'
   },
   post2vk: {
     labelKey: 'post2vk',
+    type: 'sns',
     urlTemplate: 'https://vk.com/share.php?url=${currentUrl}&comment=${quoteLinkText}'
   },
   post2weibo: {
     labelKey: 'post2weibo',
+    type: 'sns',
     urlTemplate: 'https://service.weibo.com/share/share.php?url=${currentUrl}&title=${quoteLinkText}'
+  },
+  post2chatgpt: {
+    labelKey: 'post2chatgpt',
+    type: 'genai',
+    urlTemplate: 'https://chatgpt.com/?prompt=${prompt}'
+  },
+  post2claude: {
+    labelKey: 'post2claude',
+    type: 'genai',
+    urlTemplate: 'https://claude.ai/new?q=${prompt}'
   }
 };
 
@@ -386,45 +406,66 @@ const getUrlTemplate = (platform) => {
   return null;
 };
 
-const handleSocialPlatformClick = (event) => {
+const buildGenAIPrompt = ({ selectedText, currentUrl }) => {
+  if (!selectedText) {
+    return `SOURCE: ${currentUrl}\nTASK: ${getCurrentLangLabelString('taskContext')}`;
+  }
+
+  return `QUOTE: "${selectedText}"\nSOURCE: ${currentUrl}\nTASK: ${getCurrentLangLabelString('taskContext')}`;
+};
+
+const handlePlatformClick = (event) => {
   const targetId = event.currentTarget.id;
-  const platform = socialPlatforms[targetId];
+  const platform = intentTargets[targetId];
   
   if (platform) {
     browser.tabs.query({active: true, currentWindow: true}, (tabs) => {
-      if (tabs[0]) {
-        const tabId = tabs[0].id;
-        browser.storage.local.get(tabId.toString(), (result) => {
-          const tabInfo = result[tabId];
-          if (tabInfo) {
-            let quoteLinkText;
-            if (tabInfo.selectedText) {
-              if (targetId === 'post2tumblr') {
-                quoteLinkText = tabInfo.selectedText;
-              } else if (targetId === 'post2weibo') {
-                const raw = `「${tabInfo.selectedText}」`;
-                quoteLinkText = encodeURIComponent(raw);
-              } else {
-                const quoteStyle = settings.get('quoteStyle');
-                const quotedText = createQuote(tabInfo.selectedText, quoteStyle);
-                
-                quoteLinkText = encodeURIComponent(`${quotedText}`);
-              }
-            } else {
-              quoteLinkText = encodeURIComponent(`${tabInfo.pageTitle}`);
-            }
-            const isCleanUrl = settings.get('isCleanUrl');
-            const cleanUrl = getCleanUrl(tabInfo.currentUrl, isCleanUrl)
+      if (!tabs[0]) return;
+      
+      const tabId = tabs[0].id;
+      browser.storage.local.get(tabId.toString(), (result) => {
+        const tabInfo = result[tabId];
+        if (!tabInfo) return;
 
-            const urlTemplate = getUrlTemplate(platform);
-            const url = urlTemplate
-              .replace('${quoteLinkText}', quoteLinkText)
-              .replace('${currentUrl}', encodeURIComponent(cleanUrl));
+        const isCleanUrl = settings.get('isCleanUrl');
+        const cleanUrl = getCleanUrl(tabInfo.currentUrl, isCleanUrl);
 
-            browser.tabs.create({ url });
+        let url;
+        if (platform.type === 'genai') {
+          const prompt = buildGenAIPrompt({
+            selectedText: tabInfo.selectedText,
+            currentUrl: cleanUrl
+          });
+
+          let encodedPrompt;
+          if (isMacOS()) {
+            encodedPrompt = encodeURIComponent(prompt).replace(/%0A/g, '%0A');
+          } else {
+            encodedPrompt = encodeURIComponent(prompt);
           }
-        });
-      }
+          
+          url = platform.urlTemplate.replace(
+            '${prompt}',
+            encodedPrompt
+          );
+        } else {
+          let quoteLinkText;
+
+          if (tabInfo.selectedText) {
+            const quoteStyle = settings.get('quoteStyle');
+            const quotedText = createQuote(tabInfo.selectedText, quoteStyle);
+            quoteLinkText = encodeURIComponent(quotedText);
+          } else {
+            quoteLinkText = encodeURIComponent(tabInfo.pageTitle);
+          }
+
+          url = platform.urlTemplate
+            .replace('${quoteLinkText}', quoteLinkText)
+            .replace('${currentUrl}', encodeURIComponent(cleanUrl));
+        }
+
+        browser.tabs.create({ url });
+      });
     });
   }
 };
@@ -770,11 +811,11 @@ const buildPopup = async (settings) => {
 
       navPost.querySelectorAll('li').forEach((li) => {
         const targetId = li.id;
-        const platform = socialPlatforms[targetId];
+        const platform = intentTargets[targetId];
         
         if (platform) {
           document.querySelector(`#${targetId} > div.postLabel`).textContent = `${getCurrentLangLabelString(platform.labelKey)}`;
-          li.addEventListener('click', handleSocialPlatformClick);
+          li.addEventListener('click', handlePlatformClick);
         }
       });
       await updateList();
