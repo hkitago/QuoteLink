@@ -408,10 +408,10 @@ const getUrlTemplate = (platform) => {
 
 const buildGenAIPrompt = ({ selectedText, currentUrl }) => {
   if (!selectedText) {
-    return `SOURCE: ${currentUrl}\nTASK: ${getCurrentLangLabelString('taskContext')}`;
+    return `${currentUrl}\n`;
   }
 
-  return `QUOTE: "${selectedText}"\nSOURCE: ${currentUrl}\nTASK: ${getCurrentLangLabelString('taskContext')}`;
+  return `QUOTE: "${selectedText}"\nSOURCE: ${currentUrl}\n`;
 };
 
 const handlePlatformClick = (event) => {
