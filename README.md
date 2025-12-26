@@ -58,7 +58,9 @@ This project is open-source and available under the [MIT License](LICENSE). Feel
 
 The inspiration for this project came from two bookmarklets I developed and shared on GitHub Gist. You can view them [here](https://gist.github.com/hkitago/67ed3a91c7941ab9a2c6b657bac692cb) and [here](https://gist.github.com/hkitago/1009207b098773cf0a29b76636eb03c5). I would like to acknowledge the role of these bookmarklets in shaping the idea for the QuoteLink extension and helping to bring it to fruition.
 
-Special thanks to [bradvin/social-share-urls: Social Share URLs](https://github.com/bradvin/social-share-urls) for handling Social Share URLs.
+Special thanks to [bradvin/social-share-urls: Social Share URLs](https://github.com/bradvin/social-share-urls) for handling social share URLs.
+
+The implementation of prompt sharing to generative AI services was informed by [Free Prompt Prefilled Links Generator (2025) – LinkMyPrompt](https://linkmyprompt.com/).
 
 Inspired in part by [ClearURLs](https://github.com/ClearURLs/Rules), whose work helped inform the list of removable tracking parameters.
 
@@ -76,5 +78,6 @@ For a detailed look at the development journey and background of the project, ch
 - App Store: [QuoteLink on the App Store](https://apps.apple.com/app/quotelink-for-safari/id6670304147)
 - [Get extensions to customize Safari on iPhone - Apple Support](https://support.apple.com/guide/iphone/iphab0432bf6/18.0/ios/18.0)
 - [Get extensions to customize Safari on Mac - Apple Support](https://support.apple.com/guide/safari/get-extensions-sfri32508/mac)
+- [Use Safari extensions on your Mac – Apple Support](https://support.apple.com/102343)
 - Privacy Policy Page: [Privacy Policy – hkitago software dev](https://hkitago.com/wpautoterms/privacy-policy/)
 - Support Page: [hkitago/QuoteLink](https://github.com/hkitago/QuoteLink/)
