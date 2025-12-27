@@ -22,11 +22,28 @@ To uninstall the extension, similarly to the installation process, toggle the ex
 3. Tap the icon next to the address bar and choose the extension.
 4. A window will slide up from the bottom on iPhone, or a pop-up window will appear on iPad and Mac; select an action and tap it.
 
-> [!NOTE]  
+> [!NOTE]
 > - If you do not select text within the web page, the page title will be used.
 > - If you enable the extension and it doesn't function correctly, please refresh the page, or close and restart the app, and try again.
 
+> [!NOTE]
+> When sharing content with generative AI services, selected text and source URLs are organized into simple, structured prompt segments.
+> This approach is inspired by chunking concepts used in retrieval-based AI systems, helping preserve context and clarify relationships between information, while leaving the actual question or task entirely up to the user.
+
 ## Latest Version
+
+### 1.5.5
+
+#### **iOS/iPadOS** - 2025-12-26
+
+- Added support for generative AI platforms in sharing presets
+- Expanded the list of removable URL parameters for cleaner links
+
+### 1.5.6
+
+#### **macOS** - 2025-12-27
+
+- Improved localization and layout for better readability across all languages
 
 ### 1.5.5 - 2025-12-26
 
@@ -81,3 +98,9 @@ For a detailed look at the development journey and background of the project, ch
 - [Use Safari extensions on your Mac – Apple Support](https://support.apple.com/102343)
 - Privacy Policy Page: [Privacy Policy – hkitago software dev](https://hkitago.com/wpautoterms/privacy-policy/)
 - Support Page: [hkitago/QuoteLink](https://github.com/hkitago/QuoteLink/)
+
+- [Long-Context Isn't All You Need: How Retrieval & Chunking Impact Finance RAG](https://www.snowflake.com/en/engineering-blog/impact-retrieval-chunking-finance-rag/)
+
+> [!NOTE]
+> Integration with third-party generative AI services relies on their current web interfaces and is not officially supported or endorsed by those services.
+> Behavior may change as the services evolve.
