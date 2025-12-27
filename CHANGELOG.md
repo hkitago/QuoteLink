@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.5]
+
+### **macOS** - 2025-12-26
+
+- Added support for generative AI platforms in sharing presets
+- Expanded the list of removable URL parameters for cleaner links
+
 ## [1.5.4] - 2025-11-14
 
 - Expanded to include more removable URL parameters for cleaner sharing links
