@@ -45,12 +45,7 @@ To uninstall the extension, similarly to the installation process, toggle the ex
 
 - Improved localization and layout for better readability across all languages
 
-### 1.5.5 - 2025-12-26
-
-- Added support for generative AI platforms in sharing presets
-- Expanded the list of removable URL parameters for cleaner links
-
-Previous Updates: [CHANGELOG.md](./CHANGELOG.md).
+Previous Updates: [CHANGELOG.md](./CHANGELOG.md)
 
 ## Known Issues
 
@@ -98,7 +93,6 @@ For a detailed look at the development journey and background of the project, ch
 - [Use Safari extensions on your Mac – Apple Support](https://support.apple.com/102343)
 - Privacy Policy Page: [Privacy Policy – hkitago software dev](https://hkitago.com/wpautoterms/privacy-policy/)
 - Support Page: [hkitago/QuoteLink](https://github.com/hkitago/QuoteLink/)
-
 - [Long-Context Isn't All You Need: How Retrieval & Chunking Impact Finance RAG](https://www.snowflake.com/en/engineering-blog/impact-retrieval-chunking-finance-rag/)
 
 > [!NOTE]
