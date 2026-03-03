@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "Ova ekstenzija generira tekst s URL-om izvora dodanim odabranom sadržaju.",
+        "message": "Dodaje izvorni URL odabranom tekstu, omogućujući kopiranje i dijeljenje s odgovarajućom atribucijom.",
         "description": "Description of what the extension does."
     }
 }

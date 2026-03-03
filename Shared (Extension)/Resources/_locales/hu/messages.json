@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "Ez a bővítmény szöveget generál a kiválasztott tartalomhoz hozzáadott forrás URL-lel.",
+        "message": "Forrás URL-eket ad a kijelölt szöveghez, lehetővé téve a másolást és megosztást megfelelő forrásmegjelöléssel.",
         "description": "Description of what the extension does."
     }
 }

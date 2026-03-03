@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "لمشاركة المعلومات بكفاءة، يقوم هذا الامتداد بإنشاء نص ويضيف عنوان URL المصدر إلى محتوى الصفحة المحددة.",
+        "message": "يضيف عناوين URL المصدر إلى النص المحدد، مما يتيح النسخ والمشاركة مع الإسناد الصحيح.",
         "description": "Description of what the extension does."
     }
 }

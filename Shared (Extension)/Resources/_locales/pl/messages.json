@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "To rozszerzenie generuje tekst z dodanym URL źródłowym do wybranego kontentu.",
+        "message": "Dodaje źródłowe adresy URL do zaznaczonego tekstu, umożliwiając kopiowanie i udostępnianie z odpowiednią atrybucją.",
         "description": "Description of what the extension does."
     }
 }

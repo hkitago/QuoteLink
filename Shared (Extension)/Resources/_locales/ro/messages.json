@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "Această extensie generează text cu URL-ul sursă adăugat la conținutul selectat.",
+        "message": "Adaugă URL-uri sursă la textul selectat, permițând copierea și partajarea cu atribuire corectă.",
         "description": "Description of what the extension does."
     }
 }

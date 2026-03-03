@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "効率的な情報共有を目的として、選択したWebページの内容にソースURLを追加したテキストを自動生成します。",
+        "message": "選択したテキストにソースURLを追加し、適切な出典表記とともに引用のコピーと共有を可能にします。",
         "description": "Description of what the extension does."
     }
 }

@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "Diese Erweiterung erstellt automatisch Text mit der Quell-URL für den ausgewählten Webseiteninhalt.",
+        "message": "Fügt Quell-URLs zu ausgewähltem Text hinzu und ermöglicht Kopieren und Teilen mit korrekter Quellenangabe.",
         "description": "Description of what the extension does."
     }
 }

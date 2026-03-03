@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "Ekstensi ini otomatis menghasilkan teks dengan URL sumber ditambahkan ke konten halaman web yang dipilih.",
+        "message": "Menambahkan URL sumber ke teks yang dipilih, memungkinkan penyalinan dan berbagi dengan atribusi yang tepat.",
         "description": "Description of what the extension does."
     }
 }

@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "Aquesta extensió genera text amb l'URL d'origen afegida al contingut seleccionat.",
+        "message": "Afegeix URL d'origen al text seleccionat, permetent copiar i compartir amb l'atribució adequada.",
         "description": "Description of what the extension does."
     }
 }

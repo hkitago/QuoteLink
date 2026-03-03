@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "תוסף זה יוצר טקסט עם כתובת ה-URL המקורית שהוספה לתוכן הנבחר.",
+        "message": "מוסיף כתובות URL של המקור לטקסט שנבחר, ומאפשר העתקה ושיתוף עם ייחוס נכון.",
         "description": "Description of what the extension does."
     }
 }

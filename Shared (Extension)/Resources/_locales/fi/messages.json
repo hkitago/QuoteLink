@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "Tämä laajennus luo tekstiä, jossa on lähde-URL lisättynä valittuun sisältöön.",
+        "message": "Lisää lähde-URL:t valittuun tekstiin, mahdollistaen kopioinnin ja jakamisen asianmukaisella lähdemerkinnällä.",
         "description": "Description of what the extension does."
     }
 }

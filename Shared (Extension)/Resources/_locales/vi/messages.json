@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "Tiện ích mở rộng này tạo văn bản với URL nguồn được thêm vào nội dung đã chọn.",
+        "message": "Thêm URL nguồn vào văn bản đã chọn, cho phép sao chép và chia sẻ với ghi nhận nguồn đúng cách.",
         "description": "Description of what the extension does."
     }
 }

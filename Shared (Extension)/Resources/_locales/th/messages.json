@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "ส่วนขยายนี้สร้างข้อความโดยเพิ่ม URL ต้นทางลงในเนื้อหาเว็บที่เลือกโดยอัตโนมัติ",
+        "message": "เพิ่ม URL ต้นทางให้กับข้อความที่เลือก ช่วยให้คัดลอกและแชร์พร้อมระบุแหล่งที่มาอย่างถูกต้อง",
         "description": "Description of what the extension does."
     }
 }

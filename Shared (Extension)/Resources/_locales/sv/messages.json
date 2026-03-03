@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "Denna tilläggsprogram genererar text med käll-URL:en tillagd till det valda innehållet.",
+        "message": "Lägger till käll-URL:er till markerad text, vilket möjliggör kopiering och delning med korrekt källhänvisning.",
         "description": "Description of what the extension does."
     }
 }

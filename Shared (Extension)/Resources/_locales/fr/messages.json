@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "Cette extension génère automatiquement un texte avec l'URL source ajoutée au contenu sélectionné.",
+        "message": "Ajoute les URL sources au texte sélectionné, permettant de copier et partager avec l'attribution appropriée.",
         "description": "Description of what the extension does."
     }
 }

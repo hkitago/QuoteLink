@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "Цей розширення генерує текст з доданим URL джерела до вибраного контенту.",
+        "message": "Додає вихідні URL до виділеного тексту, дозволяючи копіювати та ділитися з правильною атрибуцією.",
         "description": "Description of what the extension does."
     }
 }

@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "Tento doplnok generuje text s pridanou URL adresou zdroja k vybranému obsahu.",
+        "message": "Pridáva zdrojové URL k vybranému textu, čo umožňuje kopírovanie a zdieľanie so správnym uvedením zdroja.",
         "description": "Description of what the extension does."
     }
 }

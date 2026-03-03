@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "Pelanjutan ini menjana teks dengan URL sumber ditambahkan pada kandungan yang dipilih.",
+        "message": "Menambah URL sumber pada teks terpilih, membolehkan penyalinan dan perkongsian dengan atribusi yang betul.",
         "description": "Description of what the extension does."
     }
 }

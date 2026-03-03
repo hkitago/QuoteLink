@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "Questa estensione genera testo con l'URL sorgente aggiunto al contenuto selezionato.",
+        "message": "Aggiunge URL di origine al testo selezionato, consentendo di copiare e condividere con l'attribuzione corretta.",
         "description": "Description of what the extension does."
     }
 }

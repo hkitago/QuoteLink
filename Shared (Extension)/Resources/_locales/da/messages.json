@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "Denne udvidelse genererer tekst med kilde-URL'en tilføjet til det valgte indhold.",
+        "message": "Tilføjer kilde-URL'er til markeret tekst, hvilket muliggør kopiering og deling med korrekt kildeangivelse.",
         "description": "Description of what the extension does."
     }
 }

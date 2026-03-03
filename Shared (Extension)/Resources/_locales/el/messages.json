@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "Αυτή η επέκταση δημιουργεί κείμενο με την προστιθέμενη διεύθυνση URL προέλευσης στο επιλεγμένο περιεχόμενο.",
+        "message": "Προσθέτει URL πηγής στο επιλεγμένο κείμενο, επιτρέποντας αντιγραφή και κοινοποίηση με σωστή απόδοση.",
         "description": "Description of what the extension does."
     }
 }

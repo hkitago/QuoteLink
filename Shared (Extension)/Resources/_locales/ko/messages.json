@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "이 확장 기능은 선택한 콘텐츠에 원본 URL을 추가하여 텍스트를 생성합니다.",
+        "message": "선택한 텍스트에 출처 URL을 추가하여 적절한 출처 표시와 함께 인용 복사 및 공유를 가능하게 합니다.",
         "description": "Description of what the extension does."
     }
 }

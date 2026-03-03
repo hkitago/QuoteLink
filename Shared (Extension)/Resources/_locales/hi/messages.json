@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "यह एक्सटेंशन चयनित वेब सामग्री में स्रोत URL जोड़कर स्वतः टेक्स्ट बनाता है।",
+        "message": "चयनित टेक्स्ट में स्रोत URL जोड़ता है, जिससे उचित श्रेय के साथ कॉपी और शेयर करना संभव होता है।",
         "description": "Description of what the extension does."
     }
 }
