@@ -49,7 +49,7 @@
         url: window.location.href
       });
     } catch (error) {
-      console.error('[QuoteLinkExtension] Error sending updatePageInfo message:', error);
+      console.error('[QuoteLinkExtension] Failed to send updatePageInfo message:', error);
     }
   };
 
@@ -75,21 +75,14 @@
         await updatePageInfo(currentSelection);
       }
     } catch (error) {
-      console.error('[QuoteLinkExtension] Error in updateSelectionAndPageInfo:', error);
+      console.error('[QuoteLinkExtension] Failed to send update​Page​Info message:', error);
     }
   }, 300);
 
+  // ========================================
+  // Event listeners
+  // ========================================
   document.addEventListener('selectionchange', updateSelectionAndPageInfo);
-
-  const initializeContent = () => {
-    updatePageInfo();
-  };
-  
-  if (document.readyState !== 'loading') {
-    initializeContent();
-  } else {
-    document.addEventListener('DOMContentLoaded', initializeContent, { once: true });
-  }
 
   // Using history back or forward
   window.addEventListener('pageshow', (event) => {
@@ -104,10 +97,44 @@
     }
   });
 
+  const getPageInfoPayload = async () => {
+    const selectedText = getCleanSelection();
+    const pageTitle = await getPageTitle();
+    return {
+      selectedText,
+      pageTitle,
+      currentUrl: window.location.href
+    };
+  };
+
   // Switching tabs from background.js
   browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === 'getPageInfo') {
       updatePageInfo(getCleanSelection());
     }
+
+    if (message.action === 'requestPageInfo') {
+      getPageInfoPayload()
+        .then(sendResponse)
+        .catch((error) => {
+          console.error('[QuoteLinkExtension] Failed to build page info payload:', error);
+          sendResponse(null);
+        });
+      return true;
+    }
   });
 })();
+
+ // ========================================
+ // Initialization
+ // ========================================
+ const initializeContent = () => {
+   updatePageInfo();
+ };
+ 
+ if (document.readyState !== 'loading') {
+   initializeContent();
+ } else {
+   document.addEventListener('DOMContentLoaded', initializeContent, { once: true });
+ }
+
