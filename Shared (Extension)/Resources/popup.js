@@ -261,7 +261,7 @@ const toggleEditMode = () => {
       li.title = `${getCurrentLangLabelString('tooltip')['dragItem']}`;
     });
     editActions.style.display = 'none';
-    editDone.style.display = 'block';
+    editDone.style.display = 'inline-block';
   } else {
     navPost.querySelectorAll('li').forEach((li) => {
       li.draggable = false;
@@ -280,7 +280,7 @@ const toggleEditMode = () => {
     
     setupNormalModeListeners();
 
-    editActions.style.display = 'block';
+    editActions.style.display = 'inline-block';
     editDone.style.display = 'none';
 
     if (isMacOS()) {
@@ -331,27 +331,35 @@ const intentTargets = {
   post2x: {
     labelKey: 'post2x',
     type: 'sns',
-    urlTemplate: 'https://x.com/intent/tweet?text=${quoteLinkText}&url=${currentUrl}'
+    urlTemplateByPlatform: {
+      default: 'https://x.com/intent/tweet?text=${quoteLinkText}&url=${currentUrl}'
+    }
   },
   post2threads: {
     labelKey: 'post2threads ',
     type: 'sns',
-    urlTemplate: 'https://www.threads.net/intent/post?url=${currentUrl}&text=${quoteLinkText}'
+    urlTemplateByPlatform: {
+      default: 'https://www.threads.net/intent/post?url=${currentUrl}&text=${quoteLinkText}'
+    }
   },
   post2bluesky: {
     labelKey: 'post2bluesky',
     type: 'sns',
-    urlTemplate: 'https://bsky.app/intent/compose?text=${quoteLinkText}%20${currentUrl}'
+    urlTemplateByPlatform: {
+      default: 'https://bsky.app/intent/compose?text=${quoteLinkText}%20${currentUrl}'
+    }
   },
   post2mastodon: {
     labelKey: 'post2mastodon',
     type: 'sns',
-    urlTemplate: 'https://mastodon.social/share?text=${quoteLinkText}%20${currentUrl}'
+    urlTemplateByPlatform: {
+      default: 'https://mastodon.social/share?text=${quoteLinkText}%20${currentUrl}'
+    }
   },
   post2linkedin: {
     labelKey: 'post2linkedin',
     type: 'sns',
-    urlTemplates: {
+    urlTemplateByPlatform: {
       macos: 'https://www.linkedin.com/feed/?shareActive=true&text=${quoteLinkText}%20${currentUrl}',
       ios: 'https://www.linkedin.com/sharing/share-offsite/?url=${currentUrl}%20${quoteLinkText}'
     }
@@ -359,51 +367,68 @@ const intentTargets = {
   post2telegram: {
     labelKey: 'post2telegram',
     type: 'sns',
-    urlTemplate: 'https://t.me/share/url?url=${currentUrl}&text=${quoteLinkText}'
+    urlTemplateByPlatform: {
+      default: 'https://t.me/share/url?url=${currentUrl}&text=${quoteLinkText}'
+    }
   },
   post2line: {
     labelKey: 'post2line',
     type: 'sns',
-    urlTemplates: {
-      macos: '',
+    urlTemplateByPlatform: {
+      macos: null,
       ios: 'https://line.me/R/share?text=${quoteLinkText}%20${currentUrl}'
     }
   },
   post2tumblr: {
     labelKey: 'post2tumblr',
     type: 'sns',
-    urlTemplate: 'https://www.tumblr.com/widgets/share/tool?url=${currentUrl}&selection=${quoteLinkText}'
+    urlTemplateByPlatform: {
+      default: 'https://www.tumblr.com/widgets/share/tool?url=${currentUrl}&selection=${quoteLinkText}'
+    }
   },
   post2vk: {
     labelKey: 'post2vk',
     type: 'sns',
-    urlTemplate: 'https://vk.com/share.php?url=${currentUrl}&comment=${quoteLinkText}'
+    urlTemplateByPlatform: {
+      default: 'https://vk.com/share.php?url=${currentUrl}&comment=${quoteLinkText}'
+    }
   },
   post2weibo: {
     labelKey: 'post2weibo',
     type: 'sns',
-    urlTemplate: 'https://service.weibo.com/share/share.php?url=${currentUrl}&title=${quoteLinkText}'
+    urlTemplateByPlatform: {
+      default: 'https://service.weibo.com/share/share.php?url=${currentUrl}&title=${quoteLinkText}'
+    }
   },
   post2chatgpt: {
     labelKey: 'post2chatgpt',
     type: 'genai',
-    urlTemplate: 'https://chatgpt.com/?prompt=${prompt}'
+    urlTemplateByPlatform: {
+      default: 'https://chatgpt.com/?prompt=${prompt}'
+    }
   },
   post2claude: {
     labelKey: 'post2claude',
     type: 'genai',
-    urlTemplate: 'https://claude.ai/new?q=${prompt}'
+    urlTemplateByPlatform: {
+      default: 'https://claude.ai/new?q=${prompt}'
+    }
   }
 };
 
 const getUrlTemplate = (platform) => {
-  if (platform.urlTemplates) {
-    return isMacOS() ? platform.urlTemplates.macos : platform.urlTemplates.ios;
-  } else if (platform.urlTemplate) {
-    return platform.urlTemplate;
+  const templates = platform?.urlTemplateByPlatform;
+  if (!templates) return null;
+
+  if (isMacOS() && Object.prototype.hasOwnProperty.call(templates, 'macos')) {
+    return templates.macos || null;
   }
-  
-  return null;
+
+  if (!isMacOS() && Object.prototype.hasOwnProperty.call(templates, 'ios')) {
+    return templates.ios || null;
+  }
+
+  return templates.default || null;
 };
 
 const buildGenAIPrompt = ({ selectedText, currentUrl }) => {
@@ -414,59 +439,82 @@ const buildGenAIPrompt = ({ selectedText, currentUrl }) => {
   return `QUOTE: "${selectedText}"\nSOURCE: ${currentUrl}\n`;
 };
 
-const handlePlatformClick = (event) => {
+const getActiveTabId = async () => {
+  const tabs = await browser.tabs.query({ active: true, currentWindow: true });
+  return tabs[0]?.id || null;
+};
+
+const getTabInfoFromStorage = async (tabId) => {
+  if (!tabId) return null;
+  const result = await browser.storage.local.get(tabId.toString());
+  return result[tabId] || null;
+};
+
+const getTabInfoForActiveTab = async () => {
+  const tabId = await getActiveTabId();
+  if (!tabId) return null;
+
+  try {
+    const tabInfo = await browser.tabs.sendMessage(tabId, { action: 'requestPageInfo' });
+    if (tabInfo?.currentUrl) {
+      return tabInfo;
+    }
+  } catch (error) {
+    console.warn('[QuoteLinkExtension] Failed to get tab info via messaging, fallback to storage:', error);
+  }
+
+  return getTabInfoFromStorage(tabId);
+};
+
+const handlePlatformClick = async (event) => {
   const targetId = event.currentTarget.id;
   const platform = intentTargets[targetId];
   
   if (platform) {
-    browser.tabs.query({active: true, currentWindow: true}, (tabs) => {
-      if (!tabs[0]) return;
-      
-      const tabId = tabs[0].id;
-      browser.storage.local.get(tabId.toString(), (result) => {
-        const tabInfo = result[tabId];
-        if (!tabInfo) return;
+    const tabInfo = await getTabInfoForActiveTab();
+    if (!tabInfo) return;
 
-        const isCleanUrl = settings.get('isCleanUrl');
-        const cleanUrl = getCleanUrl(tabInfo.currentUrl, isCleanUrl);
+    const urlTemplate = getUrlTemplate(platform);
+    if (!urlTemplate) return;
 
-        let url;
-        if (platform.type === 'genai') {
-          const prompt = buildGenAIPrompt({
-            selectedText: tabInfo.selectedText,
-            currentUrl: cleanUrl
-          });
+    const isCleanUrl = settings.get('isCleanUrl');
+    const cleanUrl = getCleanUrl(tabInfo.currentUrl, isCleanUrl);
 
-          let encodedPrompt;
-          if (isMacOS()) {
-            encodedPrompt = encodeURIComponent(prompt).replace(/%0A/g, '%0A');
-          } else {
-            encodedPrompt = encodeURIComponent(prompt);
-          }
-          
-          url = platform.urlTemplate.replace(
-            '${prompt}',
-            encodedPrompt
-          );
-        } else {
-          let quoteLinkText;
-
-          if (tabInfo.selectedText) {
-            const quoteStyle = settings.get('quoteStyle');
-            const quotedText = createQuote(tabInfo.selectedText, quoteStyle);
-            quoteLinkText = encodeURIComponent(quotedText);
-          } else {
-            quoteLinkText = encodeURIComponent(tabInfo.pageTitle);
-          }
-
-          url = platform.urlTemplate
-            .replace('${quoteLinkText}', quoteLinkText)
-            .replace('${currentUrl}', encodeURIComponent(cleanUrl));
-        }
-
-        browser.tabs.create({ url });
+    let url;
+    if (platform.type === 'genai') {
+      const prompt = buildGenAIPrompt({
+        selectedText: tabInfo.selectedText,
+        currentUrl: cleanUrl
       });
-    });
+
+      let encodedPrompt;
+      if (isMacOS()) {
+        encodedPrompt = encodeURIComponent(prompt).replace(/%0A/g, '%0A');
+      } else {
+        encodedPrompt = encodeURIComponent(prompt);
+      }
+      
+      url = urlTemplate.replace(
+        '${prompt}',
+        encodedPrompt
+      );
+    } else {
+      let quoteLinkText;
+
+      if (tabInfo.selectedText) {
+        const quoteStyle = settings.get('quoteStyle');
+        const quotedText = createQuote(tabInfo.selectedText, quoteStyle);
+        quoteLinkText = encodeURIComponent(quotedText);
+      } else {
+        quoteLinkText = encodeURIComponent(tabInfo.pageTitle);
+      }
+
+      url = urlTemplate
+        .replace('${quoteLinkText}', quoteLinkText)
+        .replace('${currentUrl}', encodeURIComponent(cleanUrl));
+    }
+
+    browser.tabs.create({ url });
   }
 };
 
@@ -614,21 +662,16 @@ const buildPopup = async (settings) => {
   await saveInitialData();
   await syncDataWithHTML();
 
-  browser.tabs.query({active: true, currentWindow: true}, async (tabs) => {
-    if (tabs[0]) {
-      const tabId = tabs[0].id;
-      const result = await browser.storage.local.get(tabId.toString());
-      const tabInfo = result[tabId];
-      
-      if (!tabInfo) {
-        showError();
-        return;
-      }
+  const tabInfo = await getTabInfoForActiveTab();
+  if (!tabInfo) {
+    showError();
+    return;
+  }
 
-      const quoteStyle = settings.get('quoteStyle');
-      const isCleanUrl = settings.get('isCleanUrl');
-      
-      createQuoteLink(tabInfo, quoteStyle, isCleanUrl);
+  const quoteStyle = settings.get('quoteStyle');
+  const isCleanUrl = settings.get('isCleanUrl');
+  
+  createQuoteLink(tabInfo, quoteStyle, isCleanUrl);
 
       const settingsLi = document.createElement('li');
       settingsLi.id = 'settingsList';
@@ -697,7 +740,7 @@ const buildPopup = async (settings) => {
         if (getState('isSettingsMode')) {
           settingsLi.style.display = 'flex';
           settingsBtn.style.display = 'none';
-          settingsDoneBtn.style.display = 'block';
+          settingsDoneBtn.style.display = 'inline-block';
 
           if (!tabInfo.selectedText) {
             settingsLi.querySelector(':first-child').classList.add('quotes-disabled');
@@ -705,7 +748,7 @@ const buildPopup = async (settings) => {
           }
         } else {
           settingsLi.style.display = 'none';
-          settingsBtn.style.display = 'block';
+          settingsBtn.style.display = 'inline-block';
           settingsDoneBtn.style.display = 'none';
           cleanUrlCheckbox.classList.add('toggle-disabled');
         }
@@ -720,6 +763,9 @@ const buildPopup = async (settings) => {
       settingsBtn.addEventListener('touchend', (event) => {
         event.target.classList.remove('selected');
       });
+      settingsBtn.addEventListener('touchcancel', (event) => {
+        event.target.classList.remove('selected');
+      });
 
       settingsDoneBtn.title = `${getCurrentLangLabelString('editDone')}`;
       settingsDoneBtn.textContent = `${getCurrentLangLabelString('editDone')}`;
@@ -728,6 +774,9 @@ const buildPopup = async (settings) => {
         event.target.classList.add('selected');
       });
       settingsDoneBtn.addEventListener('touchend', (event) => {
+        event.target.classList.remove('selected');
+      });
+      settingsDoneBtn.addEventListener('touchcancel', (event) => {
         event.target.classList.remove('selected');
       });
 
@@ -829,7 +878,10 @@ const buildPopup = async (settings) => {
       editActions.addEventListener('touchend', (event) => {
         event.target.classList.remove('selected');
       });
-      
+      editActions.addEventListener('touchcancel', (event) => {
+        event.target.classList.remove('selected');
+      });
+
       editDone.title = `${getCurrentLangLabelString('editDone')}`;
       editDone.textContent = `${getCurrentLangLabelString('editDone')}`;
       editDone.addEventListener('click', toggleEditMode);
@@ -839,8 +891,9 @@ const buildPopup = async (settings) => {
       editDone.addEventListener('touchend', (event) => {
         event.target.classList.remove('selected');
       });
-    }
-  });
+      editDone.addEventListener('touchcancel', (event) => {
+        event.target.classList.remove('selected');
+      });
 };
 
 let isInitialized = false;
