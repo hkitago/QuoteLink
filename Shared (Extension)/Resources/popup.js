@@ -200,10 +200,6 @@ const updateList = async () => {
     if (!item.visible) {
       li.querySelector('.toggleVisibility').classList.add('toggleOn');
     }
-    if (isMacOS()) {
-      li.addEventListener('mouseover', onMouseOver);
-      li.addEventListener('mouseout', onMouseOut);
-    }
   });
 
   if (!getState('isEditMode')) {
@@ -562,11 +558,11 @@ const onDrop = async (event) => {
 };
 
 const onMouseOver = (event) => {
-  event.target.closest('li').classList.add('hover');
+//  event.target.closest('li').classList.add('hover');
 }
 
 const onMouseOut = (event) => {
-  event.target.closest('li').classList.remove('hover');
+//  event.target.closest('li').classList.remove('hover');
 }
 
 const normalizeUrl = (url) => {
@@ -757,29 +753,17 @@ const buildPopup = async (settings) => {
       settingsBtn.title = `${getCurrentLangLabelString('settings')}`;
       settingsBtn.textContent = `${getCurrentLangLabelString('settings')}`;
       settingsBtn.addEventListener('click', toggleSettingsMode);
-      settingsBtn.addEventListener('touchstart', (event) => {
-        event.target.classList.add('selected');
-      });
-      settingsBtn.addEventListener('touchend', (event) => {
-        event.target.classList.remove('selected');
-      });
-      settingsBtn.addEventListener('touchcancel', (event) => {
-        event.target.classList.remove('selected');
-      });
-
+      settingsBtn.addEventListener('touchstart', (event)   => settingsBtn.classList.add('selected'));
+      settingsBtn.addEventListener('touchend', (event)     => settingsBtn.classList.remove('selected'));
+      settingsBtn.addEventListener('touchcancel', (event)  => settingsBtn.classList.remove('selected'));
+  
       settingsDoneBtn.title = `${getCurrentLangLabelString('editDone')}`;
       settingsDoneBtn.textContent = `${getCurrentLangLabelString('editDone')}`;
       settingsDoneBtn.addEventListener('click', toggleSettingsMode);
-      settingsDoneBtn.addEventListener('touchstart', (event) => {
-        event.target.classList.add('selected');
-      });
-      settingsDoneBtn.addEventListener('touchend', (event) => {
-        event.target.classList.remove('selected');
-      });
-      settingsDoneBtn.addEventListener('touchcancel', (event) => {
-        event.target.classList.remove('selected');
-      });
-
+      settingsDoneBtn.addEventListener('touchstart', (event)   => settingsDoneBtn.classList.add('selected'));
+      settingsDoneBtn.addEventListener('touchend', (event)     => settingsDoneBtn.classList.remove('selected'));
+      settingsDoneBtn.addEventListener('touchcancel', (event)  => settingsDoneBtn.classList.remove('selected'));
+  
       const copyElement = document.getElementById('copy2clipboard');
       copyElement.title = `${getCurrentLangLabelString('copy2clipboard')}`;
       copyElement.querySelector('div').textContent = `${getCurrentLangLabelString('copy2clipboard')}`;
@@ -790,26 +774,9 @@ const buildPopup = async (settings) => {
         navigator.clipboard.writeText(`${getQuoteLinkText(tabInfo, quoteStyle)}\n${url}`);
         closeWindow();
       });
-      
-      copyElement.addEventListener('touchstart', (event) => {
-        event.stopPropagation();
-        event.target.closest('li').classList.add('selected');
-      });
-      
-      copyElement.addEventListener('touchend', (event) => {
-        event.stopPropagation();
-        event.target.closest('li').classList.remove('selected');
-      });
-
-      copyElement.addEventListener('touchcancel', (event) => {
-        event.stopPropagation();
-        event.target.closest('li').classList.remove('selected');
-      });
-
-      if (isMacOS()) {
-        copyElement.addEventListener('mouseover', onMouseOver);
-        copyElement.addEventListener('mouseout', onMouseOut);
-      }
+      copyElement.addEventListener('touchstart', (event)   => copyElement.classList.add('selected'));
+      copyElement.addEventListener('touchend', (event)     => copyElement.classList.remove('selected'));
+      copyElement.addEventListener('touchcancel', (event)  => copyElement.classList.remove('selected'));
       
       if (navigator.share) {
         const shareDiv = document.createElement('div');
@@ -851,11 +818,6 @@ const buildPopup = async (settings) => {
           event.stopPropagation();
           event.target.closest('li').classList.remove('selected');
         });
-
-        if (isMacOS()) {
-          shareLi.addEventListener('mouseover', onMouseOver);
-          shareLi.addEventListener('mouseout', onMouseOut);
-        }
       }
 
       navPost.querySelectorAll('li').forEach((li) => {
