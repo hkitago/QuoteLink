@@ -1,6 +1,7 @@
 const labelStrings = {
   "en": {
-    "copy2clipboard": "Copy to Clipboard",
+    "copy2clipboard": "Copy Quote & URL",
+    "copy4prompt": "Copy for AI Prompt",
     "sharelink": "Share…",
     "post2x": "Post to X",
     "post2threads": "Post to Threads",
@@ -25,7 +26,8 @@ const labelStrings = {
     }
   },
   "ar": {
-    "copy2clipboard": "نسخ إلى الحافظة",
+    "copy2clipboard": "نسخ الاقتباس والرابط",
+    "copy4prompt": "نسخ لمطالبة الذكاء الاصطناعي",
     "sharelink": "مشاركة…",
     "post2x": "نشر على X",
     "post2threads": "نشر على Threads",
@@ -50,7 +52,8 @@ const labelStrings = {
     }
   },
   "ar-SA": {
-    "copy2clipboard": "نسخ إلى الحافظة",
+    "copy2clipboard": "نسخ الاقتباس والرابط",
+    "copy4prompt": "نسخ لمطالبة الذكاء الاصطناعي",
     "sharelink": "مشاركة…",
     "post2x": "نشر على X",
     "post2threads": "نشر على Threads",
@@ -75,7 +78,8 @@ const labelStrings = {
     }
   },
   "ca": {
-    "copy2clipboard": "Copiar al portapapers",
+    "copy2clipboard": "Copiar Cita i URL",
+    "copy4prompt": "Copiar per al prompt d'IA",
     "sharelink": "Compartir…",
     "post2x": "Publicar a X",
     "post2threads": "Publicar a Threads",
@@ -100,7 +104,8 @@ const labelStrings = {
     }
   },
   "cs": {
-    "copy2clipboard": "Kopírovat do schránky",
+    "copy2clipboard": "Kopírovat Cit a URL",
+    "copy4prompt": "Kopírovat pro AI prompt",
     "sharelink": "Sdílet…",
     "post2x": "Odeslat na X",
     "post2threads": "Odeslat na Threads",
@@ -125,7 +130,8 @@ const labelStrings = {
     }
   },
   "da": {
-    "copy2clipboard": "Kopier til udklipsholder",
+    "copy2clipboard": "Kopier Citat og URL",
+    "copy4prompt": "Kopier til AI-prompt",
     "sharelink": "Del…",
     "post2x": "Post til X",
     "post2threads": "Post til Threads",
@@ -150,7 +156,8 @@ const labelStrings = {
     }
   },
   "de": {
-    "copy2clipboard": "In die Zwischenablage kopieren",
+    "copy2clipboard": "Zitat & URL kopieren",
+    "copy4prompt": "Für KI-Prompt kopieren",
     "sharelink": "Teilen…",
     "post2x": "Auf X posten",
     "post2threads": "Auf Threads posten",
@@ -175,7 +182,8 @@ const labelStrings = {
     }
   },
   "el": {
-    "copy2clipboard": "Αντιγραφή στο πρόχειρο",
+    "copy2clipboard": "Αντιγραφή Synd & URL",
+    "copy4prompt": "Αντιγραφή για προτροπή AI",
     "sharelink": "Κοινή χρήση…",
     "post2x": "Δημοσίευση στο X",
     "post2threads": "Δημοσίευση στα Threads",
@@ -200,7 +208,8 @@ const labelStrings = {
     }
   },
   "en-GB": {
-    "copy2clipboard": "Copy to Clipboard",
+    "copy2clipboard": "Copy Quote & URL",
+    "copy4prompt": "Copy for AI Prompt",
     "sharelink": "Share…",
     "post2x": "Post to X",
     "post2threads": "Post to Threads",
@@ -225,7 +234,8 @@ const labelStrings = {
     }
   },
   "en-AU": {
-    "copy2clipboard": "Copy to Clipboard",
+    "copy2clipboard": "Copy Quote & URL",
+    "copy4prompt": "Copy for AI Prompt",
     "sharelink": "Share…",
     "post2x": "Post to X",
     "post2threads": "Post to Threads",
@@ -250,7 +260,8 @@ const labelStrings = {
     }
   },
   "en-CA": {
-    "copy2clipboard": "Copy to Clipboard",
+    "copy2clipboard": "Copy Quote & URL",
+    "copy4prompt": "Copy for AI Prompt",
     "sharelink": "Share…",
     "post2x": "Post to X",
     "post2threads": "Post to Threads",
@@ -275,7 +286,8 @@ const labelStrings = {
     }
   },
   "es": {
-    "copy2clipboard": "Copiar al portapapeles",
+    "copy2clipboard": "Copiar Cita y URL",
+    "copy4prompt": "Copiar para prompt de IA",
     "sharelink": "Compartir…",
     "post2x": "Publicar en X",
     "post2threads": "Publicar en Threads",
@@ -300,7 +312,8 @@ const labelStrings = {
     }
   },
   "es-MX": {
-    "copy2clipboard": "Copiar al portapapeles",
+    "copy2clipboard": "Copiar Cita y URL",
+    "copy4prompt": "Copiar para prompt de IA",
     "sharelink": "Compartir…",
     "post2x": "Publicar en X",
     "post2threads": "Publicar en Threads",
@@ -325,7 +338,8 @@ const labelStrings = {
     }
   },
   "fi": {
-    "copy2clipboard": "Kopioi leikepöydälle",
+    "copy2clipboard": "Kopioi Lain ja URL",
+    "copy4prompt": "Kopioi AI-kehotetta varten",
     "sharelink": "Jaa…",
     "post2x": "Julkaise X:ssä",
     "post2threads": "Julkaise Threadsissä",
@@ -350,7 +364,8 @@ const labelStrings = {
     }
   },
   "fr": {
-    "copy2clipboard": "Copier dans le presse-papiers",
+    "copy2clipboard": "Copier Citation et URL",
+    "copy4prompt": "Copier pour prompt IA",
     "sharelink": "Partager…",
     "post2x": "Publier sur X",
     "post2threads": "Publier sur Threads",
@@ -375,7 +390,8 @@ const labelStrings = {
     }
   },
   "fr-CA": {
-    "copy2clipboard": "Copier dans le presse-papiers",
+    "copy2clipboard": "Copier Citation et URL",
+    "copy4prompt": "Copier pour prompt IA",
     "sharelink": "Partager…",
     "post2x": "Publier sur X",
     "post2threads": "Publier sur Threads",
@@ -400,7 +416,8 @@ const labelStrings = {
     }
   },
   "hu": {
-    "copy2clipboard": "Másolás a vágólapra",
+    "copy2clipboard": "Id és URL másolása",
+    "copy4prompt": "Másolás AI-prompthoz",
     "sharelink": "Megosztás…",
     "post2x": "Közzététel az X-en",
     "post2threads": "Közzététel a Threads-en",
@@ -425,7 +442,8 @@ const labelStrings = {
     }
   },
   "he": {
-    "copy2clipboard": "העתק ללוח",
+    "copy2clipboard": "העתק ציטוט וקישור",
+    "copy4prompt": "העתק עבור פרומפט AI",
     "sharelink": "שתף…",
     "post2x": "פרסם ל-X",
     "post2threads": "פרסם ל-Threads",
@@ -450,7 +468,8 @@ const labelStrings = {
     }
   },
   "hr": {
-    "copy2clipboard": "Kopiraj u međuspremnik",
+    "copy2clipboard": "Kopiraj Cit i URL",
+    "copy4prompt": "Kopiraj za AI prompt",
     "sharelink": "Podijeli…",
     "post2x": "Objavi na X",
     "post2threads": "Objavi na Threads",
@@ -475,7 +494,8 @@ const labelStrings = {
     }
   },
   "hi": {
-    "copy2clipboard": "क्लिपबोर्ड में कॉपी करें",
+    "copy2clipboard": "उद्धरण और URL कॉपी करें",
+    "copy4prompt": "AI प्रॉम्प्ट के लिए कॉपी करें",
     "sharelink": "साझा करें…",
     "post2x": "X पर पोस्ट करें",
     "post2threads": "Threads पर पोस्ट करें",
@@ -500,7 +520,8 @@ const labelStrings = {
     }
   },
   "id": {
-    "copy2clipboard": "Salin ke Papan Klip",
+    "copy2clipboard": "Salin Kutipan & URL",
+    "copy4prompt": "Salin untuk prompt AI",
     "sharelink": "Bagikan…",
     "post2x": "Posting ke X",
     "post2threads": "Posting ke Threads",
@@ -525,7 +546,8 @@ const labelStrings = {
     }
   },
   "it": {
-    "copy2clipboard": "Copia negli Appunti",
+    "copy2clipboard": "Copia Cit e URL",
+    "copy4prompt": "Copia per prompt AI",
     "sharelink": "Condividi…",
     "post2x": "Pubblica su X",
     "post2threads": "Pubblica su Threads",
@@ -550,7 +572,8 @@ const labelStrings = {
     }
   },
   "ja": {
-    "copy2clipboard": "クリップボードにコピー",
+    "copy2clipboard": "引用とURLをコピー",
+    "copy4prompt": "AIプロンプト用にコピー",
     "sharelink": "共有…",
     "post2x": "X に投稿",
     "post2threads": "Threads に投稿",
@@ -575,7 +598,8 @@ const labelStrings = {
     }
   },
   "ko-KR": {
-    "copy2clipboard": "클립보드에 복사",
+    "copy2clipboard": "인용 및 URL 복사",
+    "copy4prompt": "AI 프롬프트용으로 복사",
     "sharelink": "공유…",
     "post2x": "X 에 게시",
     "post2threads": "Threads 에 게시",
@@ -600,7 +624,8 @@ const labelStrings = {
     }
   },
   "ms": {
-    "copy2clipboard": "Salin ke Papan Klip",
+    "copy2clipboard": "Salin Pet & URL",
+    "copy4prompt": "Salin untuk prompt AI",
     "sharelink": "Kongsi…",
     "post2x": "Kongsi di X",
     "post2threads": "Kongsi di Threads",
@@ -625,7 +650,8 @@ const labelStrings = {
     }
   },
   "nb": {
-    "copy2clipboard": "Kopier til utklippstavle",
+    "copy2clipboard": "Kopier Cit og URL",
+    "copy4prompt": "Kopier for AI-prompt",
     "sharelink": "Del…",
     "post2x": "Legg ut til X",
     "post2threads": "Legg ut til Threads",
@@ -650,7 +676,8 @@ const labelStrings = {
     }
   },
   "nl": {
-    "copy2clipboard": "Kopiëren naar klembord",
+    "copy2clipboard": "Citatie en URL kopiëren",
+    "copy4prompt": "Kopiëren voor AI-prompt",
     "sharelink": "Delen…",
     "post2x": "Posten op X",
     "post2threads": "Posten op Threads",
@@ -675,7 +702,8 @@ const labelStrings = {
     }
   },
   "pl": {
-    "copy2clipboard": "Skopiuj do schowka",
+    "copy2clipboard": "Skopiuj Cyt i URL",
+    "copy4prompt": "Skopiuj do promptu AI",
     "sharelink": "Udostępnij…",
     "post2x": "Opublikuj na X",
     "post2threads": "Opublikuj na Threads",
@@ -700,7 +728,8 @@ const labelStrings = {
     }
   },
   "pt": {
-    "copy2clipboard": "Copiar para a área de transferência",
+    "copy2clipboard": "Copiar Citação e URL",
+    "copy4prompt": "Copiar para prompt de IA",
     "sharelink": "Partilhar…",
     "post2x": "Postar no X",
     "post2threads": "Postar no Threads",
@@ -725,7 +754,8 @@ const labelStrings = {
     }
   },
   "pt-PT": {
-    "copy2clipboard": "Copiar para a área de transferência",
+    "copy2clipboard": "Copiar Citação e URL",
+    "copy4prompt": "Copiar para prompt de IA",
     "sharelink": "Partilhar…",
     "post2x": "Publicar no X",
     "post2threads": "Publicar no Threads",
@@ -750,7 +780,8 @@ const labelStrings = {
     }
   },
   "pt-BR": {
-    "copy2clipboard": "Copiar para a área de transferência",
+    "copy2clipboard": "Copiar Citação e URL",
+    "copy4prompt": "Copiar para prompt de IA",
     "sharelink": "Compartilhar…",
     "post2x": "Publicar no X",
     "post2threads": "Publicar no Threads",
@@ -775,7 +806,8 @@ const labelStrings = {
     }
   },
   "ro": {
-    "copy2clipboard": "Copiază în Clipboard",
+    "copy2clipboard": "Copiază Cita și URL",
+    "copy4prompt": "Copiază pentru prompt AI",
     "sharelink": "Partajează…",
     "post2x": "Publică pe X",
     "post2threads": "Publică pe Threads",
@@ -800,7 +832,8 @@ const labelStrings = {
     }
   },
   "ru": {
-    "copy2clipboard": "Скопировать в буфер обмена",
+    "copy2clipboard": "Скопировать Cita и URL",
+    "copy4prompt": "Скопировать для AI-промпта",
     "sharelink": "Поделиться…",
     "post2x": "Опубликовать в X",
     "post2threads": "Опубликовать в Threads",
@@ -825,7 +858,8 @@ const labelStrings = {
     }
   },
   "sk": {
-    "copy2clipboard": "Kopírovať do schránky",
+    "copy2clipboard": "Kopírovať Cit a URL",
+    "copy4prompt": "Kopírovať pre AI prompt",
     "sharelink": "Zdieľať…",
     "post2x": "Zverejniť na X",
     "post2threads": "Zverejniť na Threads",
@@ -850,7 +884,8 @@ const labelStrings = {
     }
   },
   "sv": {
-    "copy2clipboard": "Kopiera till urklipp",
+    "copy2clipboard": "Kopiera Citat och URL",
+    "copy4prompt": "Kopiera för AI-prompt",
     "sharelink": "Dela…",
     "post2x": "Publicera på X",
     "post2threads": "Publicera på Threads",
@@ -875,7 +910,8 @@ const labelStrings = {
     }
   },
   "th": {
-    "copy2clipboard": "คัดลอกไปยังคลิปบอร์ด",
+    "copy2clipboard": "คัดลอกการอ้างอิงและ URL",
+    "copy4prompt": "คัดลอกสำหรับพรอมต์ AI",
     "sharelink": "แชร์…",
     "post2x": "โพสต์ไปที่ X",
     "post2threads": "โพสต์ไปที่ Threads",
@@ -900,7 +936,8 @@ const labelStrings = {
     }
   },
   "tr": {
-    "copy2clipboard": "Panoya Kopyala",
+    "copy2clipboard": "Alıntı ve URL kopyala",
+    "copy4prompt": "AI istemi için kopyala",
     "sharelink": "Paylaş…",
     "post2x": "X'e Gönder",
     "post2threads": "Threads'e Gönder",
@@ -925,7 +962,8 @@ const labelStrings = {
     }
   },
   "uk": {
-    "copy2clipboard": "Скопіювати в буфер обміну",
+    "copy2clipboard": "Скопіювати Cyt і URL",
+    "copy4prompt": "Скопіювати для AI-промпта",
     "sharelink": "Поділитися…",
     "post2x": "Опублікувати в X",
     "post2threads": "Опублікувати в Threads",
@@ -950,7 +988,8 @@ const labelStrings = {
     }
   },
   "vi": {
-    "copy2clipboard": "Sao chép vào Clipboard",
+    "copy2clipboard": "Sao chép Trich và URL",
+    "copy4prompt": "Sao chép cho lời nhắc AI",
     "sharelink": "Chia sẻ…",
     "post2x": "Đăng lên X",
     "post2threads": "Đăng lên Threads",
@@ -975,7 +1014,8 @@ const labelStrings = {
     }
   },
   "zh": {
-    "copy2clipboard": "复制到剪贴板",
+    "copy2clipboard": "复制引述和URL",
+    "copy4prompt": "复制为AI提示词",
     "sharelink": "共享…",
     "post2x": "发布到 X",
     "post2threads": "发布到 Threads",
@@ -1000,7 +1040,8 @@ const labelStrings = {
     }
   },
   "zh-CN": {
-    "copy2clipboard": "复制到剪贴板",
+    "copy2clipboard": "复制引述和URL",
+    "copy4prompt": "复制为AI提示词",
     "sharelink": "共享…",
     "post2x": "发布到 X",
     "post2threads": "发布到 Threads",
@@ -1025,7 +1066,8 @@ const labelStrings = {
     }
   },
   "zh-TW": {
-    "copy2clipboard": "複製到剪貼簿",
+    "copy2clipboard": "複製引述和URL",
+    "copy4prompt": "複製為AI提示詞",
     "sharelink": "分享…",
     "post2x": "發佈到 X",
     "post2threads": "發佈到 Threads",
@@ -1050,7 +1092,8 @@ const labelStrings = {
     }
   },
   "zh-HK": {
-    "copy2clipboard": "複製到剪貼簿",
+    "copy2clipboard": "複製引述和URL",
+    "copy4prompt": "複製為AI提示詞",
     "sharelink": "分享…",
     "post2x": "發佈到 X",
     "post2threads": "發佈到 Threads",
