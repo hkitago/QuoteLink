@@ -65,8 +65,6 @@ div.editNav > div:hover {
 /* Settings */
 label {
   white-space: nowrap;
-  max-width: 25vw;
-  overflow: hidden;
 }
 
 select {
@@ -81,7 +79,7 @@ select {
   background-position: right 3px center;
   background-size: auto 16px;
   height: 24px;
-  width: 64px;
+  width: 90px;
   border-radius: 6px;
   margin: 0 5px;
   cursor: pointer;
@@ -99,8 +97,20 @@ select:focus {
   background-color: rgb(228 228 228);
 }
 
+.os-macos .quotes-disabled > select:hover {
+  background-color: inherit;
+}
+
 .quotes-disabled > * {
-  opacity: 0;
+  opacity: 0.5;
+}
+
+.quotes-disabled > label {
+  pointer-events: none;
+}
+
+.quotes-disabled > select {
+  cursor: not-allowed;
 }
 
 input[type='checkbox'] {
@@ -183,6 +193,18 @@ input[type='checkbox']:not(:checked) ~ .toggle::before {
   animation: bounce-off 0.4s ease forwards;
 }
 
+.cleanurl-disabled > * {
+  opacity: 0.5;
+}
+
+.cleanurl-disabled > label {
+  pointer-events: none;
+}
+
+.cleanurl-disabled > span.toggle {
+  cursor: not-allowed;
+}
+
 /* Main */
 ul {
   list-style: none;
@@ -206,6 +228,8 @@ li#settingsList {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 1px;
 }
 
 li#settingsList > div {
@@ -322,11 +346,11 @@ li.isEditMode > div.toggleVisibility:hover {
   li {
     background-color: rgb(37 37 37);
   }
-  
+
   ul.nav > li.selected {
     background-color: rgb(58 57 59);
   }
-  
+
   li.isEditMode > div.postLabel {
     color: white;
   }
