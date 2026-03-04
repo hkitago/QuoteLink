@@ -8,6 +8,10 @@ const appState = {
   dragged: null,
 };
 
+let navPost = null;
+let editActions = null;
+let editDone = null;
+
 const getState = (key) => {
   return appState[key];
 }
@@ -15,6 +19,21 @@ const getState = (key) => {
 const setState = (key, value) => {
   appState[key] = value;
 }
+
+const renderQuoteLink = (container, quoteText, url) => {
+  container.textContent = '';
+  const lines = quoteText.split('\n');
+
+  lines.forEach((line, index) => {
+    if (index > 0) {
+      container.appendChild(document.createElement('br'));
+    }
+    container.appendChild(document.createTextNode(line));
+  });
+
+  container.appendChild(document.createElement('br'));
+  container.appendChild(document.createTextNode(url));
+};
 
 /* Settings */
 const quoteStyles = [
@@ -338,7 +357,7 @@ const intentTargets = {
     }
   },
   post2threads: {
-    labelKey: 'post2threads ',
+    labelKey: 'post2threads',
     type: 'sns',
     urlTemplateByPlatform: {
       default: 'https://www.threads.net/intent/post?url=${currentUrl}&text=${quoteLinkText}'
@@ -539,7 +558,8 @@ const onDragOver = (event) => {
 
 const onDrop = async (event) => {
   event.preventDefault();
-  if (event.target.tagName === 'LI') {
+  const dropTarget = event.target.closest('li');
+  if (dropTarget) {
     try {
       const data = await getStoredData();
       if (!data || !Array.isArray(data)) {
@@ -548,9 +568,9 @@ const onDrop = async (event) => {
       }
       const dragged = getState('dragged');
       const fromId = data.findIndex(item => item.id === dragged.id);
-      const toId = data.findIndex(item => item.id === event.target.id);
+      const toId = data.findIndex(item => item.id === dropTarget.id);
       if (fromId === -1 || toId === -1) {
-        console.error('[QuoteLinkExtension] Invalid item ID(s):', dragged.id, event.target.id);
+        console.error('[QuoteLinkExtension] Invalid item ID(s):', dragged.id, dropTarget.id);
         return;
       }
       const [removed] = data.splice(fromId, 1);
@@ -602,9 +622,8 @@ const getQuoteLinkText = (tabInfo, quoteStyle = 'double') => {
 const createQuoteLink = (tabInfo, quoteStyle = 'double', isCleanUrl = false) => {
   const quoteLinkText = getQuoteLinkText(tabInfo, quoteStyle);
   const url = getCleanUrl(tabInfo.currentUrl, isCleanUrl)
-
-  const formattedText = `${quoteLinkText.replace(/\n/g, '<br>')}<br>${url}`;
-  document.getElementById('selectedText').innerHTML = formattedText;
+  const selectedTextEl = document.getElementById('selectedText');
+  renderQuoteLink(selectedTextEl, quoteLinkText, url);
 };
 
 const buildPopup = async (settings) => {
@@ -614,9 +633,9 @@ const buildPopup = async (settings) => {
   const quoteLinkView = document.getElementById('quoteLinkView');
   const settingsBtn = document.getElementById('settingsBtn');
   const settingsDoneBtn = document.getElementById('settingsDoneBtn');
-  const navPost = document.getElementById('navPost');
-  const editActions = document.getElementById('editActions');
-  const editDone = document.getElementById('editDone');
+  navPost = document.getElementById('navPost');
+  editActions = document.getElementById('editActions');
+  editDone = document.getElementById('editDone');
   
   const showError = () => {
     settingsBtn.style.display = 'none';
