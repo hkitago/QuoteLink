@@ -200,6 +200,10 @@ const updateList = async () => {
     if (!item.visible) {
       li.querySelector('.toggleVisibility').classList.add('toggleOn');
     }
+    if (isMacOS()) {
+      li.addEventListener('mouseover', onMouseOver);
+      li.addEventListener('mouseout', onMouseOut);
+    }
   });
 
   if (!getState('isEditMode')) {
@@ -558,11 +562,11 @@ const onDrop = async (event) => {
 };
 
 const onMouseOver = (event) => {
-//  event.target.closest('li').classList.add('hover');
+  event.target.closest('li').classList.add('hover');
 }
 
 const onMouseOut = (event) => {
-//  event.target.closest('li').classList.remove('hover');
+  event.target.closest('li').classList.remove('hover');
 }
 
 const normalizeUrl = (url) => {
@@ -777,6 +781,11 @@ const buildPopup = async (settings) => {
       copyElement.addEventListener('touchstart', (event)   => copyElement.classList.add('selected'));
       copyElement.addEventListener('touchend', (event)     => copyElement.classList.remove('selected'));
       copyElement.addEventListener('touchcancel', (event)  => copyElement.classList.remove('selected'));
+
+      if (isMacOS()) {
+        copyElement.addEventListener('mouseover', onMouseOver);
+        copyElement.addEventListener('mouseout', onMouseOut);
+      }
       
       if (navigator.share) {
         const shareDiv = document.createElement('div');
@@ -818,6 +827,11 @@ const buildPopup = async (settings) => {
           event.stopPropagation();
           event.target.closest('li').classList.remove('selected');
         });
+
+        if (isMacOS()) {
+          shareLi.addEventListener('mouseover', onMouseOver);
+          shareLi.addEventListener('mouseout', onMouseOut);
+        }
       }
 
       navPost.querySelectorAll('li').forEach((li) => {

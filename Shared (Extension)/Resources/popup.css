@@ -301,7 +301,7 @@ li.isEditMode > div.postLabel {
   cursor: default;
 }
 
-ul.nav > li:hover {
+ul.nav > li.hover {
   cursor: pointer;
   background-color: rgb(210 209 215);
 }
@@ -336,7 +336,7 @@ li.isEditMode > div.toggleVisibility:hover {
   }
 
   /* macOS */
-  ul.nav > li:hover {
+  ul.nav > li.hover {
     background-color: rgb(58 57 59);
   }
   
