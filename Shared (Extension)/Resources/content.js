@@ -123,18 +123,17 @@
       return true;
     }
   });
+
+  // ========================================
+  // Initialization
+  // ========================================
+  const initializeContent = () => {
+    updatePageInfo(getCleanSelection());
+  };
+
+  if (document.readyState !== 'loading') {
+    initializeContent();
+  } else {
+    document.addEventListener('DOMContentLoaded', initializeContent, { once: true });
+  }
 })();
-
- // ========================================
- // Initialization
- // ========================================
- const initializeContent = () => {
-   updatePageInfo();
- };
- 
- if (document.readyState !== 'loading') {
-   initializeContent();
- } else {
-   document.addEventListener('DOMContentLoaded', initializeContent, { once: true });
- }
-
