@@ -1,7 +1,7 @@
 const labelStrings = {
   "en": {
     "copy2clipboard": "Copy to Clipboard",
-    "sharelink": "Share...",
+    "sharelink": "Share…",
     "post2x": "Post to X",
     "post2threads": "Post to Threads",
     "post2bluesky": "Post to Bluesky",
@@ -17,7 +17,7 @@ const labelStrings = {
     "onError": "To use this extension, it must be enabled before loading the page. Please try again after refreshing the page in Safari.",
     "settings": "Settings",
     "quoteStyleSetting": "Quotes",
-    "editActions": "Edit Actions...",
+    "editActions": "Edit Actions…",
     "editDone": "Done",
     "tooltip": {
       "toggleBullet": "Click to toggle",
@@ -26,7 +26,7 @@ const labelStrings = {
   },
   "ar": {
     "copy2clipboard": "نسخ إلى الحافظة",
-    "sharelink": "مشاركة...",
+    "sharelink": "مشاركة…",
     "post2x": "نشر على X",
     "post2threads": "نشر على Threads",
     "post2bluesky": "نشر على Bluesky",
@@ -42,7 +42,7 @@ const labelStrings = {
     "onError": "لاستخدام هذا الامتداد، يجب تفعيله قبل تحميل الصفحة. بعد تحديث الصفحة في Safari، حاول مرة أخرى.",
     "settings": "الإعدادات",
     "quoteStyleSetting": "اقتباس",
-    "editActions": "تحرير الإجراءات...",
+    "editActions": "تحرير الإجراءات…",
     "editDone": "تم",
     "tooltip": {
       "toggleBullet": "انقر للتبديل",
@@ -51,7 +51,7 @@ const labelStrings = {
   },
   "ar-SA": {
     "copy2clipboard": "نسخ إلى الحافظة",
-    "sharelink": "مشاركة...",
+    "sharelink": "مشاركة…",
     "post2x": "نشر على X",
     "post2threads": "نشر على Threads",
     "post2bluesky": "نشر على Bluesky",
@@ -67,7 +67,7 @@ const labelStrings = {
     "onError": "لاستخدام هذا الامتداد، يجب تفعيله قبل تحميل الصفحة. بعد تحديث الصفحة في Safari، حاول مرة أخرى.",
     "settings": "الإعدادات",
     "quoteStyleSetting": "اقتباس",
-    "editActions": "تحرير الإجراءات...",
+    "editActions": "تحرير الإجراءات…",
     "editDone": "تم",
     "tooltip": {
       "toggleBullet": "انقر للتبديل",
@@ -76,7 +76,7 @@ const labelStrings = {
   },
   "ca": {
     "copy2clipboard": "Copiar al portapapers",
-    "sharelink": "Compartir...",
+    "sharelink": "Compartir…",
     "post2x": "Publicar a X",
     "post2threads": "Publicar a Threads",
     "post2bluesky": "Publicar a Bluesky",
@@ -92,7 +92,7 @@ const labelStrings = {
     "onError": "Per utilitzar aquesta extensió, ha d'estar activada abans de carregar la pàgina. Torneu-ho a intentar després d'actualitzar la pàgina a Safari.",
     "settings": "Configuració",
     "quoteStyleSetting": "Cometes",
-    "editActions": "Editar accions...",
+    "editActions": "Editar accions…",
     "editDone": "Fet",
     "tooltip": {
       "toggleBullet": "Feu clic per alternar",
@@ -101,7 +101,7 @@ const labelStrings = {
   },
   "cs": {
     "copy2clipboard": "Kopírovat do schránky",
-    "sharelink": "Sdílet...",
+    "sharelink": "Sdílet…",
     "post2x": "Odeslat na X",
     "post2threads": "Odeslat na Threads",
     "post2bluesky": "Odeslat na Bluesky",
@@ -117,7 +117,7 @@ const labelStrings = {
     "onError": "Pro použití tohoto rozšíření musí být aktivováno před načtením stránky. Zkuste to znovu po obnovení stránky v Safari.",
     "settings": "Nastavení",
     "quoteStyleSetting": "Uvozovky",
-    "editActions": "Upravit akce...",
+    "editActions": "Upravit akce…",
     "editDone": "Hotovo",
     "tooltip": {
       "toggleBullet": "Kliknutím přepnete",
@@ -126,7 +126,7 @@ const labelStrings = {
   },
   "da": {
     "copy2clipboard": "Kopier til udklipsholder",
-    "sharelink": "Del...",
+    "sharelink": "Del…",
     "post2x": "Post til X",
     "post2threads": "Post til Threads",
     "post2bluesky": "Post til Bluesky",
@@ -142,7 +142,7 @@ const labelStrings = {
     "onError": "For at bruge denne udvidelse skal den være aktiveret, før siden indlæses. Prøv igen efter at have opdateret siden i Safari.",
     "settings": "Indstillinger",
     "quoteStyleSetting": "Anførsel",
-    "editActions": "Rediger handlinger...",
+    "editActions": "Rediger handlinger…",
     "editDone": "Færdig",
     "tooltip": {
       "toggleBullet": "Klik for at skifte",
@@ -151,7 +151,7 @@ const labelStrings = {
   },
   "de": {
     "copy2clipboard": "In die Zwischenablage kopieren",
-    "sharelink": "Teilen...",
+    "sharelink": "Teilen…",
     "post2x": "Auf X posten",
     "post2threads": "Auf Threads posten",
     "post2bluesky": "Auf Bluesky posten",
@@ -167,7 +167,7 @@ const labelStrings = {
     "onError": "Um diese Erweiterung zu verwenden, muss sie vor dem Laden der Seite aktiviert werden. Bitte versuchen Sie es erneut, nachdem Sie die Seite in Safari aktualisiert haben.",
     "settings": "Einstellungen",
     "quoteStyleSetting": "Anführung",
-    "editActions": "Aktionen bearbeiten...",
+    "editActions": "Aktionen bearbeiten…",
     "editDone": "Fertig",
     "tooltip": {
       "toggleBullet": "Klicken zum Umschalten",
@@ -176,7 +176,7 @@ const labelStrings = {
   },
   "el": {
     "copy2clipboard": "Αντιγραφή στο πρόχειρο",
-    "sharelink": "Κοινή χρήση...",
+    "sharelink": "Κοινή χρήση…",
     "post2x": "Δημοσίευση στο X",
     "post2threads": "Δημοσίευση στα Threads",
     "post2bluesky": "Δημοσίευση στο Bluesky",
@@ -192,7 +192,7 @@ const labelStrings = {
     "onError": "Για να χρησιμοποιήσετε αυτήν την επέκταση, πρέπει να είναι ενεργοποιημένη πριν από την φόρτωση της σελίδας. Δοκιμάστε ξανά μετά την ανανέωση της σελίδας στο Safari.",
     "settings": "Ρυθμίσεις",
     "quoteStyleSetting": "Εισαγωγικά",
-    "editActions": "Επεξεργασία ενεργειών...",
+    "editActions": "Επεξεργασία ενεργειών…",
     "editDone": "Έγινε",
     "tooltip": {
       "toggleBullet": "Κάντε κλικ για εναλλαγή",
@@ -201,7 +201,7 @@ const labelStrings = {
   },
   "en-GB": {
     "copy2clipboard": "Copy to Clipboard",
-    "sharelink": "Share...",
+    "sharelink": "Share…",
     "post2x": "Post to X",
     "post2threads": "Post to Threads",
     "post2bluesky": "Post to Bluesky",
@@ -217,7 +217,7 @@ const labelStrings = {
     "onError": "To use this extension, it must be enabled before loading the page. Please try again after refreshing the page in Safari.",
     "settings": "Settings",
     "quoteStyleSetting": "Quotes",
-    "editActions": "Edit Actions...",
+    "editActions": "Edit Actions…",
     "editDone": "Done",
     "tooltip": {
       "toggleBullet": "Click to toggle",
@@ -226,7 +226,7 @@ const labelStrings = {
   },
   "en-AU": {
     "copy2clipboard": "Copy to Clipboard",
-    "sharelink": "Share...",
+    "sharelink": "Share…",
     "post2x": "Post to X",
     "post2threads": "Post to Threads",
     "post2bluesky": "Post to Bluesky",
@@ -242,7 +242,7 @@ const labelStrings = {
     "onError": "To use this extension, it must be enabled before loading the page. Please try again after refreshing the page in Safari.",
     "settings": "Settings",
     "quoteStyleSetting": "Quotes",
-    "editActions": "Edit Actions...",
+    "editActions": "Edit Actions…",
     "editDone": "Done",
     "tooltip": {
       "toggleBullet": "Click to toggle",
@@ -251,7 +251,7 @@ const labelStrings = {
   },
   "en-CA": {
     "copy2clipboard": "Copy to Clipboard",
-    "sharelink": "Share...",
+    "sharelink": "Share…",
     "post2x": "Post to X",
     "post2threads": "Post to Threads",
     "post2bluesky": "Post to Bluesky",
@@ -267,7 +267,7 @@ const labelStrings = {
     "onError": "To use this extension, it must be enabled before loading the page. Please try again after refreshing the page in Safari.",
     "settings": "Settings",
     "quoteStyleSetting": "Quotes",
-    "editActions": "Edit Actions...",
+    "editActions": "Edit Actions…",
     "editDone": "Done",
     "tooltip": {
       "toggleBullet": "Click to toggle",
@@ -276,7 +276,7 @@ const labelStrings = {
   },
   "es": {
     "copy2clipboard": "Copiar al portapapeles",
-    "sharelink": "Compartir...",
+    "sharelink": "Compartir…",
     "post2x": "Publicar en X",
     "post2threads": "Publicar en Threads",
     "post2bluesky": "Publicar en Bluesky",
@@ -292,7 +292,7 @@ const labelStrings = {
     "onError": "Para usar esta extensión, debe estar habilitada antes de cargar la página. Intenta de nuevo después de actualizar la página en Safari.",
     "settings": "Configuración",
     "quoteStyleSetting": "Comillas",
-    "editActions": "Editar acciones...",
+    "editActions": "Editar acciones…",
     "editDone": "Hecho",
     "tooltip": {
       "toggleBullet": "Clic para alternar",
@@ -301,7 +301,7 @@ const labelStrings = {
   },
   "es-MX": {
     "copy2clipboard": "Copiar al portapapeles",
-    "sharelink": "Compartir...",
+    "sharelink": "Compartir…",
     "post2x": "Publicar en X",
     "post2threads": "Publicar en Threads",
     "post2bluesky": "Publicar en Bluesky",
@@ -317,7 +317,7 @@ const labelStrings = {
     "onError": "Para usar esta extensión, debe estar habilitada antes de cargar la página. Intenta de nuevo después de actualizar la página en Safari.",
     "settings": "Configuración",
     "quoteStyleSetting": "Comillas",
-    "editActions": "Editar acciones...",
+    "editActions": "Editar acciones…",
     "editDone": "Hecho",
     "tooltip": {
       "toggleBullet": "Clic para alternar",
@@ -326,7 +326,7 @@ const labelStrings = {
   },
   "fi": {
     "copy2clipboard": "Kopioi leikepöydälle",
-    "sharelink": "Jaa...",
+    "sharelink": "Jaa…",
     "post2x": "Julkaise X:ssä",
     "post2threads": "Julkaise Threadsissä",
     "post2bluesky": "Julkaise Blueskyssä",
@@ -342,7 +342,7 @@ const labelStrings = {
     "onError": "Jotta voit käyttää tätä laajennusta, se on otettava käyttöön ennen sivun lataamista. Yritä uudelleen, kun olet päivittänyt sivun Safarissa.",
     "settings": "Asetukset",
     "quoteStyleSetting": "Lainaus",
-    "editActions": "Muokkaa toimintoja...",
+    "editActions": "Muokkaa toimintoja…",
     "editDone": "Valmis",
     "tooltip": {
       "toggleBullet": "Napsauta vaihtaaksesi",
@@ -351,7 +351,7 @@ const labelStrings = {
   },
   "fr": {
     "copy2clipboard": "Copier dans le presse-papiers",
-    "sharelink": "Partager...",
+    "sharelink": "Partager…",
     "post2x": "Publier sur X",
     "post2threads": "Publier sur Threads",
     "post2bluesky": "Publier sur Bluesky",
@@ -367,7 +367,7 @@ const labelStrings = {
     "onError": "Pour utiliser cette extension, elle doit être activée avant de charger la page. Veuillez réessayer après avoir actualisé la page dans Safari.",
     "settings": "Réglages",
     "quoteStyleSetting": "Guillemets",
-    "editActions": "Modifier les actions...",
+    "editActions": "Modifier les actions…",
     "editDone": "Terminé",
     "tooltip": {
       "toggleBullet": "Cliquer pour basculer",
@@ -376,7 +376,7 @@ const labelStrings = {
   },
   "fr-CA": {
     "copy2clipboard": "Copier dans le presse-papiers",
-    "sharelink": "Partager...",
+    "sharelink": "Partager…",
     "post2x": "Publier sur X",
     "post2threads": "Publier sur Threads",
     "post2bluesky": "Publier sur Bluesky",
@@ -392,7 +392,7 @@ const labelStrings = {
     "onError": "Pour utiliser cette extension, elle doit être activée avant de charger la page. Veuillez réessayer après avoir actualisé la page dans Safari.",
     "settings": "Réglages",
     "quoteStyleSetting": "Guillemets",
-    "editActions": "Modifier les actions...",
+    "editActions": "Modifier les actions…",
     "editDone": "Terminé",
     "tooltip": {
       "toggleBullet": "Cliquer pour basculer",
@@ -401,7 +401,7 @@ const labelStrings = {
   },
   "hu": {
     "copy2clipboard": "Másolás a vágólapra",
-    "sharelink": "Megosztás...",
+    "sharelink": "Megosztás…",
     "post2x": "Közzététel az X-en",
     "post2threads": "Közzététel a Threads-en",
     "post2bluesky": "Közzététel a Bluesky-n",
@@ -417,7 +417,7 @@ const labelStrings = {
     "onError": "Ahhoz, hogy ezt az alkalmazást használni tudja, engedélyezni kell az oldal betöltése előtt. Kérjük, próbálja újra az oldal Safari-ban történő frissítése után.",
     "settings": "Beállítások",
     "quoteStyleSetting": "Idézőjel",
-    "editActions": "Akciók szerkesztése...",
+    "editActions": "Akciók szerkesztése…",
     "editDone": "Kész",
     "tooltip": {
       "toggleBullet": "Kattintson a váltáshoz",
@@ -426,7 +426,7 @@ const labelStrings = {
   },
   "he": {
     "copy2clipboard": "העתק ללוח",
-    "sharelink": "שתף...",
+    "sharelink": "שתף…",
     "post2x": "פרסם ל-X",
     "post2threads": "פרסם ל-Threads",
     "post2bluesky": "פרסם ל-Bluesky",
@@ -442,7 +442,7 @@ const labelStrings = {
     "onError": "כדי להשתמש בתוסף זה, יש להפעיל אותו לפני טעינת הדף. אנא נסה שוב לאחר רענון הדף ב-Safari.",
     "settings": "הגדרות",
     "quoteStyleSetting": "מרכאות",
-    "editActions": "ערוך פעולות...",
+    "editActions": "ערוך פעולות…",
     "editDone": "סיים",
     "tooltip": {
       "toggleBullet": "לחץ כדי להחליף",
@@ -451,7 +451,7 @@ const labelStrings = {
   },
   "hr": {
     "copy2clipboard": "Kopiraj u međuspremnik",
-    "sharelink": "Podijeli...",
+    "sharelink": "Podijeli…",
     "post2x": "Objavi na X",
     "post2threads": "Objavi na Threads",
     "post2bluesky": "Objavi na Bluesky",
@@ -467,7 +467,7 @@ const labelStrings = {
     "onError": "Da biste koristili ovu ekstenziju, mora biti omogućena prije učitavanja stranice. Pokušajte ponovo nakon što osvježite stranicu u Safariju.",
     "settings": "Postavke",
     "quoteStyleSetting": "Navodnici",
-    "editActions": "Uredi radnje...",
+    "editActions": "Uredi radnje…",
     "editDone": "Gotovo",
     "tooltip": {
       "toggleBullet": "Kliknite za prebacivanje",
@@ -476,7 +476,7 @@ const labelStrings = {
   },
   "hi": {
     "copy2clipboard": "क्लिपबोर्ड में कॉपी करें",
-    "sharelink": "साझा करें...",
+    "sharelink": "साझा करें…",
     "post2x": "X पर पोस्ट करें",
     "post2threads": "Threads पर पोस्ट करें",
     "post2bluesky": "Bluesky पर पोस्ट करें",
@@ -492,7 +492,7 @@ const labelStrings = {
     "onError": "इस एक्सटेंशन का उपयोग करने के लिए, इसे पेज लोड करने से पहले सक्षम करना होगा। सफारी में पेज को रीफ्रेश करने के बाद फिर से प्रयास करें।",
     "settings": "सेटिंग्स",
     "quoteStyleSetting": "उद्धरण",
-    "editActions": "क्रियाएँ संपादित करें...",
+    "editActions": "क्रियाएँ संपादित करें…",
     "editDone": "पूर्ण",
     "tooltip": {
       "toggleBullet": "टॉगल करने के लिए क्लिक करें",
@@ -501,7 +501,7 @@ const labelStrings = {
   },
   "id": {
     "copy2clipboard": "Salin ke Papan Klip",
-    "sharelink": "Bagikan...",
+    "sharelink": "Bagikan…",
     "post2x": "Posting ke X",
     "post2threads": "Posting ke Threads",
     "post2bluesky": "Posting ke Bluesky",
@@ -517,7 +517,7 @@ const labelStrings = {
     "onError": "Untuk menggunakan ekstensi ini, ekstensi harus diaktifkan sebelum memuat halaman. Silakan coba lagi setelah menyegarkan halaman di Safari.",
     "settings": "Pengaturan",
     "quoteStyleSetting": "Kutip",
-    "editActions": "Edit Tindakan...",
+    "editActions": "Edit Tindakan…",
     "editDone": "Selesai",
     "tooltip": {
       "toggleBullet": "Klik untuk beralih",
@@ -526,7 +526,7 @@ const labelStrings = {
   },
   "it": {
     "copy2clipboard": "Copia negli Appunti",
-    "sharelink": "Condividi...",
+    "sharelink": "Condividi…",
     "post2x": "Pubblica su X",
     "post2threads": "Pubblica su Threads",
     "post2bluesky": "Pubblica su Bluesky",
@@ -542,7 +542,7 @@ const labelStrings = {
     "onError": "Per utilizzare questa estensione, deve essere abilitata prima di caricare la pagina. Per favore, riprova dopo aver aggiornato la pagina in Safari.",
     "settings": "Impostazioni",
     "quoteStyleSetting": "Virgolette",
-    "editActions": "Modifica Azioni...",
+    "editActions": "Modifica Azioni…",
     "editDone": "Fatto",
     "tooltip": {
       "toggleBullet": "Clicca per attivare/disattivare",
@@ -551,7 +551,7 @@ const labelStrings = {
   },
   "ja": {
     "copy2clipboard": "クリップボードにコピー",
-    "sharelink": "共有...",
+    "sharelink": "共有…",
     "post2x": "X に投稿",
     "post2threads": "Threads に投稿",
     "post2bluesky": "Bluesky に投稿",
@@ -567,7 +567,7 @@ const labelStrings = {
     "onError": "この機能拡張を使用するには、ページを読み込む前に有効化する必要があります。Safari でページを更新してから、再度お試しください。",
     "settings": "設定",
     "quoteStyleSetting": "引用符",
-    "editActions": "アクションを編集...",
+    "editActions": "アクションを編集…",
     "editDone": "完了",
     "tooltip": {
       "toggleBullet": "クリックして切り替え",
@@ -576,7 +576,7 @@ const labelStrings = {
   },
   "ko-KR": {
     "copy2clipboard": "클립보드에 복사",
-    "sharelink": "공유...",
+    "sharelink": "공유…",
     "post2x": "X 에 게시",
     "post2threads": "Threads 에 게시",
     "post2bluesky": "Bluesky 에 게시",
@@ -592,7 +592,7 @@ const labelStrings = {
     "onError": "이 확장 프로그램을 사용하려면 페이지를 로드하기 전에 활성화되어 있어야 합니다. Safari 에서 페이지를 새로 고친 후 다시 시도하세요.",
     "settings": "설정",
     "quoteStyleSetting": "따옴표",
-    "editActions": "동작 편집...",
+    "editActions": "동작 편집…",
     "editDone": "완료",
     "tooltip": {
       "toggleBullet": "클릭하여 전환",
@@ -601,7 +601,7 @@ const labelStrings = {
   },
   "ms": {
     "copy2clipboard": "Salin ke Papan Klip",
-    "sharelink": "Kongsi...",
+    "sharelink": "Kongsi…",
     "post2x": "Kongsi di X",
     "post2threads": "Kongsi di Threads",
     "post2bluesky": "Kongsi di Bluesky",
@@ -617,7 +617,7 @@ const labelStrings = {
     "onError": "Untuk menggunakan sambungan ini, ia mesti diaktifkan sebelum memuatkan halaman. Sila cuba lagi selepas menyegarkan halaman di Safari.",
     "settings": "Tetapan",
     "quoteStyleSetting": "Petik",
-    "editActions": "Edit Tindakan...",
+    "editActions": "Edit Tindakan…",
     "editDone": "Selesai",
     "tooltip": {
       "toggleBullet": "Klik untuk togol",
@@ -626,7 +626,7 @@ const labelStrings = {
   },
   "nb": {
     "copy2clipboard": "Kopier til utklippstavle",
-    "sharelink": "Del...",
+    "sharelink": "Del…",
     "post2x": "Legg ut til X",
     "post2threads": "Legg ut til Threads",
     "post2bluesky": "Legg ut til Bluesky",
@@ -642,7 +642,7 @@ const labelStrings = {
     "onError": "For å bruke denne utvidelsen må den være aktivert før siden lastes. Prøv igjen etter å ha oppdatert siden i Safari.",
     "settings": "Innstillinger",
     "quoteStyleSetting": "Anførselstegn",
-    "editActions": "Rediger handlinger...",
+    "editActions": "Rediger handlinger…",
     "editDone": "Ferdig",
     "tooltip": {
       "toggleBullet": "Klikk for å veksle",
@@ -651,7 +651,7 @@ const labelStrings = {
   },
   "nl": {
     "copy2clipboard": "Kopiëren naar klembord",
-    "sharelink": "Delen...",
+    "sharelink": "Delen…",
     "post2x": "Posten op X",
     "post2threads": "Posten op Threads",
     "post2bluesky": "Posten op Bluesky",
@@ -667,7 +667,7 @@ const labelStrings = {
     "onError": "Om deze extensie te gebruiken, moet deze vóór het laden van de pagina worden ingeschakeld. Probeer het opnieuw nadat u de pagina in Safari hebt vernieuwd.",
     "settings": "Instellingen",
     "quoteStyleSetting": "Aanhalings",
-    "editActions": "Acties bewerken...",
+    "editActions": "Acties bewerken…",
     "editDone": "Klaar",
     "tooltip": {
       "toggleBullet": "Klik om te schakelen",
@@ -676,7 +676,7 @@ const labelStrings = {
   },
   "pl": {
     "copy2clipboard": "Skopiuj do schowka",
-    "sharelink": "Udostępnij...",
+    "sharelink": "Udostępnij…",
     "post2x": "Opublikuj na X",
     "post2threads": "Opublikuj na Threads",
     "post2bluesky": "Opublikuj na Bluesky",
@@ -692,7 +692,7 @@ const labelStrings = {
     "onError": "Aby użyć tego rozszerzenia, musi być ono włączone przed załadowaniem strony. Spróbuj ponownie po odświeżeniu strony w Safari.",
     "settings": "Ustawienia",
     "quoteStyleSetting": "Cudzysłowy",
-    "editActions": "Edytuj akcje...",
+    "editActions": "Edytuj akcje…",
     "editDone": "Gotowe",
     "tooltip": {
       "toggleBullet": "Kliknij, aby przełączyć",
@@ -701,7 +701,7 @@ const labelStrings = {
   },
   "pt": {
     "copy2clipboard": "Copiar para a área de transferência",
-    "sharelink": "Partilhar...",
+    "sharelink": "Partilhar…",
     "post2x": "Postar no X",
     "post2threads": "Postar no Threads",
     "post2bluesky": "Postar no Bluesky",
@@ -717,7 +717,7 @@ const labelStrings = {
     "onError": "Para usar esta extensão, ela deve estar ativada antes de carregar a página. Tente novamente após atualizar a página no Safari.",
     "settings": "Configurações",
     "quoteStyleSetting": "Aspas",
-    "editActions": "Editar ações...",
+    "editActions": "Editar ações…",
     "editDone": "Concluído",
     "tooltip": {
       "toggleBullet": "Clique para alternar",
@@ -726,7 +726,7 @@ const labelStrings = {
   },
   "pt-PT": {
     "copy2clipboard": "Copiar para a área de transferência",
-    "sharelink": "Partilhar...",
+    "sharelink": "Partilhar…",
     "post2x": "Publicar no X",
     "post2threads": "Publicar no Threads",
     "post2bluesky": "Publicar no Bluesky",
@@ -742,7 +742,7 @@ const labelStrings = {
     "onError": "Para usar esta extensão, ela deve estar ativada antes de carregar a página. Tente novamente após atualizar a página no Safari.",
     "settings": "Definições",
     "quoteStyleSetting": "Aspas",
-    "editActions": "Editar ações...",
+    "editActions": "Editar ações…",
     "editDone": "Concluído",
     "tooltip": {
       "toggleBullet": "Clique para alternar",
@@ -751,7 +751,7 @@ const labelStrings = {
   },
   "pt-BR": {
     "copy2clipboard": "Copiar para a área de transferência",
-    "sharelink": "Compartilhar...",
+    "sharelink": "Compartilhar…",
     "post2x": "Publicar no X",
     "post2threads": "Publicar no Threads",
     "post2bluesky": "Publicar no Bluesky",
@@ -767,7 +767,7 @@ const labelStrings = {
     "onError": "Para usar esta extensão, ela deve estar ativada antes de carregar a página. Tente novamente após atualizar a página no Safari.",
     "settings": "Configurações",
     "quoteStyleSetting": "Aspas",
-    "editActions": "Editar ações...",
+    "editActions": "Editar ações…",
     "editDone": "Concluído",
     "tooltip": {
       "toggleBullet": "Clique para alternar",
@@ -776,7 +776,7 @@ const labelStrings = {
   },
   "ro": {
     "copy2clipboard": "Copiază în Clipboard",
-    "sharelink": "Partajează...",
+    "sharelink": "Partajează…",
     "post2x": "Publică pe X",
     "post2threads": "Publică pe Threads",
     "post2bluesky": "Publică pe Bluesky",
@@ -792,7 +792,7 @@ const labelStrings = {
     "onError": "Pentru a folosi această extensie, trebuie să fie activată înainte de a încărca pagina. Te rugăm să încerci din nou după ce ai reîncărcat pagina în Safari.",
     "settings": "Setări",
     "quoteStyleSetting": "Ghilimele",
-    "editActions": "Editează acțiunile...",
+    "editActions": "Editează acțiunile…",
     "editDone": "Finalizat",
     "tooltip": {
       "toggleBullet": "Click pentru a comuta",
@@ -801,7 +801,7 @@ const labelStrings = {
   },
   "ru": {
     "copy2clipboard": "Скопировать в буфер обмена",
-    "sharelink": "Поделиться...",
+    "sharelink": "Поделиться…",
     "post2x": "Опубликовать в X",
     "post2threads": "Опубликовать в Threads",
     "post2bluesky": "Опубликовать в Bluesky",
@@ -817,7 +817,7 @@ const labelStrings = {
     "onError": "Для использования этого расширения его нужно активировать перед загрузкой страницы. Пожалуйста, попробуйте снова после перезагрузки страницы в Safari.",
     "settings": "Настройки",
     "quoteStyleSetting": "Кавычки",
-    "editActions": "Редактировать действия...",
+    "editActions": "Редактировать действия…",
     "editDone": "Готово",
     "tooltip": {
       "toggleBullet": "Нажмите для переключения",
@@ -826,7 +826,7 @@ const labelStrings = {
   },
   "sk": {
     "copy2clipboard": "Kopírovať do schránky",
-    "sharelink": "Zdieľať...",
+    "sharelink": "Zdieľať…",
     "post2x": "Zverejniť na X",
     "post2threads": "Zverejniť na Threads",
     "post2bluesky": "Zverejniť na Bluesky",
@@ -842,7 +842,7 @@ const labelStrings = {
     "onError": "Na používanie tohto rozšírenia musí byť aktivované pred načítaním stránky. Skúste to znova po obnovení stránky v Safari.",
     "settings": "Nastavenia",
     "quoteStyleSetting": "Úvodzovky",
-    "editActions": "Upraviť akcie...",
+    "editActions": "Upraviť akcie…",
     "editDone": "Hotovo",
     "tooltip": {
       "toggleBullet": "Kliknite pre prepnutie",
@@ -851,7 +851,7 @@ const labelStrings = {
   },
   "sv": {
     "copy2clipboard": "Kopiera till urklipp",
-    "sharelink": "Dela...",
+    "sharelink": "Dela…",
     "post2x": "Publicera på X",
     "post2threads": "Publicera på Threads",
     "post2bluesky": "Publicera på Bluesky",
@@ -867,7 +867,7 @@ const labelStrings = {
     "onError": "För att använda denna tillägg måste den vara aktiverad innan sidan laddas. Försök igen efter att du har uppdaterat sidan i Safari.",
     "settings": "Inställningar",
     "quoteStyleSetting": "Citat",
-    "editActions": "Redigera åtgärder...",
+    "editActions": "Redigera åtgärder…",
     "editDone": "Klar",
     "tooltip": {
       "toggleBullet": "Klicka för att växla",
@@ -876,7 +876,7 @@ const labelStrings = {
   },
   "th": {
     "copy2clipboard": "คัดลอกไปยังคลิปบอร์ด",
-    "sharelink": "แชร์...",
+    "sharelink": "แชร์…",
     "post2x": "โพสต์ไปที่ X",
     "post2threads": "โพสต์ไปที่ Threads",
     "post2bluesky": "โพสต์ไปที่ Bluesky",
@@ -892,7 +892,7 @@ const labelStrings = {
     "onError": "ในการใช้ส่วนขยายนี้ จำเป็นต้องเปิดใช้งานก่อนโหลดหน้าเว็บ กรุณากดปุ่มด้านล่างเพื่อทดลองอีกครั้งหลังจากที่อัปเดตหน้าใน Safari",
     "settings": "การตั้งค่า",
     "quoteStyleSetting": "คำพูด",
-    "editActions": "แก้ไขการกระทำ...",
+    "editActions": "แก้ไขการกระทำ…",
     "editDone": "เสร็จสิ้น",
     "tooltip": {
       "toggleBullet": "คลิกเพื่อสลับ",
@@ -901,7 +901,7 @@ const labelStrings = {
   },
   "tr": {
     "copy2clipboard": "Panoya Kopyala",
-    "sharelink": "Paylaş...",
+    "sharelink": "Paylaş…",
     "post2x": "X'e Gönder",
     "post2threads": "Threads'e Gönder",
     "post2bluesky": "Bluesky'e Gönder",
@@ -917,7 +917,7 @@ const labelStrings = {
     "onError": "Bu uzantıyı kullanmak için, sayfayı yüklemeden önce etkinleştirilmiş olmalıdır. Safari'de sayfayı yeniledikten sonra tekrar deneyin.",
     "settings": "Ayarlar",
     "quoteStyleSetting": "Tırnak İşaretleri",
-    "editActions": "Eylemleri Düzenle...",
+    "editActions": "Eylemleri Düzenle…",
     "editDone": "Tamam",
     "tooltip": {
       "toggleBullet": "Açıp kapatmak için tıklayın",
@@ -926,7 +926,7 @@ const labelStrings = {
   },
   "uk": {
     "copy2clipboard": "Скопіювати в буфер обміну",
-    "sharelink": "Поділитися...",
+    "sharelink": "Поділитися…",
     "post2x": "Опублікувати в X",
     "post2threads": "Опублікувати в Threads",
     "post2bluesky": "Опублікувати в Bluesky",
@@ -942,7 +942,7 @@ const labelStrings = {
     "onError": "Щоб використовувати це розширення, воно повинно бути увімкнене перед завантаженням сторінки. Спробуйте знову після оновлення сторінки в Safari.",
     "settings": "Налаштування",
     "quoteStyleSetting": "Лапки",
-    "editActions": "Редагувати дії...",
+    "editActions": "Редагувати дії…",
     "editDone": "Готово",
     "tooltip": {
       "toggleBullet": "Натисніть, щоб перемкнути",
@@ -951,7 +951,7 @@ const labelStrings = {
   },
   "vi": {
     "copy2clipboard": "Sao chép vào Clipboard",
-    "sharelink": "Chia sẻ...",
+    "sharelink": "Chia sẻ…",
     "post2x": "Đăng lên X",
     "post2threads": "Đăng lên Threads",
     "post2bluesky": "Đăng lên Bluesky",
@@ -967,7 +967,7 @@ const labelStrings = {
     "onError": "Để sử dụng tiện ích mở rộng này, bạn phải kích hoạt nó trước khi tải trang. Vui lòng thử lại sau khi làm mới trang trong Safari.",
     "settings": "Cài đặt",
     "quoteStyleSetting": "Dấu ngoặc kép",
-    "editActions": "Chỉnh sửa hành động...",
+    "editActions": "Chỉnh sửa hành động…",
     "editDone": "Xong",
     "tooltip": {
       "toggleBullet": "Nhấp để chuyển đổi",
@@ -976,7 +976,7 @@ const labelStrings = {
   },
   "zh": {
     "copy2clipboard": "复制到剪贴板",
-    "sharelink": "共享...",
+    "sharelink": "共享…",
     "post2x": "发布到 X",
     "post2threads": "发布到 Threads",
     "post2bluesky": "发布到 BlueSky",
@@ -992,7 +992,7 @@ const labelStrings = {
     "onError": "要使用此扩展程序，必须在加载页面之前启用。请在 Safari 中刷新页面后重试。",
     "settings": "设置",
     "quoteStyleSetting": "引号",
-    "editActions": "编辑操作...",
+    "editActions": "编辑操作…",
     "editDone": "完成",
     "tooltip": {
       "toggleBullet": "点击切换",
@@ -1001,7 +1001,7 @@ const labelStrings = {
   },
   "zh-CN": {
     "copy2clipboard": "复制到剪贴板",
-    "sharelink": "共享...",
+    "sharelink": "共享…",
     "post2x": "发布到 X",
     "post2threads": "发布到 Threads",
     "post2bluesky": "发布到 BlueSky",
@@ -1017,7 +1017,7 @@ const labelStrings = {
     "onError": "要使用此扩展程序，必须在加载页面之前启用。请在 Safari 中刷新页面后重试。",
     "settings": "设置",
     "quoteStyleSetting": "引号",
-    "editActions": "编辑操作...",
+    "editActions": "编辑操作…",
     "editDone": "完成",
     "tooltip": {
       "toggleBullet": "点击切换",
@@ -1026,7 +1026,7 @@ const labelStrings = {
   },
   "zh-TW": {
     "copy2clipboard": "複製到剪貼簿",
-    "sharelink": "分享...",
+    "sharelink": "分享…",
     "post2x": "發佈到 X",
     "post2threads": "發佈到 Threads",
     "post2bluesky": "發佈到 BlueSky",
@@ -1042,7 +1042,7 @@ const labelStrings = {
     "onError": "要使用此擴充功能，必須在載入頁面之前啟用。請在 Safari 中重新載入頁面後再試一次。",
     "settings": "設定",
     "quoteStyleSetting": "引號",
-    "editActions": "編輯操作...",
+    "editActions": "編輯操作…",
     "editDone": "完成",
     "tooltip": {
       "toggleBullet": "點擊切換",
@@ -1051,7 +1051,7 @@ const labelStrings = {
   },
   "zh-HK": {
     "copy2clipboard": "複製到剪貼簿",
-    "sharelink": "分享...",
+    "sharelink": "分享…",
     "post2x": "發佈到 X",
     "post2threads": "發佈到 Threads",
     "post2bluesky": "發佈到 BlueSky",
@@ -1067,7 +1067,7 @@ const labelStrings = {
     "onError": "要使用此擴充功能，必須在載入頁面之前啟用。請在 Safari 中重新載入頁面後再試一次。",
     "settings": "設定",
     "quoteStyleSetting": "引號",
-    "editActions": "編輯操作...",
+    "editActions": "編輯操作…",
     "editDone": "完成",
     "tooltip": {
       "toggleBullet": "點擊切換",
