@@ -1,5 +1,5 @@
 import { getCurrentLangLabelString, applyRTLSupport } from './localization.js';
-import { isIOS, isIPadOS, isMacOS, getIOSMajorVersion, applyPlatformClass } from './utils.js';
+import { applyPlatformClass, settings, closeWindow, platformInfo } from './utils.js';
 import { getCleanUrl } from './cleanurl.js';
 
 const appState = {
@@ -16,22 +16,6 @@ const setState = (key, value) => {
   appState[key] = value;
 }
 
-const closeWindow = () => {
-  window.close();
-
-  // In older iOS versions (<18), reloading the extension helped with some popup issues
-  // Might no longer be necessary — safe to remove if no issues found
-  if (getIOSMajorVersion() > 0 && getIOSMajorVersion() < 18) {
-    setTimeout(() => {
-      try {
-        browser.runtime.reload();
-      } catch (error) {
-        console.warn('[QuoteLinkExtension] browser.runtime.reload failed:', error);
-      }
-    }, 100);
-  }
-};
-
 /* Settings */
 const quoteStyles = [
   { quoteValue: 'double', quoteLabel: '"…"', openQuote: '"', closeQuote: '"', multilinePrefix: false },
@@ -44,39 +28,58 @@ const quoteStyles = [
   { quoteValue: 'guillemet', quoteLabel: '« … »', openQuote: '«', closeQuote: '»', multilinePrefix: false },
   { quoteValue: 'guillemet-single', quoteLabel: '‹ … ›', openQuote: '‹', closeQuote: '›', multilinePrefix: false },
   { quoteValue: 'guillemet-reversed', quoteLabel: '» … «', openQuote: '»', closeQuote: '«', multilinePrefix: false },
-  { quoteValue: 'angled-bracket-prefix', quoteLabel: '> …', openQuote: '> ', closeQuote: '', multilinePrefix: true }
+  { quoteValue: 'angled-bracket-prefix', quoteLabel: '> …', openQuote: '> ', closeQuote: '', multilinePrefix: true },
+  { quoteValue: 'triple-double', quoteLabel: '"""…"""', openQuote: '"""', closeQuote: '"""', multilinePrefix: false },
+  { quoteValue: 'markdown-block', quoteLabel: '```…```', openQuote: '```', closeQuote: '```', multilinePrefix: false },
+//  { quoteValue: 'xml-tag', quoteLabel: '<quote>…', openQuote: '<quote>\n', closeQuote: '\n</quote>', multilinePrefix: false }
 ];
 
-const settings = (() => {
-  const DEFAULT_SETTINGS = {
-    quoteStyle: 'double',
-    isCleanUrl: false,
-  };
-
-  let cache = { ...DEFAULT_SETTINGS };
-
-  const load = async () => {
-    try {
-      const { settings: stored } = await browser.storage.local.get('settings');
-      cache = { ...DEFAULT_SETTINGS, ...stored };
-    } catch (error) {
-      console.error('[QuoteLinkExtension] Failed to load settings:', error);
+const createQuoteStyleSelect = (selected = 'double') => {
+  const select = document.createElement('select');
+  
+  quoteStyles.forEach(style => {
+    const option = document.createElement('option');
+    option.value = style.quoteValue;
+    if (option.value === selected) {
+      option.selected = true;
     }
-  };
+    option.textContent = style.quoteLabel;
+    select.appendChild(option);
+  });
 
-  const get = (key) => cache[key];
+  return select;
+};
 
-  const set = async (key, value) => {
-    cache[key] = value;
-    try {
-      await browser.storage.local.set({ settings: cache });
-    } catch (error) {
-      console.error('[QuoteLinkExtension] Failed to save settings:', error);
-    }
-  };
+// Formats the input string with the specified quote style
+const createQuote = (text, quoteStyle = 'double') => {
+  const selectedStyle = quoteStyles.find(style => style.quoteValue === quoteStyle) || quoteStyles[0];
+  const { openQuote, closeQuote, multilinePrefix } = selectedStyle;
 
-  return { load, get, set };
-})();
+  if (multilinePrefix && text.includes('\n')) {
+    return text
+      .split('\n')
+      .map(line => line.trim() ? `${openQuote}${line}` : line)
+      .join('\n');
+  }
+
+  return `${openQuote}${text}${closeQuote}`;
+};
+
+// Creates a quote string optimized for AI prompts.
+// For wrapped styles, enforce a line break after opening and before closing quote.
+const createQuoteForPrompt = (text, quoteStyle = 'double') => {
+  const selectedStyle = quoteStyles.find(style => style.quoteValue === quoteStyle) || quoteStyles[0];
+  const { openQuote, closeQuote, multilinePrefix } = selectedStyle;
+
+  if (multilinePrefix) {
+    return text
+      .split('\n')
+      .map(line => line.trim() ? `${openQuote}${line}` : line)
+      .join('\n');
+  }
+
+  return `${openQuote}\n${text}\n${closeQuote}`;
+};
 
 /* Data handling */
 const getStoredData = async () => {
@@ -129,7 +132,6 @@ const saveInitialData = async () => {
 };
 
 const syncDataWithHTML = async () => {
-  /* Debug: await browser.storage.local.clear(); return; */
   let data = await getStoredData();
 
   if (!data) {
@@ -200,7 +202,7 @@ const updateList = async () => {
     if (!item.visible) {
       li.querySelector('.toggleVisibility').classList.add('toggleOn');
     }
-    if (isMacOS()) {
+    if (platformInfo.isMacOS) {
       li.addEventListener('mouseover', onMouseOver);
       li.addEventListener('mouseout', onMouseOut);
     }
@@ -283,7 +285,7 @@ const toggleEditMode = () => {
     editActions.style.display = 'inline-block';
     editDone.style.display = 'none';
 
-    if (isMacOS()) {
+    if (platformInfo.isMacOS) {
       setTimeout(() => {
         const htmlNode = document.documentElement;
         const htmlRect = htmlNode.getBoundingClientRect();
@@ -420,23 +422,22 @@ const getUrlTemplate = (platform) => {
   const templates = platform?.urlTemplateByPlatform;
   if (!templates) return null;
 
-  if (isMacOS() && Object.prototype.hasOwnProperty.call(templates, 'macos')) {
+  if (platformInfo.isMacOS && Object.prototype.hasOwnProperty.call(templates, 'macos')) {
     return templates.macos || null;
   }
 
-  if (!isMacOS() && Object.prototype.hasOwnProperty.call(templates, 'ios')) {
+  if (!platformInfo.isMacOS && Object.prototype.hasOwnProperty.call(templates, 'ios')) {
     return templates.ios || null;
   }
 
   return templates.default || null;
 };
 
-const buildGenAIPrompt = ({ selectedText, currentUrl }) => {
-  if (!selectedText) {
-    return `${currentUrl}\n`;
-  }
+const buildGenAIPrompt = ({ selectedText, quoteStyle = 'double', currentUrl }) => {
+  if (!selectedText) return `SOURCE: ${currentUrl}\n`;
 
-  return `QUOTE: "${selectedText}"\nSOURCE: ${currentUrl}\n`;
+  const quotedText = createQuoteForPrompt(selectedText, quoteStyle);
+  return `QUOTE: ${quotedText}\nSOURCE: ${currentUrl}\n`;
 };
 
 const getActiveTabId = async () => {
@@ -484,11 +485,12 @@ const handlePlatformClick = async (event) => {
     if (platform.type === 'genai') {
       const prompt = buildGenAIPrompt({
         selectedText: tabInfo.selectedText,
+        quoteStyle: settings.get('quoteStyle'),
         currentUrl: cleanUrl
       });
 
       let encodedPrompt;
-      if (isMacOS()) {
+      if (platformInfo.isMacOS) {
         encodedPrompt = encodeURIComponent(prompt).replace(/%0A/g, '%0A');
       } else {
         encodedPrompt = encodeURIComponent(prompt);
@@ -587,37 +589,6 @@ const constructFragmentUrl = (sharedUrl, quoteText) => {
   return `${url}#:~:text=${params}`;
 };
 
-const createQuoteStyleSelect = (selected = 'double') => {
-  const select = document.createElement('select');
-  
-  quoteStyles.forEach(style => {
-    const option = document.createElement('option');
-    option.value = style.quoteValue;
-    if (option.value === selected) {
-      option.selected = true;
-    }
-    option.textContent = style.quoteLabel;
-    select.appendChild(option);
-  });
-
-  return select;
-};
-
-// Formats the input string with the specified quote style
-const createQuote = (text, quoteStyle = 'double') => {
-  const selectedStyle = quoteStyles.find(style => style.quoteValue === quoteStyle) || quoteStyles[0];
-  const { openQuote, closeQuote, multilinePrefix } = selectedStyle;
-
-  if (multilinePrefix && text.includes('\n')) {
-    return text
-      .split('\n')
-      .map(line => line.trim() ? `${openQuote}${line}` : line)
-      .join('\n');
-  }
-
-  return `${openQuote}${text}${closeQuote}`;
-};
-
 const getQuoteLinkText = (tabInfo, quoteStyle = 'double') => {
   const quoteText = tabInfo.selectedText || tabInfo.pageTitle;
 
@@ -668,208 +639,255 @@ const buildPopup = async (settings) => {
     return;
   }
 
+  const hasUrlParams = (urlString) => {
+    try {
+      const url = new URL(urlString);
+      return url.search.length > 0;
+    } catch (error) {
+      console.warn('QuoteLinkExtension Invalid URL:', error);
+      return false;
+    }
+  };
+
   const quoteStyle = settings.get('quoteStyle');
   const isCleanUrl = settings.get('isCleanUrl');
   
   createQuoteLink(tabInfo, quoteStyle, isCleanUrl);
 
-      const settingsLi = document.createElement('li');
-      settingsLi.id = 'settingsList';
+  const settingsLi = document.createElement('li');
+  settingsLi.id = 'settingsList';
+  settingsLi.style.display = 'none';
+
+  const quoteStyleDiv = document.createElement('div');
+  
+  const quoteStyleLabel = document.createElement('label');
+  quoteStyleLabel.htmlFor = 'settings-quotes';
+  quoteStyleLabel.textContent = `${getCurrentLangLabelString('quoteStyleSetting')}`;
+  quoteStyleDiv.appendChild(quoteStyleLabel);
+
+  const quoteSelect = createQuoteStyleSelect(quoteStyle);
+  quoteSelect.id = 'settings-quotes';
+
+  quoteStyleDiv.appendChild(quoteSelect);
+  settingsLi.appendChild(quoteStyleDiv);
+
+  quoteSelect.addEventListener('change', async (event) => {
+    const updatedQuoteStyles = event.target.value;
+    await settings.set('quoteStyle', updatedQuoteStyles);
+
+    const isCleanUrl = settings.get('isCleanUrl');
+    createQuoteLink(tabInfo, updatedQuoteStyles, isCleanUrl);
+  });
+
+  const cleanUrlDiv = document.createElement('div');
+
+  const cleanUrlLabel = document.createElement('label');
+  cleanUrlLabel.htmlFor = 'settings-cleanUrl';
+  cleanUrlLabel.textContent = 'Clean URL';
+  cleanUrlDiv.appendChild(cleanUrlLabel);
+
+  const cleanUrlCheckbox = document.createElement('input');
+  cleanUrlCheckbox.type = 'checkbox';
+  cleanUrlCheckbox.id = 'settings-cleanUrl';
+  cleanUrlCheckbox.classList.add('toggle-disabled');
+  if (isCleanUrl) {
+    cleanUrlCheckbox.checked = true;
+  }
+  cleanUrlDiv.appendChild(cleanUrlCheckbox);
+
+  const toggleSpan = document.createElement('span');
+  toggleSpan.classList.add('toggle');
+  
+  toggleSpan.addEventListener('click', async (event) => {
+    if (hasUrlParams(tabInfo.currentUrl) === false) return;
+    cleanUrlCheckbox.click();
+  });
+
+  cleanUrlCheckbox.addEventListener('change', async (event) => {
+    if (hasUrlParams(tabInfo.currentUrl) === false) return;
+    
+    cleanUrlCheckbox.classList.remove('toggle-disabled');
+    await settings.set('isCleanUrl', cleanUrlCheckbox.checked);
+
+    const quoteStyle = settings.get('quoteStyle');
+    createQuoteLink(tabInfo, quoteStyle, cleanUrlCheckbox.checked);
+  });
+
+  cleanUrlDiv.appendChild(toggleSpan);
+  settingsLi.appendChild(cleanUrlDiv);
+  quoteLinkView.appendChild(settingsLi);
+
+  const toggleSettingsMode = () => {
+    setState('isSettingsMode', !getState('isSettingsMode'));
+    document.documentElement.style.height = '';
+
+    if (getState('isSettingsMode')) {
+      settingsLi.style.display = 'flex';
+      settingsBtn.style.display = 'none';
+      settingsDoneBtn.style.display = 'inline-block';
+
+      if (!tabInfo.selectedText) {
+        quoteStyleDiv.classList.add('quotes-disabled');
+        quoteSelect.disabled = true;
+      }
+
+      if (hasUrlParams(tabInfo.currentUrl) === false) {
+        cleanUrlDiv.classList.add('cleanurl-disabled');
+      }
+    } else {
       settingsLi.style.display = 'none';
-
-      const quoteStyleDiv = document.createElement('div');
-      
-      const quoteStyleLabel = document.createElement('label');
-      quoteStyleLabel.htmlFor = 'settings-quotes';
-      quoteStyleLabel.textContent = `${getCurrentLangLabelString('quoteStyleSetting')}`;
-      quoteStyleDiv.appendChild(quoteStyleLabel);
-
-      const quoteSelect = createQuoteStyleSelect(quoteStyle);
-      quoteSelect.id = 'settings-quotes';
-
-      quoteStyleDiv.appendChild(quoteSelect);
-      settingsLi.appendChild(quoteStyleDiv);
-
-      quoteSelect.addEventListener('change', async (event) => {
-        const updatedQuoteStyles = event.target.value;
-        await settings.set('quoteStyle', updatedQuoteStyles);
-
-        const isCleanUrl = settings.get('isCleanUrl');
-        createQuoteLink(tabInfo, updatedQuoteStyles, isCleanUrl);
-      });
-
-      const cleanUrlDiv = document.createElement('div');
-
-      const cleanUrlLabel = document.createElement('label');
-      cleanUrlLabel.htmlFor = 'settings-cleanUrl';
-      cleanUrlLabel.textContent = 'Clean URL';
-      cleanUrlDiv.appendChild(cleanUrlLabel);
-
-      const cleanUrlCheckbox = document.createElement('input');
-      cleanUrlCheckbox.type = 'checkbox';
-      cleanUrlCheckbox.id = 'settings-cleanUrl';
+      settingsBtn.style.display = 'inline-block';
+      settingsDoneBtn.style.display = 'none';
       cleanUrlCheckbox.classList.add('toggle-disabled');
-      if (isCleanUrl) {
-        cleanUrlCheckbox.checked = true;
-      }
-      cleanUrlDiv.appendChild(cleanUrlCheckbox);
+    }
+  };
 
-      const toggleSpan = document.createElement('span');
-      toggleSpan.classList.add('toggle');
-      
-      toggleSpan.addEventListener('click', async (event) => {
-        cleanUrlCheckbox.click();
+  settingsBtn.title = `${getCurrentLangLabelString('settings')}`;
+  settingsBtn.textContent = `${getCurrentLangLabelString('settings')}`;
+  settingsBtn.addEventListener('click', toggleSettingsMode);
+  settingsBtn.addEventListener('touchstart', (event)   => settingsBtn.classList.add('selected'));
+  settingsBtn.addEventListener('touchend', (event)     => settingsBtn.classList.remove('selected'));
+  settingsBtn.addEventListener('touchcancel', (event)  => settingsBtn.classList.remove('selected'));
+
+  settingsDoneBtn.title = `${getCurrentLangLabelString('editDone')}`;
+  settingsDoneBtn.textContent = `${getCurrentLangLabelString('editDone')}`;
+  settingsDoneBtn.addEventListener('click', toggleSettingsMode);
+  settingsDoneBtn.addEventListener('touchstart', (event)   => settingsDoneBtn.classList.add('selected'));
+  settingsDoneBtn.addEventListener('touchend', (event)     => settingsDoneBtn.classList.remove('selected'));
+  settingsDoneBtn.addEventListener('touchcancel', (event)  => settingsDoneBtn.classList.remove('selected'));
+
+  const copy2clipboardEl = document.getElementById('copy2clipboard');
+  copy2clipboardEl.title = `${getCurrentLangLabelString('copy2clipboard')}`;
+  copy2clipboardEl.querySelector('div').textContent = `${getCurrentLangLabelString('copy2clipboard')}`;
+
+  copy2clipboardEl.addEventListener('click', async (event) => {
+    const quoteStyle = settings.get('quoteStyle');
+    const url = getCleanUrl(tabInfo.currentUrl, cleanUrlCheckbox.checked);
+
+    try {
+      await navigator.clipboard.writeText(`${getQuoteLinkText(tabInfo, quoteStyle)}\n${url}`);
+      closeWindow();
+    } catch (error) {
+      console.error('[QuoteLinkExtension] Failed to copy quote and URL:', error);
+    }
+  });
+  copy2clipboardEl.addEventListener('touchstart', (event)   => copy2clipboardEl.classList.add('selected'));
+  copy2clipboardEl.addEventListener('touchend', (event)     => copy2clipboardEl.classList.remove('selected'));
+  copy2clipboardEl.addEventListener('touchcancel', (event)  => copy2clipboardEl.classList.remove('selected'));
+
+  if (platformInfo.isMacOS) {
+    copy2clipboardEl.addEventListener('mouseover', onMouseOver);
+    copy2clipboardEl.addEventListener('mouseout', onMouseOut);
+  }
+
+  const copy4promptEl = document.getElementById('copy4prompt');
+  copy4promptEl.title = `${getCurrentLangLabelString('copy4prompt')}`;
+  copy4promptEl.querySelector('div').textContent = `${getCurrentLangLabelString('copy4prompt')}`;
+
+  copy4promptEl.addEventListener('click', async (event) => {
+    const quoteStyle = settings.get('quoteStyle');
+    const url = getCleanUrl(tabInfo.currentUrl, cleanUrlCheckbox.checked);
+    const encodedPrompt = buildGenAIPrompt({ selectedText: tabInfo.selectedText, quoteStyle, currentUrl: url });
+
+    try {
+      await navigator.clipboard.writeText(encodedPrompt);
+      closeWindow();
+    } catch (error) {
+      console.error('[QuoteLinkExtension] Failed to copy AI prompt:', error);
+    }
+  });
+  copy4promptEl.addEventListener('touchstart', (event)   => copy4promptEl.classList.add('selected'));
+  copy4promptEl.addEventListener('touchend', (event)     => copy4promptEl.classList.remove('selected'));
+  copy4promptEl.addEventListener('touchcancel', (event)  => copy4promptEl.classList.remove('selected'));
+
+  if (platformInfo.isMacOS) {
+    copy4promptEl.addEventListener('mouseover', onMouseOver);
+    copy4promptEl.addEventListener('mouseout', onMouseOut);
+  }
+
+  if (navigator.share) {
+    const shareDiv = document.createElement('div');
+    shareDiv.textContent = `${getCurrentLangLabelString('sharelink')}`;
+
+    const shareLi = document.createElement('li');
+    shareLi.title = `${getCurrentLangLabelString('sharelink')}`;
+
+    shareLi.addEventListener('click', (event) => {
+      const shareTitle = tabInfo.pageTitle ? tabInfo.pageTitle : '';
+
+      const quoteStyle = settings.get('quoteStyle');
+      const quotedText = createQuote(tabInfo.selectedText, quoteStyle);
+      const shareText = tabInfo.selectedText ? `${quotedText}` : '';
+
+      const shareUrl = getCleanUrl(tabInfo.currentUrl, cleanUrlCheckbox.checked);
+      const urlWithFragment = tabInfo.selectedText ? constructFragmentUrl(shareUrl, `${tabInfo.selectedText}`) : shareUrl;
+
+      navigator.share({
+        title: shareTitle,
+        url: urlWithFragment
       });
+    });
+    
+    shareLi.appendChild(shareDiv);
+    document.getElementById('navSystem').appendChild(shareLi);
 
-      cleanUrlCheckbox.addEventListener('change', async (event) => {
-        cleanUrlCheckbox.classList.remove('toggle-disabled');
-        await settings.set('isCleanUrl', cleanUrlCheckbox.checked);
+    shareLi.addEventListener('touchstart', (event) => {
+      event.stopPropagation();
+      event.target.closest('li').classList.add('selected');
+    });
+    
+    shareLi.addEventListener('touchend', (event) => {
+      event.stopPropagation();
+      event.target.closest('li').classList.remove('selected');
+    });
 
-        const quoteStyle = settings.get('quoteStyle');
-        createQuoteLink(tabInfo, quoteStyle, cleanUrlCheckbox.checked);
-      });
+    shareLi.addEventListener('touchcancel', (event) => {
+      event.stopPropagation();
+      event.target.closest('li').classList.remove('selected');
+    });
 
-      cleanUrlDiv.appendChild(toggleSpan);
-      settingsLi.appendChild(cleanUrlDiv);
-      quoteLinkView.appendChild(settingsLi);
+    if (platformInfo.isMacOS) {
+      shareLi.addEventListener('mouseover', onMouseOver);
+      shareLi.addEventListener('mouseout', onMouseOut);
+    }
+  }
 
-      const toggleSettingsMode = () => {
-        setState('isSettingsMode', !getState('isSettingsMode'));
-        document.documentElement.style.height = '';
-
-        if (getState('isSettingsMode')) {
-          settingsLi.style.display = 'flex';
-          settingsBtn.style.display = 'none';
-          settingsDoneBtn.style.display = 'inline-block';
-
-          if (!tabInfo.selectedText) {
-            settingsLi.querySelector(':first-child').classList.add('quotes-disabled');
-            quoteSelect.disabled = true;
-          }
-        } else {
-          settingsLi.style.display = 'none';
-          settingsBtn.style.display = 'inline-block';
-          settingsDoneBtn.style.display = 'none';
-          cleanUrlCheckbox.classList.add('toggle-disabled');
-        }
-      };
-
-      settingsBtn.title = `${getCurrentLangLabelString('settings')}`;
-      settingsBtn.textContent = `${getCurrentLangLabelString('settings')}`;
-      settingsBtn.addEventListener('click', toggleSettingsMode);
-      settingsBtn.addEventListener('touchstart', (event)   => settingsBtn.classList.add('selected'));
-      settingsBtn.addEventListener('touchend', (event)     => settingsBtn.classList.remove('selected'));
-      settingsBtn.addEventListener('touchcancel', (event)  => settingsBtn.classList.remove('selected'));
+  navPost.querySelectorAll('li').forEach((li) => {
+    const targetId = li.id;
+    const platform = intentTargets[targetId];
+    
+    if (platform) {
+      document.querySelector(`#${targetId} > div.postLabel`).textContent = `${getCurrentLangLabelString(platform.labelKey)}`;
+      li.addEventListener('click', handlePlatformClick);
+    }
+  });
+  await updateList();
   
-      settingsDoneBtn.title = `${getCurrentLangLabelString('editDone')}`;
-      settingsDoneBtn.textContent = `${getCurrentLangLabelString('editDone')}`;
-      settingsDoneBtn.addEventListener('click', toggleSettingsMode);
-      settingsDoneBtn.addEventListener('touchstart', (event)   => settingsDoneBtn.classList.add('selected'));
-      settingsDoneBtn.addEventListener('touchend', (event)     => settingsDoneBtn.classList.remove('selected'));
-      settingsDoneBtn.addEventListener('touchcancel', (event)  => settingsDoneBtn.classList.remove('selected'));
-  
-      const copyElement = document.getElementById('copy2clipboard');
-      copyElement.title = `${getCurrentLangLabelString('copy2clipboard')}`;
-      copyElement.querySelector('div').textContent = `${getCurrentLangLabelString('copy2clipboard')}`;
+  editActions.title = `${getCurrentLangLabelString('editActions')}`;
+  editActions.textContent = `${getCurrentLangLabelString('editActions')}`;
+  editActions.addEventListener('click', toggleEditMode);
+  editActions.addEventListener('touchstart', (event) => {
+    event.target.classList.add('selected');
+  });
+  editActions.addEventListener('touchend', (event) => {
+    event.target.classList.remove('selected');
+  });
+  editActions.addEventListener('touchcancel', (event) => {
+    event.target.classList.remove('selected');
+  });
 
-      copyElement.addEventListener('click', (event) => {
-        const quoteStyle = settings.get('quoteStyle');
-        const url = getCleanUrl(tabInfo.currentUrl, cleanUrlCheckbox.checked)
-        navigator.clipboard.writeText(`${getQuoteLinkText(tabInfo, quoteStyle)}\n${url}`);
-        closeWindow();
-      });
-      copyElement.addEventListener('touchstart', (event)   => copyElement.classList.add('selected'));
-      copyElement.addEventListener('touchend', (event)     => copyElement.classList.remove('selected'));
-      copyElement.addEventListener('touchcancel', (event)  => copyElement.classList.remove('selected'));
-
-      if (isMacOS()) {
-        copyElement.addEventListener('mouseover', onMouseOver);
-        copyElement.addEventListener('mouseout', onMouseOut);
-      }
-      
-      if (navigator.share) {
-        const shareDiv = document.createElement('div');
-        shareDiv.textContent = `${getCurrentLangLabelString('sharelink')}`;
-
-        const shareLi = document.createElement('li');
-        shareLi.title = `${getCurrentLangLabelString('sharelink')}`;
-
-        shareLi.addEventListener('click', (event) => {
-          const shareTitle = tabInfo.pageTitle ? tabInfo.pageTitle : '';
-
-          const quoteStyle = settings.get('quoteStyle');
-          const quotedText = createQuote(tabInfo.selectedText, quoteStyle);
-          const shareText = tabInfo.selectedText ? `${quotedText}` : '';
-
-          const shareUrl = getCleanUrl(tabInfo.currentUrl, cleanUrlCheckbox.checked);
-          const urlWithFragment = tabInfo.selectedText ? constructFragmentUrl(shareUrl, `${tabInfo.selectedText}`) : shareUrl;
-
-          navigator.share({
-            title: shareTitle,
-            url: urlWithFragment
-          });
-        });
-        
-        shareLi.appendChild(shareDiv);
-        document.getElementById('navSystem').appendChild(shareLi);
-
-        shareLi.addEventListener('touchstart', (event) => {
-          event.stopPropagation();
-          event.target.closest('li').classList.add('selected');
-        });
-        
-        shareLi.addEventListener('touchend', (event) => {
-          event.stopPropagation();
-          event.target.closest('li').classList.remove('selected');
-        });
-
-        shareLi.addEventListener('touchcancel', (event) => {
-          event.stopPropagation();
-          event.target.closest('li').classList.remove('selected');
-        });
-
-        if (isMacOS()) {
-          shareLi.addEventListener('mouseover', onMouseOver);
-          shareLi.addEventListener('mouseout', onMouseOut);
-        }
-      }
-
-      navPost.querySelectorAll('li').forEach((li) => {
-        const targetId = li.id;
-        const platform = intentTargets[targetId];
-        
-        if (platform) {
-          document.querySelector(`#${targetId} > div.postLabel`).textContent = `${getCurrentLangLabelString(platform.labelKey)}`;
-          li.addEventListener('click', handlePlatformClick);
-        }
-      });
-      await updateList();
-      
-      editActions.title = `${getCurrentLangLabelString('editActions')}`;
-      editActions.textContent = `${getCurrentLangLabelString('editActions')}`;
-      editActions.addEventListener('click', toggleEditMode);
-      editActions.addEventListener('touchstart', (event) => {
-        event.target.classList.add('selected');
-      });
-      editActions.addEventListener('touchend', (event) => {
-        event.target.classList.remove('selected');
-      });
-      editActions.addEventListener('touchcancel', (event) => {
-        event.target.classList.remove('selected');
-      });
-
-      editDone.title = `${getCurrentLangLabelString('editDone')}`;
-      editDone.textContent = `${getCurrentLangLabelString('editDone')}`;
-      editDone.addEventListener('click', toggleEditMode);
-      editDone.addEventListener('touchstart', (event) => {
-        event.target.classList.add('selected');
-      });
-      editDone.addEventListener('touchend', (event) => {
-        event.target.classList.remove('selected');
-      });
-      editDone.addEventListener('touchcancel', (event) => {
-        event.target.classList.remove('selected');
-      });
+  editDone.title = `${getCurrentLangLabelString('editDone')}`;
+  editDone.textContent = `${getCurrentLangLabelString('editDone')}`;
+  editDone.addEventListener('click', toggleEditMode);
+  editDone.addEventListener('touchstart', (event) => {
+    event.target.classList.add('selected');
+  });
+  editDone.addEventListener('touchend', (event) => {
+    event.target.classList.remove('selected');
+  });
+  editDone.addEventListener('touchcancel', (event) => {
+    event.target.classList.remove('selected');
+  });
 };
 
 let isInitialized = false;
