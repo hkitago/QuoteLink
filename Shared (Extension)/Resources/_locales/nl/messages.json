@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "Voegt bron-URL's toe aan geselecteerde tekst, waardoor kopiëren en delen met correcte bronvermelding mogelijk is.",
+        "message": "Deze extensie genereert tekst met de bron-URL toegevoegd aan de geselecteerde inhoud.",
         "description": "Description of what the extension does."
     }
 }
