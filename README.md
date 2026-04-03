@@ -1,8 +1,8 @@
 # <img src="https://raw.githubusercontent.com/hkitago/QuoteLink/refs/heads/main/Shared%20(Extension)/Resources/images/icon.svg" height="36" valign="bottom"/> QuoteLink for Safari Extension
 
-This Safari extension significantly streamlines the process of web page citation. Instead of repeatedly copying and pasting text and URLs, simply select the text and press the extension button to automatically generate a citation with the source URL. It can be quickly utilized for various purposes, such as creating papers, presentation materials, saving important recipes, or noting interesting information for later reference.
+This Safari extension makes citing web content effortless by turning any selection into a professional citation. Instead of manually copying text and links separately, you can simply tap the extension button to generate a clean reference that includes the source URL. It automatically removes unnecessary tracking parameters and supports Markdown formatting so your information is always ready to share or save.
 
-Copying to clipboard and sharing on social media can be completed with a single click. It will prove to be a useful tool that enables efficient and reliable work when creating documents that require source recording and citation.
+This tool is built for anyone who values accuracy and productivity in their daily research. Whether you are assembling a bibliography or organizing ideas for personal projects, it fits seamlessly into your workflow. It allows you to maintain a reliable record of your sources without the distraction of repetitive tasks and helps you focus on creating high quality content.
 
 ## Installation & Uninstallation
 
