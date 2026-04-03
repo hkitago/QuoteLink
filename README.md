@@ -32,30 +32,12 @@ To uninstall the extension, similarly to the installation process, toggle the ex
 
 ## Latest Version
 
-### 1.5.5
-
-#### **iOS/iPadOS** - 2025-12-26
+### 26.1 - 2026-03-06
 
 - Added support for generative AI platforms in sharing presets
 - Expanded the list of removable URL parameters for cleaner links
 
-### 1.5.6
-
-#### **macOS** - 2025-12-27
-
-- Improved localization and layout for better readability across all languages
-
 Previous Updates: [CHANGELOG.md](./CHANGELOG.md)
-
-## Known Issues
-
-- There is a rare issue where the extension may not work when a URL is passed from the in-app browser feature of other apps, such as RSS or social media apps, to Safari for display.
-- If the extension does not function correctly immediately after installation, particularly on iPhones, restarting Safari or refreshing the relevant page may resolve the issue. This behavior stems from technical limitations, with the design prioritizing battery life and device performance. Appreciation is extended for users' understanding, and the team stands ready to implement any forthcoming Apple updates that might resolve this issue. (Which may be improved with the 1.4 release.)
-
-## Roadmap
-
-- Addition of action menu (For requests to add posting destinations, please contact me via the contact information below)
-- Creation and exporting with image
 
 ## Compatibility
 

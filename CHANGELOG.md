@@ -2,6 +2,19 @@
 
 ## [1.5.5]
 
+### **iOS/iPadOS** - 2025-12-26
+
+- Added support for generative AI platforms in sharing presets
+- Expanded the list of removable URL parameters for cleaner links
+
+## [1.5.6]
+
+### **macOS** - 2025-12-27
+
+- Improved localization and layout for better readability across all languages
+
+## [1.5.5]
+
 ### **macOS** - 2025-12-26
 
 - Added support for generative AI platforms in sharing presets

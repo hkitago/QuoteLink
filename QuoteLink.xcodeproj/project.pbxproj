@@ -218,8 +218,8 @@
 		60565A492C7E9CED002DA451 /* Shared (Extension) */ = {
 			isa = PBXGroup;
 			children = (
-				60565A4A2C7E9CED002DA451 /* SafariWebExtensionHandler.swift */,
 				60565A4B2C7E9CED002DA451 /* Resources */,
+				60565A4A2C7E9CED002DA451 /* SafariWebExtensionHandler.swift */,
 			);
 			path = "Shared (Extension)";
 			sourceTree = "<group>";
@@ -227,15 +227,15 @@
 		60565A4B2C7E9CED002DA451 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				60EB65EF2E29F98C00905D00 /* cleanurl.js */,
 				60565A4C2C7E9CED002DA451 /* _locales */,
-				60565A4D2C7E9CED002DA451 /* images */,
-				60565A4E2C7E9CED002DA451 /* manifest.json */,
 				60565A4F2C7E9CED002DA451 /* background.js */,
+				60EB65EF2E29F98C00905D00 /* cleanurl.js */,
 				60565A502C7E9CED002DA451 /* content.js */,
-				60565A512C7E9CED002DA451 /* popup.html */,
-				60565A522C7E9CED002DA451 /* popup.css */,
+				60565A4D2C7E9CED002DA451 /* images */,
 				600F4D0D2C85F8B9008EFD53 /* localization.js */,
+				60565A4E2C7E9CED002DA451 /* manifest.json */,
+				60565A522C7E9CED002DA451 /* popup.css */,
+				60565A512C7E9CED002DA451 /* popup.html */,
 				60565A532C7E9CED002DA451 /* popup.js */,
 				60211BFA2EC2CAE100DB997A /* utils.js */,
 			);
@@ -699,7 +699,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "QuoteLink Extension";
@@ -710,7 +710,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5.5;
+				MARKETING_VERSION = 26.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -729,7 +729,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "QuoteLink Extension";
@@ -740,7 +740,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5.5;
+				MARKETING_VERSION = 26.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -763,7 +763,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = QuoteLink;
@@ -778,7 +778,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5.5;
+				MARKETING_VERSION = 26.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -801,7 +801,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = QuoteLink;
@@ -816,7 +816,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5.5;
+				MARKETING_VERSION = 26.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -838,7 +838,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/QuoteLink.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				DEAD_CODE_STRIPPING = YES;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -853,7 +853,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				MARKETING_VERSION = 1.5.6;
+				MARKETING_VERSION = 26.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -872,7 +872,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/QuoteLink.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				DEAD_CODE_STRIPPING = YES;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -887,7 +887,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				MARKETING_VERSION = 1.5.6;
+				MARKETING_VERSION = 26.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -909,7 +909,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = "macOS (App)/QuoteLink.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				DEAD_CODE_STRIPPING = YES;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -925,7 +925,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				MARKETING_VERSION = 1.5.6;
+				MARKETING_VERSION = 26.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -948,7 +948,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = "macOS (App)/QuoteLink.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				DEAD_CODE_STRIPPING = YES;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -964,7 +964,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				MARKETING_VERSION = 1.5.6;
+				MARKETING_VERSION = 26.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
