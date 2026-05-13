@@ -1,8 +1,8 @@
 browser.tabs.onActivated.addListener((activeInfo) => {
   try {
-    browser.tabs.sendMessage(activeInfo.tabId, { action: 'getPageInfo' });
+    browser.tabs.sendMessage(activeInfo.tabId, { action: 'GET_PAGE_INFO' });
   } catch (error) {
-    console.error('[QuoteLinkExtension] Failed to send getPageInfo message:', error);
+    console.error('[QuoteLinkExtension] Failed to send GET_PAGE_INFO message:', error);
   }
 });
 
@@ -29,9 +29,9 @@ browser.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
 
   if (changeInfo.status === 'complete') {
     try {
-      browser.tabs.sendMessage(tabId, { action: 'getPageInfo' });
+      browser.tabs.sendMessage(tabId, { action: 'GET_PAGE_INFO' });
     } catch (error) {
-      console.error('[QuoteLinkExtension] Failed to send getPageInfo message after update:', error);
+      console.error('[QuoteLinkExtension] Failed to send GET_PAGE_INFO message after update:', error);
     }
   }
 });
@@ -46,7 +46,7 @@ browser.tabs.onRemoved.addListener(async (tabId, removeInfo) => {
 
 
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message.action === 'updatePageInfo') {
+  if (message.action === 'UPDATE_PAGE_INFO') {
     try {
       browser.storage.local.set({
         [sender.tab.id]: {
@@ -60,3 +60,4 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
     }
   }
 });
+

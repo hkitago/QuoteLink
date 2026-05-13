@@ -475,7 +475,7 @@ const getTabInfoForActiveTab = async () => {
   if (!tabId) return null;
 
   try {
-    const tabInfo = await browser.tabs.sendMessage(tabId, { action: 'requestPageInfo' });
+    const tabInfo = await browser.tabs.sendMessage(tabId, { action: 'REQUEST_PAGE_INFO' });
     if (tabInfo?.currentUrl) {
       return tabInfo;
     }

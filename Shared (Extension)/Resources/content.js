@@ -1,41 +1,44 @@
 (() => {
-  const getCleanSelection = () => {
-    return window.getSelection().toString().trim().replace(/\r\n/g, '\n').replace(/\r/g, '\n');
-  };
+  const getPageTitle = async (
+    defaultTitle = location.hostname,
+    timeout = 3000
+  ) => {
+    const initialTitle = document.title?.trim();
+    if (initialTitle) return initialTitle;
 
-  const getPageTitle = async (defaultFilename = 'Untitled') => {
-    let pageTitle = document.title;
-    if (pageTitle) return pageTitle;
+    const head = document.head;
+    if (!head) return defaultTitle;
 
-    try {
-      pageTitle = await new Promise((resolve) => {
-        const headElement = document.querySelector('head');
-        if (!headElement) {
-          resolve('');
-          return;
-        }
+    return new Promise((resolve) => {
+      let settled = false;
 
-        const observer = new MutationObserver((mutations, obs) => {
-          const titleElement = document.querySelector('title');
-          if (titleElement && document.title) {
-            obs.disconnect();
-            resolve(document.title);
-          }
-        });
+      const finish = (title) => {
+        if (settled) return;
 
-        observer.observe(headElement, { childList: true, subtree: true });
+        settled = true;
 
-        setTimeout(() => {
-          observer.disconnect();
-          resolve(document.title || defaultFilename);
-        }, 3000);
+        observer.disconnect();
+        clearTimeout(timer);
+
+        resolve(title || defaultTitle);
+      };
+
+      const observer = new MutationObserver(() => {
+        const title = document.title?.trim();
+
+        if (title) finish(title);
       });
 
-      return pageTitle;
-    } catch (error) {
-      console.error('[QuoteLinkExtension] Failed to get page title:', error);
-      return defaultFilename;
-    }
+      observer.observe(head, {
+        childList: true,
+        subtree: true,
+        characterData: true,
+      });
+
+      const timer = setTimeout(() => {
+        finish(document.title?.trim());
+      }, timeout);
+    });
   };
 
   const updatePageInfo = async (selection) => {
@@ -43,13 +46,13 @@
       const pageTitle = await getPageTitle();
 
       await browser.runtime.sendMessage({
-        action: 'updatePageInfo',
+        action: 'UPDATE_PAGE_INFO',
         text: selection,
         title: pageTitle,
         url: window.location.href
       });
     } catch (error) {
-      console.error('[QuoteLinkExtension] Failed to send updatePageInfo message:', error);
+      console.error('[QuoteLinkExtension] Failed to send UPDATE_PAGE_INFO message:', error);
     }
   };
 
@@ -65,6 +68,10 @@
     };
   };
 
+  const getCleanSelection = () => {
+    return window.getSelection().toString().trim().replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+  };
+
   const updateSelectionAndPageInfo = debounce(async () => {
     const currentSelection = getCleanSelection();
     try {
@@ -75,7 +82,7 @@
         await updatePageInfo(currentSelection);
       }
     } catch (error) {
-      console.error('[QuoteLinkExtension] Failed to send update​Page​Info message:', error);
+      console.error('[QuoteLinkExtension] Failed to send UPDATE_PAGE_INFO message:', error);
     }
   }, 300);
 
@@ -109,11 +116,11 @@
 
   // Switching tabs from background.js
   browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    if (message.action === 'getPageInfo') {
+    if (message.action === 'GET_PAGE_INFO') {
       updatePageInfo(getCleanSelection());
     }
 
-    if (message.action === 'requestPageInfo') {
+    if (message.action === 'REQUEST_PAGE_INFO') {
       getPageInfoPayload()
         .then(sendResponse)
         .catch((error) => {
